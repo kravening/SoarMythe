@@ -30,8 +30,8 @@ public class PlayerMovement : MonoBehaviour {
     void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == Tags.GROUND) {
             touchingGround = true;
-            GameObject newParticle = Instantiate<GameObject>(particleGroundHit);
-            newParticle.transform.position = new Vector3(tf.position.x, tf.position.y - tf.position.y * 0.9f, tf.position.z);
+            //GameObject newParticle = Instantiate<GameObject>(particleGroundHit);
+            //newParticle.transform.position = new Vector3(tf.position.x, tf.position.y - tf.position.y * 0.9f, tf.position.z);
         }
     }
 

@@ -2,12 +2,13 @@
 using System.Collections;
 
 public class KeyboardInput : MonoBehaviour {
-    [SerializeField]
     PlayerMovement playerMovement;
 
     [SerializeField]
     bool forward, right, backward, left, jump, glide = false;
-
+	void Start(){
+		playerMovement = gameObject.GetComponent<PlayerMovement> ();
+	}	
 	void Update () {
         CheckKeys();
         CheckKeysDown();

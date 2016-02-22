@@ -6,12 +6,7 @@ using System.IO;
 
 public class SaveLoad : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-
-	void Save()
+	public void Save()
 	{
 		BinaryFormatter binary = new BinaryFormatter ();
 		FileStream fStream = File.Create (Application.persistentDataPath + "saveFile.sav");
@@ -27,7 +22,7 @@ public class SaveLoad : MonoBehaviour {
 
 
 	}
-	void Load()
+	public void Load()
 	{
 		if (File.Exists (Application.persistentDataPath + "/saveFile.sav")) 
 		{
@@ -35,11 +30,17 @@ public class SaveLoad : MonoBehaviour {
 			FileStream fStream = File.Open (Application.persistentDataPath + "saveFile.sav", FileMode.Open);
 			SaveManager saving = (SaveManager)binary.Deserialize (fStream);
 			fStream.Close ();
+
+			dummyPowerscript.dPower.Power = saving.Power;
+			//all other...
 		}
 	}
-	void Delete()
+	public void Delete()
 	{
-		
+		if(File.Exists(Application.persistentDataPath + "/saveFile.sav"))
+		{
+			File.Delete(Application.persistentDataPath + "/saveFile.sav");
+		}
 	}
 }
 
@@ -48,4 +49,7 @@ class SaveManager
 {
 	public int Power;
 	//add stuff...
+	//int, float, bool, string, v2/3/4, quaternions matrix 4x4 color rect layermask
+	//unity engine.object = gameobject component monobehavior texture2d animationclips
+	//enums array & list
 }

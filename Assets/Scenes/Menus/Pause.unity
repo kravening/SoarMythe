@@ -861,11 +861,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1684586485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1009b2d364ecc754ca96ff654739182b, type: 3}
+  m_Script: {fileID: 11500000, guid: 358caa752b2266d41844179c91e0aa1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenu: 4d61696e4d656e75
-  Options: 4f7074696f6e73
+  MainMenu: MainMenu
+  Options: Options
   isPaused: 0
   pauseMenuCanvas: {fileID: 1865242958}
 --- !u!1 &1752795830
@@ -1067,7 +1067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1865242959
 MonoBehaviour:
   m_ObjectHideFlags: 0

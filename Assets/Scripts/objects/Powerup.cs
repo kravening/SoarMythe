@@ -13,6 +13,9 @@ public class Powerup : MonoBehaviour {
             GameObject spawnedParticle = Instantiate<GameObject>(particleOnDeath);
             spawnedParticle.transform.position = transform.position;
 
+			PlayerMovement playerMovement = other.gameObject.GetComponent<PlayerMovement> ();
+			playerMovement.PowerUp ();
+
             Destroy(gameObject);
         }
     }

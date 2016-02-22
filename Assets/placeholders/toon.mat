@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: toon
-  m_Shader: {fileID: 4800000, guid: 6ba930548b7fdee42b516d3131124471, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1eb9a1238d5d8a94692e471e843a1ec3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 4d86da629856c0d48ba39648e2409844, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 25, y: 25}
           m_Offset: {x: 0, y: 0}
       data:
@@ -100,6 +100,10 @@ Material:
         second: 0.5
       data:
         first:
+          name: _RimPower
+        second: 0
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
@@ -147,6 +151,14 @@ Material:
         first:
           name: _Color
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _ColorTint
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _RimColor
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _OutlineColor

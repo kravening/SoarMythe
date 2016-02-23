@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class KeyboardInput : MonoBehaviour {
     PlayerMovement playerMovement;
 
     [SerializeField]
-    bool forward, right, backward, left, jump, glide = false;
+    bool forward, right, backward, left, jump, glide, use = false;
 	void Start(){
 		playerMovement = gameObject.GetComponent<PlayerMovement> ();
 	}	
-	void Update () {
+	void FixedUpdate () {
+		//Check keys
         CheckKeys();
         CheckKeysDown();
+
+		playerMovement.Move(forward, backward, left, right, jump, glide);
 	}
 
     void CheckKeys() {
@@ -20,7 +22,6 @@ public class KeyboardInput : MonoBehaviour {
         left = Input.GetKey(KeyCode.A);
         right = Input.GetKey(KeyCode.D);
 
-        jump = Input.GetKeyDown(KeyCode.Space);
         glide = Input.GetKey(KeyCode.Space);
 
         if (left && right) {
@@ -30,13 +31,10 @@ public class KeyboardInput : MonoBehaviour {
         if (forward && backward) {
             forward = backward = false;
         }
-
-        playerMovement.Move(forward, backward, left, right, jump, glide);
     }
 
     void CheckKeysDown() {
-        if (Input.GetKeyDown(KeyCode.E)) {
-
-        }
+		jump = Input.GetKeyDown(KeyCode.Space);
+		use = Input.GetKeyDown(KeyCode.E);
     }
 }

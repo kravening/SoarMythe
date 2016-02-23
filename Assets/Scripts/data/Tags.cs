@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-
+﻿/// <summary>
+/// Contains all the tags we use in the game, in the event that we'd change the names
+/// we won't have to go everywhere to change it to that too.
+/// </summary>
 public static class Tags {
 	//Conventions
 	//Data class Variables are always static & readonly

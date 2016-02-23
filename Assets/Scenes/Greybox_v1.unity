@@ -3581,13 +3581,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1732480995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1998857c3c9189c4ca34a261d4ccb233, type: 3}
+  m_Script: {fileID: 11500000, guid: fce638f7779b66a4183c17ba347ea204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetLerp: 1
-  linkDistance: 10
-  rotateCatchupSpeed: 1
-  rotateSpeed: 0.1
 --- !u!1 &1773345426
 GameObject:
   m_ObjectHideFlags: 0

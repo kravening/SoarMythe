@@ -14,6 +14,5 @@ public static class Tags {
 	public static readonly string STARTINGGRAVITYPOINT = "StartingGravityPoint";
 	public static readonly string CHARGEPAD = "Chargepad";
     public static readonly string PLANET = "Planet";
-	public static readonly string SPAWN = "Respawn";
 
 }

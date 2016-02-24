@@ -6,25 +6,29 @@ using System.IO;
 public class SaveLoad : MonoBehaviour 
 {
 
-	public int LastCheckpoint;
-	/*{
-		get { LastCheckPoint; }
-	}*/
-	public int maxPower;
-	/*{
-	  get { MaxPower }
-	}*/
+	public Transform finalCheckpoint;
+
+	public int currentPower;
+
+	public bool checkPos(){
+		if (GetComponent<PlayerMovement> ().LastCheckpoint != null) {
+			finalCheckpoint.transform.position = GetComponent<PlayerMovement> ().LastCheckpoint.transform.position;
+		} else {
+			GetComponent<PlayerMovement>().LastCheckpoint = null;
+		}
+	}
 
 	public void Save()
 	{
+		checkPos ();
+		currentPower = GetComponent<PlayerMovement> ().MaxPower;
 		BinaryFormatter binary = new BinaryFormatter ();
 		FileStream fStream = File.Create (Application.persistentDataPath + "saveFile.sav");
 
 		SaveManager Saving = new SaveManager ();
-		Saving.Checkpoint = LastCheckpoint;
+		Saving.Checkpoint = finalCheckpoint;
+		Saving.Powar = currentPower;
 		//other...
-
-
 
 		binary.Serialize (fStream, Saving);
 		fStream.Close ();
@@ -39,8 +43,10 @@ public class SaveLoad : MonoBehaviour
 			FileStream fStream = File.Open (Application.persistentDataPath + "saveFile.sav", FileMode.Open);
 			SaveManager saving = (SaveManager)binary.Deserialize (fStream);
 
-			LastCheckpoint = saving.Checkpoint;
+			finalCheckpoint = saving.Checkpoint;
+			currentPower = saving.Powar;
 			//other...
+
 			fStream.Close ();
 			Debug.Log ("Loaded");
 		}
@@ -57,7 +63,7 @@ public class SaveLoad : MonoBehaviour
 [System.Serializable]
 class SaveManager
 {
-	public int Checkpoint;
+	public Transform Checkpoint;
 	public int Powar;
 	//add-able stuff...
 	//int, float, bool, string, v2/3/4, quaternions matrix 4x4 color rect layermask

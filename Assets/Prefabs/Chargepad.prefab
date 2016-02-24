@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2396080}
   m_Layer: 8
   m_Name: Chargepad
-  m_TagString: ChargePad
+  m_TagString: Chargepad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

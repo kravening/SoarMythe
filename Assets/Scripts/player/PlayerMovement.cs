@@ -40,21 +40,11 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	[SerializeField]
-	RaycastHit hit;
-
-	[SerializeField]
 	LayerMask ground;
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
 		tf = GetComponent<Transform>();
-	}
-
-	void FixedUpdate() {
-		Debug.DrawLine(tf.position, -tf.up, Color.red);
-
-		Physics.Raycast(tf.position, -tf.up, 1);
-		print(hit.transform);
 	}
 
 	void OnCollisionEnter(Collision other) {
@@ -118,16 +108,34 @@ public class PlayerMovement : MonoBehaviour {
 		return false;
 	}
 
+	/// <summary>
+	/// Checks if there is a checkpoint there and if there is, return to it.
+	/// </summary>
+	/// <param name="checkpointPosition"></param>
+	/// <returns>If no checkpoint was found it returns false.</returns>
+	public bool GoToCheckpoint(Vector3 checkpointPosition) {
+		Ray ray = new Ray(checkpointPosition, checkpointPosition);
+		RaycastHit hit;
+		Physics.Raycast(ray, out hit, 1);
+		if (hit.collider.gameObject.tag == Tags.CHARGEPAD) {
+			lastCheckpoint = hit.collider.gameObject;
+			ReturnToLastCheckpoint();
+			return true;
+		}
+
+		return false;
+	}
+
 	public void Move(bool forward, bool backward, bool left, bool right, bool jump, bool glide) {
 		// This is probably really intensive, considering it happens during Update();
 		Vector3 movement = touchingGround ? tf.forward / 10 : tf.forward / 25;
-
+		Vector3 moveBy = new Vector3();
 
 		if (forward) {
-			tf.position += movement;
+			moveBy += movement;
 		}
 		else if (backward) {
-			tf.position -= movement;
+			moveBy -= movement;
 		}
 
 		if (!forward && !backward) {
@@ -136,9 +144,15 @@ public class PlayerMovement : MonoBehaviour {
 			} else if (right) {
 				tf.Rotate(new Vector3(0, 1));
 			}
-		} else {
-
 		}
+
+		if (left || right) {
+			if (forward || backward) {
+				moveBy /= 2;
+			}
+		}
+
+		tf.position += moveBy;
 
 		if (jump && touchingGround) {
 			rb.AddForce(tf.up * 10, ForceMode.Impulse);

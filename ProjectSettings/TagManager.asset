@@ -9,7 +9,7 @@ TagManager:
   - MainCamera
   - Ground
   - Player
-  - ChargePad
+  - Chargepad
   layers:
   - Default
   - TransparentFX

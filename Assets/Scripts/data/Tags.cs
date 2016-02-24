@@ -12,7 +12,7 @@ public static class Tags {
 	public static readonly string MAIN_CAMERA = "MainCamera";
 	public static readonly string ENEMY = "Enemy";
 	public static readonly string STARTINGGRAVITYPOINT = "StartingGravityPoint";
-	public static readonly string CHARGEPAD = "ChargePad";
+	public static readonly string CHARGEPAD = "Chargepad";
     public static readonly string PLANET = "Planet";
 
 }

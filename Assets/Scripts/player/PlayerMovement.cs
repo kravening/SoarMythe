@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
+	[SerializeField]
 	GameObject lastCheckpoint;
 
 	public GameObject LastCheckpoint {
@@ -101,6 +102,20 @@ public class PlayerMovement : MonoBehaviour {
 			return Tags.CHARGEPAD;
 		}
 		return other.gameObject.tag;
+	}
+
+	/// <summary>
+	/// Returns the player back to last checkpoint.
+	/// </summary>
+	/// <returns>bool based on success of returning</returns>
+	public bool ReturnToLastCheckpoint() {
+		if (lastCheckpoint != null) {
+			tf.position = lastCheckpoint.transform.position;
+			tf.position += tf.up * 5;
+			return true;
+		}
+
+		return false;
 	}
 
 	public void Move(bool forward, bool backward, bool left, bool right, bool jump, bool glide) {

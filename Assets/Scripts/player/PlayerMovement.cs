@@ -119,6 +119,9 @@ public class PlayerMovement : MonoBehaviour {
 		Ray ray = new Ray(checkpointPosition, checkpointPosition);
 		RaycastHit hit;
 		Physics.Raycast(ray, out hit, 1);
+
+		// In the event that it fails, I don't wanna try and check the tag
+		// of a non existant GameObject. This'll do.
 		if (hit.collider == null)
 			return false;
 
@@ -131,7 +134,18 @@ public class PlayerMovement : MonoBehaviour {
 		return false;
 	}
 
-	public void Move(bool forward, bool backward, bool left, bool right, bool jump, bool glide) {
+	/// <summary>
+	/// This method should only be called by input classes.
+	/// So the defaults shouldn't matter.
+	/// But they're there to be on the safe side.
+	/// </summary>
+	/// <param name="forward">Moving forward?</param>
+	/// <param name="backward">Moving backwards?</param>
+	/// <param name="left">Moving left?</param>
+	/// <param name="right">Moving right?</param>
+	/// <param name="jump">Should I jump?</param>
+	/// <param name="glide">Am I gliding?</param>
+	public void Move(bool forward = false, bool backward = false, bool left = false, bool right = false, bool jump = false, bool glide = false) {
 		// This is probably really intensive, considering it happens during Update();
 		// Although tf.forward is not constant so I really need to recreate this every time.
 		Vector3 movement = touchingGround ? tf.forward / 10 : tf.forward / 25;
@@ -139,6 +153,7 @@ public class PlayerMovement : MonoBehaviour {
 		// I need this so that I can edit it if the player moves with left or right.
 		Vector3 moveBy = new Vector3();
 
+		// Just add movement.
 		if (forward) {
 			moveBy += movement;
 		}
@@ -146,6 +161,7 @@ public class PlayerMovement : MonoBehaviour {
 			moveBy -= movement;
 		}
 
+		// If not adding movement from forward or backward before this.
 		if (!forward && !backward) {
 			if (left) {
 				tf.Rotate(new Vector3(0, -1));
@@ -154,6 +170,8 @@ public class PlayerMovement : MonoBehaviour {
 				tf.Rotate(new Vector3(0, 1));
 				moveBy += movement / 1.25f;
 			}
+
+		// Else only edit rotation.
 		} else {
 			if (left) {
 				tf.Rotate(new Vector3(0, -1));
@@ -162,35 +180,50 @@ public class PlayerMovement : MonoBehaviour {
 			}
 		}
 
+		// Edit movement if I did use forward or backward while also doing left or right.
 		if (left || right) {
 			if (forward || backward) {
-				moveBy /= 1f;
+				moveBy /= 1.25f;
 			}
 		}
 
+		// Then finally add movement.
 		tf.position += moveBy;
 
+		// This would only trigger the frame the space bar was pressed. And aside from that only
+		// if the player was touching the ground.
 		if (jump && touchingGround) {
 			rb.AddForce(tf.up * 10, ForceMode.Impulse);
 		}
+		// The flight, only works if the player has enough power to remove.
 		else if (jump && power >= 10) {
 			power -= 10;
 			rb.AddForce(tf.up * 5, ForceMode.Impulse);
 		}
+		// If the power is less, let it glide.
+		// Glide remains true while the space bar is down. Unlike the jump.
 		else if (glide && power < 10) {
 			rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
 		}
 
+		// If I am standing on a chargepad, and not jumping.
+		// Charge up!
 		if (!jump && touchingChargepad && power <= maxPower) {
 			power += 5;
 		}
 
+		// Don't wanna have more than the max power.
 		if (power > maxPower) {
 			power = maxPower;
 		}
 	}
 
-	public void PowerUp(int i = 10) {
-		maxPower += i;
+	/// <summary>
+	/// Add to the max power.
+	/// If this function is called without giving a toAdd, it defaults to 10;
+	/// </summary>
+	/// <param name="toAdd">Raise the max by toAdd.</param>
+	public void PowerUp(int toAdd = 10) {
+		maxPower += toAdd;
 	}
 }

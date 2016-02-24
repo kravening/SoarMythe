@@ -8,33 +8,45 @@ public class PauseMenu : MonoBehaviour {
 	public string Options;
 
 	public bool isPaused;
-	public GameObject pauseMenuCanvas;
 
-	void Update()
-	{
+	[SerializeField]
+	CanvasGroup pauseMenuContainer;
+	SaveLoad saveLoad;
+
+	void Start() {
+		//pauseMenuContainer.GetComponent<CanvasGroup> ();
+		saveLoad = GetComponent<SaveLoad> ();
+
 		if (isPaused) {
-			pauseMenuCanvas.SetActive (true);
-			Time.timeScale = 0.0f;
-		} else {
-			pauseMenuCanvas.SetActive (false);
 			Time.timeScale = 1.0f;
-		}
-		if(Input.GetKeyDown(KeyCode.Escape))
-		{
-			isPaused = !isPaused; 
+		} else {
+			Time.timeScale = 0.0f;
 		}
 	}
-	public void resume()
+
+	public void togglePause()
 	{
-		isPaused = false;
+		if (isPaused) {
+			isPaused = false;
+			Time.timeScale = 1.0f;
+			pauseMenuContainer.alpha = 0;
+			pauseMenuContainer.interactable = false;
+			pauseMenuContainer.blocksRaycasts = false;
+		} else {
+			isPaused = true;
+			Time.timeScale = 0.0f;
+			pauseMenuContainer.alpha = 1;
+			pauseMenuContainer.interactable = true;
+			pauseMenuContainer.blocksRaycasts = true;
+		}
 	}
 	public void saveGame()
 	{
-		GetComponent<SaveLoad> ().Save ();
+		saveLoad.Save ();
 	}
 	public void load()
 	{
-		GetComponent<SaveLoad> ().Load ();
+		saveLoad.Load ();
 	}
 	public void mainMenu()
 	{

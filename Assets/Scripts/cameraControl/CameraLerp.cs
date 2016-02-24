@@ -13,7 +13,6 @@ public class CameraLerp : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		//ControlCamera ();
 		TempPick();
 	}
 	private void TempPick()
@@ -57,33 +56,3 @@ public class CameraLerp : MonoBehaviour
 		endPosition = transform.position + Vector3.forward * distanceToMove;
 	}
 }
-/*
-	IEnumerator LerpandWait()
-	{
-		while (GetComponent<CameraControl> ().transform.position  18) 
-		{
-			isLerping = true;
-			timeStartedLerping = Time.time;
-
-			startPosition = transform.position;
-			endPosition = transform.position + Vector3.forward * distanceToMove;
-			yield return null;
-		}
-		print ("Reached location");
-		yield return new WaitForSeconds (2f);
-		print ("Courontine finished");
-		//GetComponent<CameraControl> ().distance = 18.0f;
-	}
-	private void ControlCamera()
-	{// Will change to triggers or something else.
-		if (Input.GetKeyDown (KeyCode.Q)) 
-		{
-			GetComponent<CameraControl> ().enabled = false;
-			StartCoroutine (LerpandWait());
-			//GetComponent<CameraControl> ().enabled = true;
-		}
-		if (Input.GetKeyDown (KeyCode.E)) 
-		{
-			GetComponent<CameraControl> ().distance = 8.0f;
-		}
-	}*/

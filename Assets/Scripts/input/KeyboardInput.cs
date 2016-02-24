@@ -3,11 +3,19 @@
 public class KeyboardInput : MonoBehaviour {
     PlayerMovement playerMovement;
 
-    [SerializeField]
-    bool forward, right, backward, left, jump, glide, use = false;
+	[SerializeField]
+	PauseMenu pauseMenu;
+
+    bool forward, right, backward, left, jump, glide, use, pause = false;
+
 	void Start(){
 		playerMovement = gameObject.GetComponent<PlayerMovement> ();
 	}	
+
+	void Update() {
+		CheckSpecialKeys ();
+	}
+
 	void FixedUpdate () {
 		//Check keys
         CheckKeys();
@@ -37,4 +45,12 @@ public class KeyboardInput : MonoBehaviour {
 		jump = Input.GetKeyDown(KeyCode.Space);
 		use = Input.GetKeyDown(KeyCode.E);
     }
+
+	void CheckSpecialKeys() {
+		pause = Input.GetKeyDown (KeyCode.Escape);
+
+		if (pause) {
+			pauseMenu.togglePause ();
+		}
+	}
 }

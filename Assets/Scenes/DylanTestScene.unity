@@ -349,7 +349,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.51, y: 1.51, z: 2.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2103080512}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &1059063060
@@ -360,15 +361,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1059063055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e08f5b3a1b6e5948aac348594731bb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ca7b17b2d27cee408d5dfaa7960287d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 6
-  rotateSpeed: 90
-  Player: 1
-  jumpHeight: 5
-  jumpTime: 0
-  maxJumpTime: 8
+  particleGroundHit: {fileID: 0}
+  power: 20
+  maxPower: 20
+  lastCheckpoint: {fileID: 0}
+  ground:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!54 &1059063061
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -412,11 +414,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2103080511}
   m_LocalRotation: {x: 0.17364822, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0.25000024, y: 4.95, z: -5.8599987}
+  m_LocalPosition: {x: -0.25999975, y: 3.4399998, z: -8.369999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1059063059}
+  m_RootOrder: 0
 --- !u!81 &2103080513
 AudioListener:
   m_ObjectHideFlags: 0
@@ -480,7 +482,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2103080511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b45458affeca74495e77f7bf4006be, type: 3}
+  m_Script: {fileID: 11500000, guid: cccd3c0f934c5fa49b9ed32fa4bf284c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: {fileID: 1059063059}
@@ -494,7 +496,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2103080511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 697bf182f9fc0de4488419a82125eeae, type: 3}
+  m_Script: {fileID: 11500000, guid: d611f292fdb67b245aab2584fe5d2755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeTakenDuringLerp: 1

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Runtime.Serialization.Formatters.Binary;
+using System;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveLoad : MonoBehaviour 
 {
@@ -10,17 +10,14 @@ public class SaveLoad : MonoBehaviour
 
 	public int currentPower;
 
-	public bool checkPos(){
-		if (GetComponent<PlayerMovement> ().LastCheckpoint != null) {
-			finalCheckpoint.transform.position = GetComponent<PlayerMovement> ().LastCheckpoint.transform.position;
-		} else {
-			GetComponent<PlayerMovement>().LastCheckpoint = null;
-		}
-	}
-
 	public void Save()
 	{
-		checkPos ();
+		PlayerMovement playerMovement = GetComponent<PlayerMovement> ();
+		if (playerMovement.LastCheckpoint != null) {
+			finalCheckpoint = playerMovement.LastCheckpoint;
+		} else {
+			throw new Exception ("The player has no checkpoint");
+		}
 		currentPower = GetComponent<PlayerMovement> ().MaxPower;
 		BinaryFormatter binary = new BinaryFormatter ();
 		FileStream fStream = File.Create (Application.persistentDataPath + "saveFile.sav");

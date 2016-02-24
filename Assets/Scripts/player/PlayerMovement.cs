@@ -31,9 +31,9 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	[SerializeField]
-	GameObject lastCheckpoint;
+	Transform lastCheckpoint;
 
-	public GameObject LastCheckpoint {
+	public Transform LastCheckpoint {
 		get {
 			return lastCheckpoint;
 		}
@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour {
 	void Start() {
 		rb = GetComponent<Rigidbody>();
 		tf = GetComponent<Transform>();
+
+		print(GoToCheckpoint(lastCheckpoint.position));
 	}
 
 	void OnCollisionEnter(Collision other) {
@@ -53,7 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 		// Changing last checkpoint to the last checkpoint would be pointless, and just extra resources we need.
 		// Plus I already needed this if statement to check if it's a chargepad, two bugs one stone.
 		if (tag == Tags.CHARGEPAD && lastCheckpoint != other.gameObject) {
-			lastCheckpoint = other.gameObject;
+			lastCheckpoint = other.gameObject.transform;
 		}
 
 		//GameObject newParticle = Instantiate<GameObject>(particleGroundHit);
@@ -76,7 +78,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Earlier this was nessecary because two functions would repeat.
 	// But to do checkpoints it's slighty different for OnCollisionEnter
-	// Because it returns the tag name.
+	// Because of that it returns the tag name.
 	/// <summary>
 	/// Check's tag on other, edit's variables accordingly and returns the tag.
 	/// </summary>
@@ -101,7 +103,7 @@ public class PlayerMovement : MonoBehaviour {
 	public bool ReturnToLastCheckpoint() {
 		if (lastCheckpoint != null) {
 			tf.position = lastCheckpoint.transform.position;
-			tf.position += tf.up * 5;
+			tf.position += lastCheckpoint.transform.up * 5;
 			return true;
 		}
 
@@ -117,8 +119,11 @@ public class PlayerMovement : MonoBehaviour {
 		Ray ray = new Ray(checkpointPosition, checkpointPosition);
 		RaycastHit hit;
 		Physics.Raycast(ray, out hit, 1);
+		if (hit.collider == null)
+			return false;
+
 		if (hit.collider.gameObject.tag == Tags.CHARGEPAD) {
-			lastCheckpoint = hit.collider.gameObject;
+			lastCheckpoint = hit.collider.gameObject.transform;
 			ReturnToLastCheckpoint();
 			return true;
 		}
@@ -128,7 +133,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void Move(bool forward, bool backward, bool left, bool right, bool jump, bool glide) {
 		// This is probably really intensive, considering it happens during Update();
+		// Although tf.forward is not constant so I really need to recreate this every time.
 		Vector3 movement = touchingGround ? tf.forward / 10 : tf.forward / 25;
+
+		// I need this so that I can edit it if the player moves with left or right.
 		Vector3 moveBy = new Vector3();
 
 		if (forward) {
@@ -141,6 +149,14 @@ public class PlayerMovement : MonoBehaviour {
 		if (!forward && !backward) {
 			if (left) {
 				tf.Rotate(new Vector3(0, -1));
+				moveBy += movement / 1.25f;
+			} else if (right) {
+				tf.Rotate(new Vector3(0, 1));
+				moveBy += movement / 1.25f;
+			}
+		} else {
+			if (left) {
+				tf.Rotate(new Vector3(0, -1));
 			} else if (right) {
 				tf.Rotate(new Vector3(0, 1));
 			}
@@ -148,7 +164,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (left || right) {
 			if (forward || backward) {
-				moveBy /= 2;
+				moveBy /= 1f;
 			}
 		}
 

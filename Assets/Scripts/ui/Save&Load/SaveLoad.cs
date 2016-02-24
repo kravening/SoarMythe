@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class SaveLoad : MonoBehaviour 
 {
 
-	public Transform finalCheckpoint;
+	public GameObject finalCheckpoint;
 
 	public int currentPower;
 
@@ -22,9 +22,9 @@ public class SaveLoad : MonoBehaviour
 		BinaryFormatter binary = new BinaryFormatter ();
 		FileStream fStream = File.Create (Application.persistentDataPath + "saveFile.sav");
 
-		SaveManager Saving = new SaveManager ();
+		PlayerSave Saving = new PlayerSave ();
 		Saving.Checkpoint = finalCheckpoint;
-		Saving.Powar = currentPower;
+		Saving.Power = currentPower;
 		//other...
 
 		binary.Serialize (fStream, Saving);
@@ -38,10 +38,10 @@ public class SaveLoad : MonoBehaviour
 		{
 			BinaryFormatter binary = new BinaryFormatter ();
 			FileStream fStream = File.Open (Application.persistentDataPath + "saveFile.sav", FileMode.Open);
-			SaveManager saving = (SaveManager)binary.Deserialize (fStream);
+			PlayerSave saving = (PlayerSave)binary.Deserialize (fStream);
 
 			finalCheckpoint = saving.Checkpoint;
-			currentPower = saving.Powar;
+			currentPower = saving.Power;
 			//other...
 
 			fStream.Close ();
@@ -58,10 +58,10 @@ public class SaveLoad : MonoBehaviour
 }
 
 [System.Serializable]
-class SaveManager
+class PlayerSave
 {
-	public Transform Checkpoint;
-	public int Powar;
+	public GameObject Checkpoint;
+	public int Power;
 	//add-able stuff...
 	//int, float, bool, string, v2/3/4, quaternions matrix 4x4 color rect layermask
 	//unity engine.object = gameobject component monobehavior texture2d animationclips

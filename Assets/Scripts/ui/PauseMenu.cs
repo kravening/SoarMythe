@@ -24,23 +24,23 @@ public class PauseMenu : MonoBehaviour {
 			isPaused = !isPaused; 
 		}
 	}
-	public void Resume()
+	public void resume()
 	{
 		isPaused = false;
 	}
-	public void SaveGame()
+	public void saveGame()
 	{
-		
+		GetComponent<SaveLoad> ().Save ();
+	}
+	public void load()
+	{
+		GetComponent<SaveLoad> ().Load ();
 	}
 	public void mainMenu()
 	{
 		Application.LoadLevel (MainMenu);
 	}
-	public void options()
-	{
-		Application.LoadLevel (Options);
-	}
-	public void Quit()
+	public void quit()
 	{
 		Application.Quit ();
 	}

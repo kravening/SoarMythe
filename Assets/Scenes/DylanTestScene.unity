@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f0332f8a6c6264789373990eb5920d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 44697420697320646520696e74726f54657874
+  text: Text Test Field
 --- !u!4 &442700883
 Transform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-//Dylan Waij
+
 
 public class cameraSwap : MonoBehaviour {
 

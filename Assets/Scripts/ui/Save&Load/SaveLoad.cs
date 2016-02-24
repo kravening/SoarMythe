@@ -1,10 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-public class SaveLoad : MonoBehaviour {
+public class SaveLoad : MonoBehaviour 
+{
+
+	public int LastCheckpoint;
+	/*{
+		get { LastCheckPoint; }
+	}*/
+	public int maxPower;
+	/*{
+	  get { MaxPower }
+	}*/
 
 	public void Save()
 	{
@@ -12,14 +21,14 @@ public class SaveLoad : MonoBehaviour {
 		FileStream fStream = File.Create (Application.persistentDataPath + "saveFile.sav");
 
 		SaveManager Saving = new SaveManager ();
-		Saving.Power = dummyPowerscript.dPower.Power;
-		//all other...
+		Saving.Checkpoint = LastCheckpoint;
+		//other...
 
 
 
 		binary.Serialize (fStream, Saving);
 		fStream.Close ();
-
+		Debug.Log ("Saved");
 
 	}
 	public void Load()
@@ -29,10 +38,11 @@ public class SaveLoad : MonoBehaviour {
 			BinaryFormatter binary = new BinaryFormatter ();
 			FileStream fStream = File.Open (Application.persistentDataPath + "saveFile.sav", FileMode.Open);
 			SaveManager saving = (SaveManager)binary.Deserialize (fStream);
-			fStream.Close ();
 
-			dummyPowerscript.dPower.Power = saving.Power;
-			//all other...
+			LastCheckpoint = saving.Checkpoint;
+			//other...
+			fStream.Close ();
+			Debug.Log ("Loaded");
 		}
 	}
 	public void Delete()
@@ -44,11 +54,12 @@ public class SaveLoad : MonoBehaviour {
 	}
 }
 
-[Serializable]
+[System.Serializable]
 class SaveManager
 {
-	public int Power;
-	//add stuff...
+	public int Checkpoint;
+	public int Powar;
+	//add-able stuff...
 	//int, float, bool, string, v2/3/4, quaternions matrix 4x4 color rect layermask
 	//unity engine.object = gameobject component monobehavior texture2d animationclips
 	//enums array & list

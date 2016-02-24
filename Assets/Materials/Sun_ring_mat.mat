@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Sun_mat
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Sun_ring_mat
+  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,9 +19,9 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 8509e077da5356a438b35727c84aa36c, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: -0.69, y: 0}
+          m_Texture: {fileID: 2800000, guid: 596f223f3b75a244dbdd9549e62c1a70, type: 3}
+          m_Scale: {x: 2.83, y: 1}
+          m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
@@ -56,7 +56,7 @@ Material:
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
-          m_Offset: {x: -0.69, y: 0}
+          m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _DetailMask
@@ -93,10 +93,6 @@ Material:
         second: 0.5
       data:
         first:
-          name: PixelSnap
-        second: 0
-      data:
-        first:
           name: _Parallax
         second: 0.02
       data:
@@ -131,6 +127,10 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _InvFade
+        second: 1
     m_Colors:
       data:
         first:
@@ -139,4 +139,8 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 0.7247464, b: 0.13235295, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: 1, g: 0.39310342, b: 0, a: 0.5}

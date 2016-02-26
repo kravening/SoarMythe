@@ -1061,6 +1061,7 @@ GameObject:
   - 4: {fileID: 1684586486}
   - 114: {fileID: 1684586487}
   - 225: {fileID: 1684586488}
+  - 114: {fileID: 1684586489}
   m_Layer: 0
   m_Name: PauseMenu-Container
   m_TagString: Untagged
@@ -1107,6 +1108,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1684586489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1684586485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d9407e20b68dc478a51efa4545415f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  finalCheckpoint: {fileID: 0}
+  currentPower: 0
 --- !u!1 &1752795830
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,31 +5,37 @@ public class CameraLerp : MonoBehaviour
 {
 	public float timeTakenDuringLerp = 1f;
 	public float distanceToMove = -10;
-	private bool isLerping;
+	bool isLerping;
 
-	private Vector3 startPosition;
-	private Vector3 endPosition;
-	private float timeStartedLerping;
+	CameraControl cameraControl;
+
+	Vector3 startPosition;
+	Vector3 endPosition;
+	float timeStartedLerping;
 	// Update is called once per frame
 	void Update () 
 	{
 		TempPick();
 	}
-	private void TempPick()
+	void Start()
+	{
+		cameraControl = GetComponent<CameraControl> ();
+	}
+	void TempPick()
 	{
 		if (Input.GetKeyDown (KeyCode.Q)) 
 		{
-			GetComponent<CameraControl> ().enabled = false;
+			cameraControl.enabled = false;
 			StartLerping ();
 		}
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
-			GetComponent<CameraControl> ().distance = 15.0f;
-			GetComponent<CameraControl> ().enabled = true;
+			cameraControl.distance = 15.0f;
+			cameraControl.enabled = true;
 		}
 		if (Input.GetKeyDown (KeyCode.E)) 
 		{
-			GetComponent<CameraControl> ().distance = 8.0f;
-			GetComponent<CameraControl> ().enabled = true;
+			cameraControl.distance = 8.0f;
+			cameraControl.enabled = true;
 		}
 	}
 	void FixedUpdate()

@@ -1,52 +1,57 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	// This script is only for testing the powerups.
-	// Will be removed once a proper movement comes up.
-	bool touchingGround = false;
-	bool touchingChargepad = false;
+	
+	bool touchingGround = false; // Am I touching ground? Used to tell the difference
+								 // between a jump, and flight.
+	bool touchingChargepad = false; // Used to let the charging happen.
 
-	Rigidbody rb;
-	Transform tf;
+	Transform tf; // Used to do walking movement.
+	Rigidbody rb; // Used to AddForce for the jump;
 
-	[SerializeField]
+	[SerializeField] // When the player hits the ground, drop an instance of this.
 	GameObject particleGroundHit;
 
-	[SerializeField]
+	[SerializeField] // The amount of jump power the player has.
 	int power = 20;
 
-	public int Power {
+	public int Power { // Mainly for the Power UI slider.
 		get {
 			return power;
 		}
 	}
 
-	[SerializeField]
+	[SerializeField] // Used to have a limit on how much the player can use his flight.
 	int maxPower = 20;
 
-	public int MaxPower {
+	public int MaxPower { // Mainly for saving/loading the max, and the power UI.
 		get {
 			return maxPower;
+		}
+		set {
+			maxPower = value;
 		}
 	}
 
 	[SerializeField]
-	Transform lastCheckpoint;
+	GameObject lastCheckpoint; // Last used checkpoint/chargepad. Used for going back.
 
-	public Transform LastCheckpoint {
+	public GameObject LastCheckpoint { // Used for saving last checkpoint.
 		get {
 			return lastCheckpoint;
 		}
 	}
 
 	[SerializeField]
-	LayerMask ground;
+	LayerMask ground; // This is compared with the layer of whatever I am touching right now.
+					  // So anything I can jump off has this as layer.
 
 	void Start() {
+		// Getting them as soon as the class starts, because I will need them immediately after.
 		rb = GetComponent<Rigidbody>();
 		tf = GetComponent<Transform>();
 
-		print(GoToCheckpoint(lastCheckpoint.position));
+		print(GoToCheckpoint(lastCheckpoint));
 	}
 
 	void OnCollisionEnter(Collision other) {
@@ -55,18 +60,15 @@ public class PlayerMovement : MonoBehaviour {
 		// Changing last checkpoint to the last checkpoint would be pointless, and just extra resources we need.
 		// Plus I already needed this if statement to check if it's a chargepad, two bugs one stone.
 		if (tag == Tags.CHARGEPAD && lastCheckpoint != other.gameObject) {
-			lastCheckpoint = other.gameObject.transform;
+			lastCheckpoint = other.gameObject;
 		}
 
 		//GameObject newParticle = Instantiate<GameObject>(particleGroundHit);
 		//newParticle.transform.position = new Vector3(tf.position.x, tf.position.y - tf.position.y * 0.9f, tf.position.z);
 	}
 
-	void OnCollisionStay(Collision other) {
-		CollisionCheck(other);
-	}
-
 	void OnCollisionExit(Collision other) {
+		// Make sure we set whatever we stop touching to false, so you can't charge or jump from thin air.
 		if (other.gameObject.layer == ground) {
 			touchingGround = false;
 		}
@@ -87,7 +89,6 @@ public class PlayerMovement : MonoBehaviour {
 	string CollisionCheck(Collision other) {
 		if (other.gameObject.layer == ground) {
 			touchingGround = true;
-			return Tags.GROUND;
 		}
 		else if (other.gameObject.tag == Tags.CHARGEPAD) {
 			touchingChargepad = true;
@@ -101,12 +102,17 @@ public class PlayerMovement : MonoBehaviour {
 	/// </summary>
 	/// <returns>bool based on success of returning</returns>
 	public bool ReturnToLastCheckpoint() {
+		// In the unlikely event that someone forgot to set spawn.
+		// Make sure everybody knows.
 		if (lastCheckpoint != null) {
 			tf.position = lastCheckpoint.transform.position;
 			tf.position += lastCheckpoint.transform.up * 5;
 			return true;
+		} else {
+			print("Did you not set a spawnpoint? The player needs one if he returns!");
 		}
 
+		// If the if-statement returned false, return false to whoever called me.
 		return false;
 	}
 
@@ -115,22 +121,16 @@ public class PlayerMovement : MonoBehaviour {
 	/// </summary>
 	/// <param name="checkpointPosition"></param>
 	/// <returns>If no checkpoint was found it returns false.</returns>
-	public bool GoToCheckpoint(Vector3 checkpointPosition) {
-		Ray ray = new Ray(checkpointPosition, checkpointPosition);
-		RaycastHit hit;
-		Physics.Raycast(ray, out hit, 1);
-
-		// In the event that it fails, I don't wanna try and check the tag
-		// of a non existant GameObject. This'll do.
-		if (hit.collider == null)
-			return false;
-
-		if (hit.collider.gameObject.tag == Tags.CHARGEPAD) {
-			lastCheckpoint = hit.collider.gameObject.transform;
+	public bool GoToCheckpoint(GameObject checkpointPosition) {
+		// Check if given object is player spawn or chargepad/checkpoint.
+		if (checkpointPosition.tag == Tags.CHARGEPAD || checkpointPosition.tag == Tags.SPAWN) {
+			lastCheckpoint = checkpointPosition;
+			power = maxPower;
 			ReturnToLastCheckpoint();
 			return true;
 		}
 
+		// If the gameobject did not meet the requirements return false to whoever called me.
 		return false;
 	}
 
@@ -162,6 +162,8 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		// If not adding movement from forward or backward before this.
+		// Otherwise you get double speed, while nice it's not the wanted
+		// result.
 		if (!forward && !backward) {
 			if (left) {
 				tf.Rotate(new Vector3(0, -1));
@@ -170,9 +172,7 @@ public class PlayerMovement : MonoBehaviour {
 				tf.Rotate(new Vector3(0, 1));
 				moveBy += movement / 1.25f;
 			}
-
-		// Else only edit rotation.
-		} else {
+		} else { // Else only edit rotation.
 			if (left) {
 				tf.Rotate(new Vector3(0, -1));
 			} else if (right) {
@@ -198,7 +198,7 @@ public class PlayerMovement : MonoBehaviour {
 		// The flight, only works if the player has enough power to remove.
 		else if (jump && power >= 10) {
 			power -= 10;
-			rb.AddForce(tf.up * 5, ForceMode.Impulse);
+			rb.AddForce(tf.up * 5, ForceMode.Force);
 		}
 		// If the power is less, let it glide.
 		// Glide remains true while the space bar is down. Unlike the jump.

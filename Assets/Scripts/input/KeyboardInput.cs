@@ -6,7 +6,7 @@ public class KeyboardInput : MonoBehaviour {
 	[SerializeField]
 	PauseMenu pauseMenu;
 
-    bool forward, right, backward, left, jump, glide, use, pause = false;
+    bool up, right, down, left, jump, glide, use, pause = false;
 
 	void Start(){
 		playerMovement = gameObject.GetComponent<PlayerMovement> ();
@@ -21,12 +21,12 @@ public class KeyboardInput : MonoBehaviour {
         CheckKeys();
         CheckKeysDown();
 
-		playerMovement.Move(forward, backward, left, right, jump, glide);
+		playerMovement.Move(up, down, left, right, jump, glide);
 	}
 
     void CheckKeys() {
-        forward = Input.GetKey(KeyCode.W);
-        backward = Input.GetKey(KeyCode.S);
+        up = Input.GetKey(KeyCode.W);
+        down = Input.GetKey(KeyCode.S);
         left = Input.GetKey(KeyCode.A);
         right = Input.GetKey(KeyCode.D);
 
@@ -36,8 +36,8 @@ public class KeyboardInput : MonoBehaviour {
             left = right = false;
         }
 
-        if (forward && backward) {
-            forward = backward = false;
+        if (up && down) {
+            up = down = false;
         }
     }
 

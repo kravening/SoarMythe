@@ -63,8 +63,8 @@ public class PlayerMovement : MonoBehaviour {
 			lastCheckpoint = other.gameObject;
 		}
 
-		//GameObject newParticle = Instantiate<GameObject>(particleGroundHit);
-		//newParticle.transform.position = new Vector3(tf.position.x, tf.position.y - tf.position.y * 0.9f, tf.position.z);
+		GameObject newParticle = Instantiate<GameObject>(particleGroundHit);
+		newParticle.transform.position = new Vector3(tf.position.x, tf.position.y - tf.position.y * 0.9f, tf.position.z);
 	}
 
 	void OnCollisionExit(Collision other) {

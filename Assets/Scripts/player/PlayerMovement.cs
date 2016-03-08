@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour {
 		// Getting them as soon as the class starts, because I will need them immediately after.
 		rb = GetComponent<Rigidbody>();
 		tf = GetComponent<Transform>();
+        cg = GetComponent<CustomGravity>();
 
         GoToCheckpoint(lastCheckpoint);
 	}
@@ -107,7 +108,7 @@ public class PlayerMovement : MonoBehaviour {
 		// Make sure everybody knows.
 		if (lastCheckpoint != null) {
 			tf.position = lastCheckpoint.transform.position;
-			tf.position += lastCheckpoint.transform.up * 5;
+			tf.position += lastCheckpoint.transform.up;
 			return true;
 		} else {
 			print("Did you not set a spawnpoint? The player needs one if he returns!");
@@ -194,8 +195,8 @@ public class PlayerMovement : MonoBehaviour {
 		// This would only trigger the frame the space bar was pressed. And aside from that only
 		// if the player was touching the ground.
 		if (jump && touchingGround) {
-			rb.AddForce(tf.up * 10000, ForceMode.Impulse);
-            gc.Acceleration
+			//rb.AddForce(tf.up * 10000, ForceMode.Impulse);
+            cg.AddForce(tf.up * 100000);
 		}
 		// The flight, only works if the player has enough power to remove.
 		else if (jump && power >= 10) {

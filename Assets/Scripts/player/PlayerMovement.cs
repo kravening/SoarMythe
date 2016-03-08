@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour {
 	bool touchingChargepad = false; // Used to let the charging happen.
 
 	Transform tf; // Used to do walking movement.
-	Rigidbody rb; // Used to AddForce for the jump;
+	Rigidbody rb; // Used to AddForce for the jump.
+    CustomGravity cg; // Used to actually addforce for the jump.
 
 	[SerializeField] // When the player hits the ground, drop an instance of this.
 	GameObject particleGroundHit;
@@ -51,7 +52,7 @@ public class PlayerMovement : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		tf = GetComponent<Transform>();
 
-		print(GoToCheckpoint(lastCheckpoint));
+        GoToCheckpoint(lastCheckpoint);
 	}
 
 	void OnCollisionEnter(Collision other) {
@@ -193,7 +194,8 @@ public class PlayerMovement : MonoBehaviour {
 		// This would only trigger the frame the space bar was pressed. And aside from that only
 		// if the player was touching the ground.
 		if (jump && touchingGround) {
-			rb.AddForce(tf.up * 10, ForceMode.Impulse);
+			rb.AddForce(tf.up * 10000, ForceMode.Impulse);
+            gc.Acceleration
 		}
 		// The flight, only works if the player has enough power to remove.
 		else if (jump && power >= 10) {

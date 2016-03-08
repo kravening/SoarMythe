@@ -360,7 +360,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1059063055}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ca7b17b2d27cee408d5dfaa7960287d, type: 3}
   m_Name: 
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1059063055}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a45bc4a698259345a65aa8fe07a91e8, type: 3}
   m_Name: 
@@ -486,8 +486,6 @@ GameObject:
   - 92: {fileID: 2103080515}
   - 124: {fileID: 2103080514}
   - 81: {fileID: 2103080513}
-  - 114: {fileID: 2103080517}
-  - 114: {fileID: 2103080518}
   - 136: {fileID: 2103080519}
   - 114: {fileID: 2103080520}
   m_Layer: 0
@@ -564,33 +562,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!114 &2103080517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2103080511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cccd3c0f934c5fa49b9ed32fa4bf284c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookAt: {fileID: 1059063059}
-  CamTargetHeight: 1
-  distance: 8
---- !u!114 &2103080518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2103080511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d611f292fdb67b245aab2584fe5d2755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeTakenDuringLerp: 1
-  distanceToMove: -10
 --- !u!136 &2103080519
 CapsuleCollider:
   m_ObjectHideFlags: 0

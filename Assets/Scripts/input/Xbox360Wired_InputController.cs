@@ -31,17 +31,17 @@ public class Xbox360Wired_InputController : MonoBehaviour {
     public bool GUION;
 
     //bools for buttons
-    private bool leftShoulder = false;
-    private bool rightShoulder = false;
-    private bool leftTrigger = false;
-    private bool rightTrigger = false;
+    bool leftShoulder = false;
+    bool rightShoulder = false;
+    bool leftTrigger = false;
+    bool rightTrigger = false;
 
-    private bool aButton = false;
-    private bool bButton = false;
-    private bool xButton = false;
-    private bool yButton = false;
+    bool aButton = false;
+    bool bButton = false;
+    bool xButton = false;
+    bool yButton = false;
 
-	private bool leftStickButton = false;
+	bool leftStickButton = false;
 
     // Use this for initialization
     void Start () {
@@ -81,7 +81,7 @@ public class Xbox360Wired_InputController : MonoBehaviour {
         }
 
     }
-    private void ButtonActions()
+    void ButtonActions()
     {
 		if (player) {
 			if (leftShoulder == true) {
@@ -110,7 +110,7 @@ public class Xbox360Wired_InputController : MonoBehaviour {
 			}
 		}
     }
-    private void CheckForButtonPress() // check if a button was pressed this frame
+    void CheckForButtonPress() // check if a button was pressed this frame
     {
         //shoulders
 		if (player) {
@@ -148,7 +148,7 @@ public class Xbox360Wired_InputController : MonoBehaviour {
 			}
 		}
 	}
-	private void CheckForButtonRelease() // check if a button is released this frame
+	void CheckForButtonRelease() // check if a button is released this frame
     {
 		if (player) {
 			//shoulders
@@ -209,7 +209,7 @@ public class Xbox360Wired_InputController : MonoBehaviour {
         }
     }
 
-    private void FindController(){
+    void FindController(){
 		// Find a PlayerIndex, for a single player game
 		// Will find the first controller that is connected and use it
 		if (!playerIndexSet || !prevState.IsConnected) {
@@ -224,13 +224,13 @@ public class Xbox360Wired_InputController : MonoBehaviour {
 			}
 		}
     }
-    private void SetState()
+    void SetState()
     {
         prevState = state;
         state = GamePad.GetState(playerIndex);
     }
 
-    private float CalculateRotation(float X, float Y) // calculates angle based on incoming X & Y values;
+    float CalculateRotation(float X, float Y) // calculates angle based on incoming X & Y values;
     {
         float angle = (Mathf.Atan2(X, Y) * Mathf.Rad2Deg);
         //Debug.Log(angle);

@@ -11,6 +11,7 @@ TagManager:
   - Player
   - Chargepad
   - Planet
+  - PlayerTemp
   layers:
   - Default
   - TransparentFX

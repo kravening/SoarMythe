@@ -18,6 +18,12 @@ public class CustomGravity : MonoBehaviour {
 
 	private PlanetInformation planetInfo;
 
+	private int currentJumpCount = 0;
+	private int allowedJumps = 2;
+	private float jumpForce = 20;
+	private float jumpReact = 20f; // finebros sued me for this line of code
+
+
 	//debug
 	private Vector3 lastDiff;
 	// Use this for initialization
@@ -44,6 +50,7 @@ public class CustomGravity : MonoBehaviour {
 		lastSpeed = speed;
 
 		ProcessGravity();
+		//ExampleJump ();
 	}
 
 	void OnTriggerEnter (Collider other) {
@@ -52,6 +59,7 @@ public class CustomGravity : MonoBehaviour {
 			speed = Vector3.zero;
 			floored = true;
 			planetInfo = other.GetComponent<PlanetInformation>();
+			currentJumpCount = 0;
 		}
 	}
 
@@ -67,5 +75,16 @@ public class CustomGravity : MonoBehaviour {
 		ProcessGravity ();
 	}
 
-	
+	public void AddVerticalForce(float givenForce){
+		acceleration.y += givenForce;
+	}
+
+	public void ExampleJump () {
+		if (floored || currentJumpCount < allowedJumps) {
+			acceleration.y += jumpForce;
+			speed.y += jumpReact;
+			currentJumpCount++;
+			floored = false;
+		}
+	}
 }

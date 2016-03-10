@@ -16,7 +16,7 @@ public class CustomGravity : MonoBehaviour {
 
 	private bool floored = false;
 
-	private PlanetInformation planetInfo;
+	private SurfaceInformation surfaceInfo;
 
 	private int currentJumpCount = 0;
 	private int allowedJumps = 2;
@@ -33,7 +33,7 @@ public class CustomGravity : MonoBehaviour {
 		
 	void ProcessGravity () {
 		if (!floored) {
-			acceleration += new Vector3(0f, -mass * ((planetInfo != null) ? planetInfo.GravityStrength : 1), 0f);
+			acceleration += new Vector3(0f, -mass * ((surfaceInfo != null) ? surfaceInfo.GravityStrength : 1), 0f);
 		}
 
 		speed += Time.deltaTime * acceleration;
@@ -54,17 +54,18 @@ public class CustomGravity : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-		if (other.tag == "Planet") {
+		if (other.tag == Tags.SURFACE) {
 			acceleration = Vector3.zero;
 			speed = Vector3.zero;
 			floored = true;
-			planetInfo = other.GetComponent<PlanetInformation>();
+			surfaceInfo = other.GetComponent<SurfaceInformation>();
 			currentJumpCount = 0;
 		}
 	}
 
 	void OnTriggerExit (Collider other) {
-		if (other.tag == "Planet") {
+        if (other.tag == Tags.SURFACE)
+        {
 			floored = false;
 		}
 	}

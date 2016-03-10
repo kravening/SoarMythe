@@ -151,7 +151,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Je speelt als de character Icarus '
+  m_Text: Je speelt als de character Icarus.
 --- !u!222 &47716890
 CanvasRenderer:
   m_ObjectHideFlags: 0

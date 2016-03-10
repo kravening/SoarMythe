@@ -15,7 +15,8 @@ public class SaveLoad : MonoBehaviour
 		PlayerMovement playerMovement = GetComponent<PlayerMovement> ();
 		if (playerMovement.LastCheckpoint != null) {
 			finalCheckpoint = playerMovement.LastCheckpoint;
-		} else {
+		} else 
+		{
 			throw new Exception ("The player has no checkpoint");
 		}
 		currentPower = GetComponent<PlayerMovement> ().MaxPower;

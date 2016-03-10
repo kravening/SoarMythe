@@ -196,7 +196,7 @@ public class PlayerMovement : MonoBehaviour {
 		// if the player was touching the ground.
 		if (jump && touchingGround) {
 			//rb.AddForce(tf.up * 10000, ForceMode.Impulse);
-            cg.AddForce(tf.up * 100000);
+            //cg.AddForce(tf.up * 100000);
 		}
 		// The flight, only works if the player has enough power to remove.
 		else if (jump && power >= 10) {

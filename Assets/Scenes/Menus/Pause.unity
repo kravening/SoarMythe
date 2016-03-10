@@ -1119,7 +1119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d9407e20b68dc478a51efa4545415f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
   finalCheckpoint: {fileID: 0}
   currentPower: 0
 --- !u!1 &1752795830

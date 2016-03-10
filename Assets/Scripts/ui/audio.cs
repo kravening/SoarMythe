@@ -16,10 +16,12 @@ public class audio : MonoBehaviour {
 		{
 			Audio.PlayOneShot (impact, 1.0f);
 		}
+    }
+	void OnTriggerExit(Collider coll)
+	{
 		if (coll.gameObject.tag == "Player") 
 		{
-			Audio.PlayOneShot (impact, 1.0f);
+			Audio.Stop ();
 		}
-
 	}
 }

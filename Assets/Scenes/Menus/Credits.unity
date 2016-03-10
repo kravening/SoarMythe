@@ -237,7 +237,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ferdi
+  m_Text: Ferdi Alleman
 --- !u!222 &213542133
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Dylan
+  m_Text: Dylan Waij
 --- !u!222 &345788616
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Suzanne
+  m_Text: Suzanne van Leeuwen
 --- !u!222 &936559440
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -892,7 +892,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Kaj
+  m_Text: Kaj Loevestijn
 --- !u!222 &1356407635
 CanvasRenderer:
   m_ObjectHideFlags: 0

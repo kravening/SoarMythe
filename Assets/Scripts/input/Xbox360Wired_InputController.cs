@@ -3,20 +3,20 @@ using System.Collections;
 using XInputDotNetPure;
 
 public class Xbox360Wired_InputController : MonoBehaviour {
-	private bool playerIndexSet = false;
-	private PlayerIndex playerIndex;
-	private GamePadState state;
-	private GamePadState prevState;
+	bool playerIndexSet = false;
+	PlayerIndex playerIndex;
+	GamePadState state;
+	GamePadState prevState;
 
 	//Objects to Affect
-	[SerializeField]private GameObject player;
-	[SerializeField]private GameObject cam;
+	[SerializeField]GameObject player;
+	[SerializeField]GameObject cam;
 
 	//Project Specific (add vars for storing classes here)
 
     //behaviourModifiers
-    [SerializeField]private float deadZoneAmount;
-    [SerializeField]private float triggerPressedSensitivity;
+    [SerializeField]float deadZoneAmount;
+    [SerializeField]float triggerPressedSensitivity;
 
     //for reading
     public float LeftStickAngle;

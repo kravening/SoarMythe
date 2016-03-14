@@ -1,4 +1,4 @@
-using UnityEngine;
+0using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 	
@@ -150,7 +150,7 @@ public class PlayerMovement : MonoBehaviour {
 	public void Move(bool forward = false, bool backward = false, bool left = false, bool right = false, bool jump = false, bool glide = false) {
 		// This is probably really intensive, considering it happens during Update();
 		// Although tf.forward is not constant so I really need to recreate this every time.
-		Vector3 movement = touchingGround ? tf.forward / 10 : tf.forward / 25;
+		Vector3 movement = touchingGround ? tf.forward / 2 : tf.forward / 8;
 
 		// I need this so that I can edit it if the player moves with left or right.
 		Vector3 moveBy = new Vector3();

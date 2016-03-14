@@ -1,38 +1,86 @@
 using UnityEngine;
 using System.Collections;
 
-public class CameraControl : MonoBehaviour {
+//[RequireComponent (typeof(BarsEffect))]
+public class CameraControl : MonoBehaviour 
+{
+	[SerializeField] float distanceAway;
+	[SerializeField] float distanceUp;
+	[SerializeField] float smooth;
+	[SerializeField] Transform followXForm;
+	float distanceFromWall = 1;
+	float wideScreen = 0.2f;
+	float targetingTime = 0.5f;
 
-	const float X_ANGLE_MIN = -50.0f;
-	const float X_ANGLE_MAX = 50.0f;
+	Vector3 targetPosition;
+	Vector3 lookDir;
+	Vector3 velocityCamSmooth = Vector3.zero;
 
-	public Transform lookAt;
-	Transform camTransform;
-	public float transitionDuration = 2.5f;
-	Camera cam;
+	float camSmoothDampTime = 0.1f;
+	private BarsEffect barEffect;
+	private CamStates camState = CamStates.Behind;
 
-	public float distance = 8.0f;
-	float currentX = 0.0f;
-	float sensitivityX = 4.0f;
+	public enum CamStates
+	{
+		Behind,
+		Target,
+		Free
+	}
+
+	//smoothing and damping
 
 	void Start()
 	{
-		camTransform = transform;
-		cam = Camera.main;
+		followXForm = GameObject.FindWithTag ("Player").transform;
+		lookDir = followXForm.forward;
+
+		barEffect = GetComponent<BarsEffect> ();
+		if (barEffect == null) 
+		{
+			Debug.LogError ("Attach a widescreen BarsEffect script to the camera", this);
+		}
 	}
 
-	void Update()
+	void OnDrawGizmos()
 	{
-		currentX += Input.GetAxis ("Mouse X");
-
-		currentX = Mathf.Clamp (currentX, X_ANGLE_MIN, X_ANGLE_MAX);
+		
 	}
 
 	void LateUpdate()
 	{
-		Vector3 dir = new Vector3 (0, 0, -distance);
-		Quaternion rotation = Quaternion.Euler (0, currentX, 0);
-		camTransform.position = lookAt.position + rotation * dir;
-		camTransform.LookAt (lookAt.position);
+		Vector3 characterOffset = followXForm.position + new Vector3(0f, distanceUp, 0f);
+		// calculate direction from camera to player, kill Y, and normalize to give a valid direction with unit magnitude
+		lookDir = characterOffset - this.transform.position;
+		lookDir.y = 0;
+		lookDir.Normalize ();
+		Debug.DrawRay (this.transform.position, lookDir, Color.green);
+
+		// setting the target position to be the correct offset from the hovercraft
+		targetPosition = characterOffset + followXForm.up * distanceUp - lookDir * distanceAway;
+
+		compensateForWalls (characterOffset, ref targetPosition);
+
+		smoothPosition(this.transform.position, targetPosition);
+		// make sure the camera is looking the right way
+		transform.LookAt (followXForm);
+
+		//Debug.DrawRay (followXForm.position, Vector3.up * distanceUp, Color.red);
+		//Debug.DrawRay(followXForm.position, -1f * followXForm.forward * distanceUp, Color.blue);
+		Debug.DrawLine (followXForm.position, targetPosition, Color.magenta);
+	}
+	void smoothPosition(Vector3 fromPos, Vector3 toPos)
+	{
+		this.transform.position = Vector3.SmoothDamp (fromPos, toPos, ref velocityCamSmooth, camSmoothDampTime);
+	}
+	void compensateForWalls(Vector3 fromObject, ref Vector3 toTarget)
+	{
+		Debug.DrawLine (fromObject, toTarget, Color.cyan);
+		//compensate for walls between camera
+		RaycastHit wallHit = new RaycastHit();
+		if (Physics.Linecast (fromObject, toTarget, out wallHit)) 
+		{
+			Debug.DrawRay (wallHit.point, Vector3.left, Color.red);
+			toTarget = new Vector3 (wallHit.point.x, toTarget.y, wallHit.point.z) + wallHit.normal * distanceFromWall;
+		}
 	}
 }

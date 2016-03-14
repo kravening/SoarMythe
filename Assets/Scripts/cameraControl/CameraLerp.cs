@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraLerp : MonoBehaviour 
 {
-	public float timeTakenDuringLerp = 1f;
+	/*public float timeTakenDuringLerp = 1f;
 	public float distanceToMove = -10;
 	bool isLerping;
 
@@ -60,5 +60,5 @@ public class CameraLerp : MonoBehaviour
 
 		startPosition = transform.position;
 		endPosition = transform.position + Vector3.forward * distanceToMove;
-	}
+	}*/
 }

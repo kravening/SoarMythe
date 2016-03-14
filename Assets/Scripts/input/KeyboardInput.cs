@@ -10,7 +10,7 @@ public class KeyboardInput : MonoBehaviour {
 
 	void Start(){
 		playerMovement = gameObject.GetComponent<PlayerMovement> ();
-	}	
+	}
 
 	void Update() {
 		CheckSpecialKeys ();

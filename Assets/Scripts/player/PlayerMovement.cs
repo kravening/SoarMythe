@@ -1,9 +1,19 @@
-0using UnityEngine;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 	
 	bool touchingGround = false; // Am I touching ground? Used to tell the difference
 								 // between a jump, and flight.
+    [Header("Speed attributes:")]
+    [SerializeField]
+    float groundSpeed = 8;
+
+    [SerializeField]
+    float airSpeed = 2;
+
+    [Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
+    [SerializeField] // Using this in the Move() function rather than the update so that speed can still be changed on the go.
+    float speedDevider = 30; // Also using this to make the speed usable in just whole numbers while not making the player go insane speeds.
 
 	Transform tf; // Used to do walking movement.
 	Rigidbody rb; // Used to AddForce for the jump.
@@ -11,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
     CheckpointController cc; // Used to set and goto last checkpoint.
     PowerContainer pc; // Used to retrieve the amount of power the player has and edit it.
 
+    [Header("Miscellaneous attributes:")]
 	[SerializeField] // When the player hits the ground, drop an instance of this.
 	GameObject particleGroundHit;
 
@@ -65,9 +76,10 @@ public class PlayerMovement : MonoBehaviour {
 	/// <param name="jump">Should I jump?</param>
 	/// <param name="glide">Am I gliding?</param>
 	public void Move(bool forward = false, bool backward = false, bool left = false, bool right = false, bool jump = false, bool glide = false) {
+
 		// This is probably really intensive, considering it happens during Update();
 		// Although tf.forward is not constant so I really need to recreate this every time.
-		Vector3 movement = touchingGround ? tf.forward / 2 : tf.forward / 8;
+        Vector3 movement = touchingGround ? tf.forward * (groundSpeed / speedDevider) : tf.forward * (airSpeed / speedDevider);
 
 		// I need this so that I can edit it if the player moves with left or right.
 		Vector3 moveBy = new Vector3();
@@ -112,8 +124,14 @@ public class PlayerMovement : MonoBehaviour {
 		// This would only trigger the frame the space bar was pressed. And aside from that only
 		// if the player was touching the ground.
 		if (jump && touchingGround) {
-			//rb.AddForce(tf.up * 10000, ForceMode.Impulse);
+            //Can uncomment, not like it will work anyway.
+			rb.AddForce(tf.up * 10000, ForceMode.Impulse);
             //cg.AddForce(tf.up * 100000);
+
+            // This turns out to be the way CustomGravity did the jump.
+            // It worked but it's odd.
+            //cg.acceleration += tf.up * 5;
+            //cg.speed.y += cg.jumpReact;
 		}
 		// The flight, only works if the player has enough power to remove.
 		else if (jump && pc.Power >= 10) {

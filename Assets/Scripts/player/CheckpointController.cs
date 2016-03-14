@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class CheckpointController : MonoBehaviour {
-
+    
+    [Header("Optional:")]
     [SerializeField]
     GameObject lastCheckpoint; // Last used checkpoint/chargepad. Used for going back.
 

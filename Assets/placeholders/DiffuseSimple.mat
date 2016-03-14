@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: DiffuseSimple
-  m_Shader: {fileID: 4800000, guid: f487240f77968274baaa35a85146327c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1eb9a1238d5d8a94692e471e843a1ec3, type: 3}
   m_ShaderKeywords: _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000

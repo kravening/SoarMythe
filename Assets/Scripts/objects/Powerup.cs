@@ -6,14 +6,11 @@ public class Powerup : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
 		if (other.tag == Tags.PLAYER) {
-            // Do something.
-            // Like give the player his booster upgrade.
-
             GameObject spawnedParticle = Instantiate<GameObject>(particleOnDeath);
             spawnedParticle.transform.position = transform.position;
 
-			PlayerMovement playerMovement = other.gameObject.GetComponent<PlayerMovement> ();
-			playerMovement.PowerUp ();
+			PowerContainer powerContainer = other.gameObject.GetComponent<PowerContainer> ();
+            powerContainer.PowerUp();
 
             Destroy(gameObject);
         }

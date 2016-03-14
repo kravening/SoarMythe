@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 1fb5499eda7be5b41a27cf5af515c2b0
-=======
-guid: 494814ea3e27e9f4c93afe88c15b0623
->>>>>>> e0808fbd857fb512ce449f1ed18e9acce2268f51
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -11,15 +7,14 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pSphere1
-    4300002: LowPolySphere
-    11100000: //RootNode
+    4300000: LowPolySphere
+    9500000: //RootNode
   materials:
-    importMaterials: 0
-    materialName: 1
-    materialSearch: 2
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
   animations:
-    legacyGenerateAnimations: 0
+    legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleRotations: 1
     optimizeGameObjects: 0
@@ -35,16 +30,16 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
-    useFileUnits: 0
+    useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
@@ -52,11 +47,11 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 180
-    normalImportMode: 1
-    tangentImportMode: 4
+    normalImportMode: 0
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -72,7 +67,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

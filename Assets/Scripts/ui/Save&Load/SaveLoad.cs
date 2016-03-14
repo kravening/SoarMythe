@@ -5,21 +5,23 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveLoad : MonoBehaviour 
 {
+    [SerializeField]
 
-	public GameObject finalCheckpoint;
 
-	public int currentPower;
+	GameObject finalCheckpoint;
+	int currentPower;
 
 	public void Save()
 	{
-		PlayerMovement playerMovement = GetComponent<PlayerMovement> ();
-		if (playerMovement.LastCheckpoint != null) {
-			finalCheckpoint = playerMovement.LastCheckpoint;
+        PowerContainer pc = GetComponent<PowerContainer>();
+        CheckpointController cc = GetComponent<CheckpointController>();
+		if (cc.LastCheckpoint != null) {
+			finalCheckpoint = cc.LastCheckpoint;
 		} else 
 		{
 			throw new Exception ("The player has no checkpoint");
 		}
-		currentPower = GetComponent<PlayerMovement> ().MaxPower;
+		currentPower = pc.MaxPower;
 		BinaryFormatter binary = new BinaryFormatter ();
 		FileStream fStream = File.Create (Application.persistentDataPath + "saveFile.sav");
 

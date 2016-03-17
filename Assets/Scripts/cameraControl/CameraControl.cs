@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 //[RequireComponent (typeof(BarsEffect))]
 public class CameraControl : MonoBehaviour 
@@ -31,7 +30,6 @@ public class CameraControl : MonoBehaviour
 
 	void Start()
 	{
-		followXForm = GameObject.FindWithTag ("Player").transform;
 		lookDir = followXForm.forward;
 
 		barEffect = GetComponent<BarsEffect> ();

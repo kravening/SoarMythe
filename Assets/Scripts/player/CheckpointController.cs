@@ -4,17 +4,18 @@ using System.Collections;
 public class CheckpointController : MonoBehaviour {
     
     [Header("Optional:")]
-    [SerializeField]
+    [SerializeField][Tooltip("This value is not used if left empty, it will be the spawnpoint for the player.")]
     GameObject lastCheckpoint; // Last used checkpoint/chargepad. Used for going back.
 
-    Transform tf;
-    PowerContainer pc;
-
-    bool touchingGround, touchingChargepad = false;
+    Transform tf; // To move the player when going to a checkpoint.
+    PowerContainer pc; // To set the power to max when returning to last checkpoint.
 
     public GameObject LastCheckpoint { // Used for saving last checkpoint.
         get {
             return lastCheckpoint;
+        }
+        set {
+            Debug.LogError("Editing LastCheckpoint should be done through SetLastCheckpoint()");
         }
     }
 
@@ -23,6 +24,7 @@ public class CheckpointController : MonoBehaviour {
         tf = GetComponent<Transform>();
         pc = GetComponent<PowerContainer>();
 
+        // If the lastCheckpoint was set in the Editor, go there.
 	    if(lastCheckpoint != null)
             GoToCheckpoint(lastCheckpoint);
 
@@ -43,7 +45,8 @@ public class CheckpointController : MonoBehaviour {
     /// </summary>
     /// <param name="checkpoint"></param>
     public void SetLastCheckpoint(GameObject checkpoint) {
-        lastCheckpoint = checkpoint;
+        if(checkpoint.tag == Tags.CHARGEPAD || checkpoint.tag == Tags.SPAWN)
+            lastCheckpoint = checkpoint;
     }
 
     /// <summary>

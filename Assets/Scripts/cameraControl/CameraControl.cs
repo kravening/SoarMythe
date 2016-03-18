@@ -1,18 +1,16 @@
 using UnityEngine;
-using System.Collections;
 
 //[RequireComponent (typeof(BarsEffect))]
 public class CameraControl : MonoBehaviour 
 {
 	[SerializeField] float distanceAway;
 	[SerializeField] float distanceUp;
-	[SerializeField] float smooth;
 	[SerializeField] Transform followXForm;
 	float distanceFromWall = 1;
-	float wideScreen = 0.2f;
-	float targetingTime = 0.5f;
 
-	Vector3 targetPosition;
+    Vector3 targetPosition;
+    public Vector3 Tpos
+    { get { return targetPosition; } }
 	Vector3 lookDir;
 	Vector3 velocityCamSmooth = Vector3.zero;
 
@@ -31,7 +29,6 @@ public class CameraControl : MonoBehaviour
 
 	void Start()
 	{
-		followXForm = GameObject.FindWithTag ("Player").transform;
 		lookDir = followXForm.forward;
 
 		barEffect = GetComponent<BarsEffect> ();
@@ -39,6 +36,9 @@ public class CameraControl : MonoBehaviour
 		{
 			Debug.LogError ("Attach a widescreen BarsEffect script to the camera", this);
 		}
+	}
+	void Update()
+	{
 	}
 
 	void OnDrawGizmos()
@@ -48,7 +48,7 @@ public class CameraControl : MonoBehaviour
 
 	void LateUpdate()
 	{
-		Vector3 characterOffset = followXForm.position + new Vector3(0f, distanceUp, 0f);
+		Vector3 characterOffset = followXForm.position + new Vector3 (0f, distanceUp, 0f);
 		// calculate direction from camera to player, kill Y, and normalize to give a valid direction with unit magnitude
 		lookDir = characterOffset - this.transform.position;
 		lookDir.y = 0;
@@ -60,9 +60,10 @@ public class CameraControl : MonoBehaviour
 
 		compensateForWalls (characterOffset, ref targetPosition);
 
-		smoothPosition(this.transform.position, targetPosition);
+		smoothPosition (this.transform.position, targetPosition);
 		// make sure the camera is looking the right way
 		transform.LookAt (followXForm);
+
 
 		//Debug.DrawRay (followXForm.position, Vector3.up * distanceUp, Color.red);
 		//Debug.DrawRay(followXForm.position, -1f * followXForm.forward * distanceUp, Color.blue);

@@ -26,16 +26,15 @@ GameObject:
   m_Component:
   - 4: {fileID: 440696}
   - 33: {fileID: 3377418}
-  - 136: {fileID: 13688516}
   - 136: {fileID: 13674824}
+  - 65: {fileID: 6596880}
   - 23: {fileID: 2365264}
   - 54: {fileID: 5484358}
-  - 114: {fileID: 11431100}
-  - 114: {fileID: 11479172}
   - 114: {fileID: 11428342}
   - 114: {fileID: 11406164}
   - 114: {fileID: 11437212}
   - 114: {fileID: 11423092}
+  - 114: {fileID: 11495010}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -149,6 +148,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &6596880
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.1, z: 0.5}
+  m_Center: {x: 0, y: -1.01, z: 0}
 --- !u!114 &11406164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,32 +195,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca7b17b2d27cee408d5dfaa7960287d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundSpeed: 1
-  airSpeed: 8
-  speedDevision: 30
+  touchingGround: 1
+  CameraPosition: {fileID: 0}
+  groundSpeed: 4
+  airSpeed: 2.5
+  jumpHeight: 5
+  speedDivider: 30
+  jumpDivider: 1
   particleGroundHit: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
-  ground:
+  groundLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &11431100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165432}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48b3193c358a0f443a426d5f36214e30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: 0.3
-  moveAcceleration: 0.3
-  maxMoveSpeed: 2
-  slowdownTime: 0.3
-  acceleration: {x: 0, y: 0, z: 0}
-  speed: {x: 0, y: 0, z: 0}
-  jumpForce: 20
-  jumpReact: 20
 --- !u!114 &11437212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,23 +217,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5a1fa3a4e6d11459e3e82433921bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 20
-  maxPower: 20
---- !u!114 &11479172
+  chargeSpeed: 0.01
+  power: 0
+  maxPower: 100
+--- !u!114 &11495010
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165432}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c755ab1347aa4724a916fa208454d9e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 577703c7a829bfd4b81e2981d16dce80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetLerp: 1
-  linkDistance: 10
-  rotateCatchupSpeed: 1
-  rotateSpeed: 0.1
+  player: {fileID: 0}
+  cam: {fileID: 0}
+  deadZoneAmount: 0
+  triggerPressedSensitivity: 0
+  LeftStickAngle: 0
+  RightStickAngle: 0
+  RightStickActive: 0
+  LeftStickActive: 0
+  LeftStickX: 0
+  LeftStickY: 0
+  RightStickX: 0
+  RightStickY: 0
 --- !u!136 &13674824
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -246,19 +251,6 @@ CapsuleCollider:
   m_GameObject: {fileID: 165432}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &13688516
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165432}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2

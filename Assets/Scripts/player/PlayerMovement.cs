@@ -6,6 +6,10 @@ public class PlayerMovement : MonoBehaviour {
 	bool touchingGround = false; // Am I touching ground? Used to tell the difference
 								 // between a jump, and flight.
 
+    public bool TouchingGround {
+        get { return touchingGround; }
+    }
+
     [Header("Movement attributes:")]
 
     // Used to move according to the camera.
@@ -25,12 +29,15 @@ public class PlayerMovement : MonoBehaviour {
     float jumpHeight = 8;
 
     // This is the fly boost and is used when the player has enough power and is in the air.
-    [SerializeField][Tooltip("How much height will I be given when I fly.")]
-    float flightHeight = 5;
+    /*[SerializeField][Tooltip("How much height will I be given when I fly.")]
+    float flightHeight = 5;*/
 
-    [Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
-    [SerializeField] // Using this in the Move() function rather than the update so that speed can still be changed on the go.
+    [SerializeField][Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
+                             // Using this in the Move() function rather than the update so that speed can still be changed on the go.
     float speedDivider = 30; // Also using this to make the speed usable in just whole numbers while not making the player go insane speeds.
+
+    [SerializeField][Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
+    float jumpDivider = 30; // Also using this to make the jumpheight usable in just whole numbers while not making the player jump insanely high.
 
 	Transform tf; // Used to do walking movement.
 	Rigidbody rb; // Used to AddForce for the jump.
@@ -45,8 +52,8 @@ public class PlayerMovement : MonoBehaviour {
 	GameObject particleGroundHit;
 
 	[SerializeField][Tooltip("The layer Ground should be in this to detect if the player is touching the ground.")]
-	LayerMask ground; // This is compared with the layer of whatever I am touching right now.
-					  // So anything I can jump off has this as layer.
+	LayerMask groundLayer; // This is compared with the layer of whatever I am touching right now.
+					       // So anything I can jump off has this as layer.
 
 	void Start() {
 		// Getting them as soon as the class starts, because I will need them immediately after.
@@ -65,29 +72,33 @@ public class PlayerMovement : MonoBehaviour {
             Debug.LogError("The player gameobject does not contain a PowerContainer class!");
         }
 
-        if (GetComponent<KeyboardInput>() == null) { // To do: Once the xbox controller class is done, add a OR to this if statement.
+        if (GetComponent<KeyboardInput>() == null || GetComponent<Xbox360Wired_InputController>() == null) { // To do: Once the xbox controller class is done, add a OR to this if statement.
             Debug.LogError("The player gameobject is lacking an input class!");
         }
 	}
 
-	void OnCollisionEnter(Collision other) {
+	void OnTriggerEnter(Collider other) {
 		// Changing last checkpoint to the last checkpoint would be pointless, and just extra resources we need.
-		// Plus I already needed this if statement to check if it's a chargepad, two birds with one stone.
-		if (other.gameObject.tag == Tags.CHARGEPAD && cc.LastCheckpoint != other.gameObject) {
-            cc.SetLastCheckpoint(other.gameObject);
+		// Then if it's a checkpoint, check if it's not last and if it ain't make it the last.
+		if (other.gameObject.tag == Tags.CHARGEPAD) {
             pc.TouchingChargepad = true;
+            if(cc.LastCheckpoint != other.gameObject)
+                cc.SetLastCheckpoint(other.gameObject);
 		}
 
-        if (other.gameObject.layer == ground) {
+        Debug.Log(other.gameObject.layer == 8);
+
+        if (other.gameObject.layer == 8) {
             GameObject newParticle = Instantiate<GameObject>(particleGroundHit);
             newParticle.transform.position = new Vector3(tf.position.x, tf.position.y - tf.position.y * 0.9f, tf.position.z);
             newParticle.transform.rotation = tf.rotation;
+            touchingGround = true;
         }
 	}
 
-	void OnCollisionExit(Collision other) {
+    void OnTriggerExit(Collider other) {
 		// Make sure we set whatever we stop touching to false, so you can't charge or jump from thin air.
-		if (other.gameObject.layer == ground) {
+        if (other.gameObject.layer == 8) {
 			touchingGround = false;
 		}
 
@@ -237,18 +248,20 @@ public class PlayerMovement : MonoBehaviour {
 		// This would only trigger the frame the space bar was pressed. And aside from that only
 		// if the player was touching the ground.
 		if (jump && touchingGround) {
-            rb.AddForce(tf.up * jumpHeight, ForceMode.Impulse);
+            rb.AddForce(tf.up * (jumpHeight / jumpDivider), ForceMode.Impulse);
             Debug.Log("jump");
-		} else if (jump && pc.Power >= 10) {
+        } else if (jump && pc.Power > 0.5f) {
+            // Glide remains true while the the jump button is down. Unlike the actual jump
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
+            Debug.Log("glide");
+            pc.Power -= 0.5f;
+        }
+        
+        /*if (jump && pc.Power >= 10) {
             // The flight, only works if the player has enough power to remove.
 			pc.Power -= 10;
-			rb.AddForce(tf.up * flightHeight, ForceMode.Force);
+            rb.AddForce(tf.up * (flightHeight / jumpDivider), ForceMode.Impulse);
             Debug.Log("fly");
-		} else if (glide && pc.Power < 10) {
-            // If the power is less, let it glide.
-            // Glide remains true while the space bar is down. Unlike the jump.
-			rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
-            Debug.Log("glide");
-		}   
+		}*/  
 	}
 }

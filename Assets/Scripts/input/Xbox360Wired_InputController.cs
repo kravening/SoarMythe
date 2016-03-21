@@ -9,8 +9,8 @@ public class Xbox360Wired_InputController : MonoBehaviour {
 	GamePadState prevState;
 
 	//Objects to Affect
-	[SerializeField]GameObject player;
-	[SerializeField]GameObject cam;
+	[SerializeField]PlayerMovement player;
+	[SerializeField]CameraControl cam;
 
 	//Project Specific (add vars for storing classes here)
 
@@ -28,8 +28,6 @@ public class Xbox360Wired_InputController : MonoBehaviour {
     public float RightStickX;
     public float RightStickY;
 
-    public bool GUION;
-
     //bools for buttons
     bool leftShoulder = false;
     bool rightShoulder = false;
@@ -41,12 +39,20 @@ public class Xbox360Wired_InputController : MonoBehaviour {
     bool xButton = false;
     bool yButton = false;
 
+    bool aButtonHeld = false;
+    bool bButtonHeld = false;
+    bool xButtonHeld = false;
+    bool yButtonHeld = false;
+
 	bool leftStickButton = false;
+
+    bool forward, backward, left, right, jump, glide = false;
+    bool camLeft, camRight, camUp, camDown = false;
 
     // Use this for initialization
     void Start () {
-		cam = GameObject.FindGameObjectWithTag (Tags.MAIN_CAMERA);
-		player = GameObject.FindGameObjectWithTag (Tags.PLAYER);
+		cam = GameObject.FindGameObjectWithTag (Tags.MAIN_CAMERA).GetComponent<CameraControl>();
+        player = GetComponent<PlayerMovement>();
 	}
 	
 	// Update is called once per frame
@@ -56,6 +62,8 @@ public class Xbox360Wired_InputController : MonoBehaviour {
         CheckForButtonPress();
         CheckForButtonRelease();
         ButtonActions(); //do things like shooting here
+
+        ProcessAndSendMovement();
 
         if (DeadZoneCheckRight())
         {
@@ -84,33 +92,10 @@ public class Xbox360Wired_InputController : MonoBehaviour {
     void ButtonActions()
     {
 		if (player) {
-			if (leftShoulder == true) {
-				
-			}
-			if (rightShoulder == true) {
-
-			}
-			if (leftTrigger == true) {
-
-			}
-			if (rightTrigger == true) {
-
-			}
-			if (aButton == true) {
-
-			}
-			if (bButton == true) {
-
-			}
-			if (xButton == true) {
-
-			}
-			if (yButton == true) {
-
-			}
+            // Button keys
 		}
     }
-    void CheckForButtonPress() // check if a button was pressed this frame
+    void CheckForButtonPress() // check if a button was pressed this frame aka button down
     {
         //shoulders
 		if (player) {
@@ -132,6 +117,7 @@ public class Xbox360Wired_InputController : MonoBehaviour {
 			// buttons
 			if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed) {
 				aButton = true;
+                jump = true;
 			}
 			if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed) {
 				bButton = true;
@@ -235,5 +221,50 @@ public class Xbox360Wired_InputController : MonoBehaviour {
         float angle = (Mathf.Atan2(X, Y) * Mathf.Rad2Deg);
         //Debug.Log(angle);
         return angle;
+    }
+
+    void ProcessAndSendMovement() {
+        if (LeftStickY > 0.001) {
+            forward = true;
+        } else if (LeftStickY < -0.001) {
+            backward = true;
+        }
+
+        if (LeftStickX > 0.001) {
+            right = true;
+        } else if (LeftStickX < -0.001) {
+            left = true;
+        }
+
+        if (RightStickX > 0.001) {
+            camRight = true;
+        } else if (RightStickX < -0.001) {
+            camLeft = true;
+        }
+
+        if (RightStickY > 0.001) {
+            camUp = true;
+        } else if (RightStickY < -0.001) {
+            camDown = true;
+        }
+
+        if (jump && glide) {
+            glide = false;
+        }
+
+        player.Move(forward, backward, left, right, jump, glide);
+
+        if (camLeft)
+            cam.RotateY(-1);
+        else if(camRight)
+            cam.RotateY(1);
+
+        if (camUp)
+            cam.RotateX(1);
+        else if (camDown)
+            cam.RotateX(-1);
+
+        forward = backward = left = right = jump = glide = false;
+        camLeft = camRight = camUp = camDown = false;
     }
 }

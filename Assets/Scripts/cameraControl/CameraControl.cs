@@ -3,9 +3,12 @@ using UnityEngine;
 //[RequireComponent (typeof(BarsEffect))]
 public class CameraControl : MonoBehaviour 
 {
+    [SerializeField] float xSensitivity = 25;
+    [SerializeField] float ySensitivity = 10;
+
 	[SerializeField] float distanceAway;
 	[SerializeField] float distanceUp;
-	[SerializeField] float smooth;
+    [SerializeField] float camSmoothDampTime = 0.1f;
 	[SerializeField] Transform followXForm;
 	float distanceFromWall = 1;
 	float wideScreen = 0.2f;
@@ -15,7 +18,6 @@ public class CameraControl : MonoBehaviour
 	Vector3 lookDir;
 	Vector3 velocityCamSmooth = Vector3.zero;
 
-	float camSmoothDampTime = 0.1f;
 	private BarsEffect barEffect;
 	private CamStates camState = CamStates.Behind;
 
@@ -81,4 +83,39 @@ public class CameraControl : MonoBehaviour
 			toTarget = new Vector3 (wallHit.point.x, toTarget.y, wallHit.point.z) + wallHit.normal * distanceFromWall;
 		}
 	}
+
+    /// <summary>
+    /// Makes the camera rotate on Y.
+    /// </summary>
+    /// <param name="strength">Negative makes it go left</param>
+    public void RotateY(float strength) {
+        transform.position -= transform.right * (strength / ySensitivity);
+        return;
+    }
+
+    /// <summary>
+    /// Makes the camera rotate on X.
+    /// </summary>
+    /// <param name="strength">Negative makes it go down</param>
+    public void RotateX(float strength) {
+        if (strength < 0) {
+            if (distanceUp > -0.75f) {
+                distanceAway -= (strength / xSensitivity);
+                distanceUp += (strength / xSensitivity);
+            } else if (distanceUp < 0.75f) {
+                distanceAway = 7.76f;
+                distanceUp = -0.75f;
+            }
+        } else {
+            if (distanceUp < 3) {
+                distanceAway -= (strength / xSensitivity);
+                distanceUp += (strength / xSensitivity);
+            } else if (distanceUp > 3) {
+                distanceAway = 4;
+                distanceUp = 3;
+            }
+        }
+
+        return;
+    }
 }

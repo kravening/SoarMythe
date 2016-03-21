@@ -67,27 +67,23 @@ public class Xbox360Wired_InputController : MonoBehaviour {
 
         if (DeadZoneCheckRight())
         {
-            RightStickActive = true;
             RightStickX = state.ThumbSticks.Right.X;//holds x value of stick
             RightStickY = state.ThumbSticks.Right.Y;//holds y value of stick
             RightStickAngle = CalculateRotation(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y); // calculates a angle for the right stick
         }
         else
         {
-            RightStickActive = false;
             RightStickX = 0f; // set it back to 0 if inside the deadzone
             RightStickY = 0f; // set it back to 0 if inside the deadzone
         }
         if (DeadZoneCheckLeft())
         {
-            LeftStickActive = true;
             LeftStickX = state.ThumbSticks.Left.X;//holds x value of stick
             LeftStickY = state.ThumbSticks.Left.Y;//holds y value of stick
             LeftStickAngle = CalculateRotation(state.ThumbSticks.Left.X, state.ThumbSticks.Left.Y);   // calculates a angle for the left stick
         }
         else
         {
-            LeftStickActive = false;
             LeftStickX = 0f; // set it back to 0 if inside the deadzone
             LeftStickY = 0f; // set it back to 0 if inside the deadzone
         }
@@ -97,6 +93,9 @@ public class Xbox360Wired_InputController : MonoBehaviour {
     {
 		if (player) {
             // Button keys
+            if (bButton) {
+                glide = true;
+            }
 		}
     }
     void CheckForButtonPress() // check if a button was pressed this frame aka button down
@@ -207,7 +206,7 @@ public class Xbox360Wired_InputController : MonoBehaviour {
 				PlayerIndex testPlayerIndex = (PlayerIndex)i;
 				GamePadState testState = GamePad.GetState (testPlayerIndex);
 				if (testState.IsConnected) {
-					Debug.Log (string.Format ("GamePad found {0}", testPlayerIndex));
+					//Debug.Log (string.Format ("GamePad found {0}", testPlayerIndex));
 					playerIndex = testPlayerIndex;
 					playerIndexSet = true;
 				}

@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour {
             Debug.LogError("The player gameobject does not contain a PowerContainer class!");
         }
 
-        if (GetComponent<KeyboardInput>() == null || GetComponent<Xbox360Wired_InputController>() == null) { // To do: Once the xbox controller class is done, add a OR to this if statement.
+        if (GetComponent<KeyboardInput>() == null || GetComponent<Xbox360Wired_InputController>() == null) {
             Debug.LogError("The player gameobject is lacking an input class!");
         }
 	}
@@ -85,8 +85,6 @@ public class PlayerMovement : MonoBehaviour {
             if(cc.LastCheckpoint != other.gameObject)
                 cc.SetLastCheckpoint(other.gameObject);
 		}
-
-        Debug.Log(other.gameObject.layer == 8);
 
         if (other.gameObject.layer == 8) {
             GameObject newParticle = Instantiate<GameObject>(particleGroundHit);
@@ -181,7 +179,7 @@ public class PlayerMovement : MonoBehaviour {
                         transform.rotation = QuatLerp(QuatLookRot(CamRight + -CamForward), DelTime);
                 }
             }
-
+			
             // After we made him face the right way, actually go the right way.
             // If I press forward or backward, apply movement accordingly.
             if (forward) {
@@ -249,11 +247,12 @@ public class PlayerMovement : MonoBehaviour {
 		// if the player was touching the ground.
 		if (jump && touchingGround) {
             rb.AddForce(tf.up * (jumpHeight / jumpDivider), ForceMode.Impulse);
-            Debug.Log("jump");
         } else if (jump && pc.Power > 0.5f) {
             // Glide remains true while the the jump button is down. Unlike the actual jump
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
-            Debug.Log("glide");
+        } else if (jump && pc.Power > 0.5f) {
+            // Glide remains true while the the jump button is down. Unlike the actual jump
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
             pc.Power -= 0.5f;
         }
         

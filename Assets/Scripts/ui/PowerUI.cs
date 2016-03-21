@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PowerUI : MonoBehaviour {
 
-	[SerializeField][Tooltip("This is in the player. Need it to display (max)power.")]
+	[SerializeField]
 	PowerContainer pc;
 
     GameObject fillArea;
@@ -20,7 +20,7 @@ public class PowerUI : MonoBehaviour {
 		slider.value = pc.Power < Mathf.Floor(pc.Power / 2) ? pc.Power - 1 : pc.Power;
         slider.maxValue = pc.MaxPower;
 
-        text.text = Mathf.Round(pc.Power) + " / " + pc.MaxPower;
+        text.text = pc.Power + "/" + pc.MaxPower;
 
         if (pc.Power <= 0) {
             fillArea.SetActive(false);

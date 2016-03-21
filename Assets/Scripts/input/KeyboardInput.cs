@@ -8,12 +8,6 @@ public class KeyboardInput : MonoBehaviour {
 
     bool up, right, down, left, jump, glide, use, pause = false;
 
-    Vector2 mousePos;
-
-    public Vector2 MousePos {
-        get { return mousePos; }
-    }
-
 	void Start(){
 		playerMovement = gameObject.GetComponent<PlayerMovement> ();
 	}
@@ -23,12 +17,9 @@ public class KeyboardInput : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		// Check keys
+		//Check keys
         CheckKeys();
         CheckKeysDown();
-
-        // Get Mouse Axis
-        UpdateMousePos();
 
 		playerMovement.Move(up, down, left, right, jump, glide);
 	}
@@ -62,9 +53,4 @@ public class KeyboardInput : MonoBehaviour {
 			pauseMenu.togglePause ();
 		}
 	}
-
-    void UpdateMousePos() {
-        mousePos.x = Input.GetAxis("Horizontal");
-        mousePos.y = Input.GetAxis("Vertical");
-    }
 }

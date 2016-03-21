@@ -39,11 +39,6 @@ public class Xbox360Wired_InputController : MonoBehaviour {
     bool xButton = false;
     bool yButton = false;
 
-    bool aButtonHeld = false;
-    bool bButtonHeld = false;
-    bool xButtonHeld = false;
-    bool yButtonHeld = false;
-
 	bool leftStickButton = false;
 
     bool forward, backward, left, right, jump, glide = false;
@@ -92,7 +87,9 @@ public class Xbox360Wired_InputController : MonoBehaviour {
     void ButtonActions()
     {
 		if (player) {
-            // Button keys
+            if (bButton) {
+                glide = true;
+            }
 		}
     }
     void CheckForButtonPress() // check if a button was pressed this frame aka button down
@@ -203,7 +200,7 @@ public class Xbox360Wired_InputController : MonoBehaviour {
 				PlayerIndex testPlayerIndex = (PlayerIndex)i;
 				GamePadState testState = GamePad.GetState (testPlayerIndex);
 				if (testState.IsConnected) {
-					Debug.Log (string.Format ("GamePad found {0}", testPlayerIndex));
+					//Debug.Log (string.Format ("GamePad found {0}", testPlayerIndex));
 					playerIndex = testPlayerIndex;
 					playerIndexSet = true;
 				}
@@ -246,10 +243,6 @@ public class Xbox360Wired_InputController : MonoBehaviour {
             camUp = true;
         } else if (RightStickY < -0.001) {
             camDown = true;
-        }
-
-        if (jump && glide) {
-            glide = false;
         }
 
         player.Move(forward, backward, left, right, jump, glide);

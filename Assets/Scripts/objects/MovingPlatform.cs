@@ -18,7 +18,7 @@ public class MovingPlatform : MonoBehaviour {
 
     // The speed at which the platform moves.
     [SerializeField][Range(0,0.1f)][Tooltip("How fast the platform will move.")]
-    float speed = 0.5f;
+    float speed = 0.1f;
 
     void Start() {
         pointsCount = points.Count - 1;

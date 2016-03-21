@@ -9,9 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 498732}
   - 33: {fileID: 3322962}
+  - 65: {fileID: 6517340}
   - 23: {fileID: 2390094}
   m_Layer: 0
-  m_Name: Front
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,15 +27,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 440696}
   - 33: {fileID: 3377418}
-  - 136: {fileID: 13674824}
-  - 65: {fileID: 6596880}
+  - 136: {fileID: 13688516}
   - 23: {fileID: 2365264}
   - 54: {fileID: 5484358}
+  - 114: {fileID: 11431100}
   - 114: {fileID: 11428342}
   - 114: {fileID: 11406164}
-  - 114: {fileID: 11437212}
-  - 114: {fileID: 11423092}
-  - 114: {fileID: 11495010}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -49,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.53, y: 6.74, z: 0.85}
+  m_LocalPosition: {x: 8.677046, y: 6.0739303, z: -3.411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 498732}
@@ -143,23 +141,23 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6596880
+--- !u!65 &6517340
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165432}
+  m_GameObject: {fileID: 162102}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.1, z: 0.5}
-  m_Center: {x: 0, y: -1.01, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11406164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,18 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
---- !u!114 &11423092
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf287a48fff500b4f97e317b858ac571, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastCheckpoint: {fileID: 0}
 --- !u!114 &11428342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,18 +181,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca7b17b2d27cee408d5dfaa7960287d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingGround: 1
-  CameraPosition: {fileID: 0}
-  groundSpeed: 4
-  airSpeed: 2.5
-  jumpHeight: 5
-  speedDivider: 30
-  jumpDivider: 1
   particleGroundHit: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
-  groundLayer:
+  power: 20
+  maxPower: 20
+  lastCheckpoint: {fileID: 0}
+  ground:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &11437212
+--- !u!114 &11431100
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -214,36 +196,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 165432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa5a1fa3a4e6d11459e3e82433921bdb, type: 3}
+  m_Script: {fileID: 11500000, guid: 48b3193c358a0f443a426d5f36214e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeSpeed: 0.01
-  power: 0
-  maxPower: 100
---- !u!114 &11495010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 577703c7a829bfd4b81e2981d16dce80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  cam: {fileID: 0}
-  deadZoneAmount: 0
-  triggerPressedSensitivity: 0
-  LeftStickAngle: 0
-  RightStickAngle: 0
-  RightStickActive: 0
-  LeftStickActive: 0
-  LeftStickX: 0
-  LeftStickY: 0
-  RightStickX: 0
-  RightStickY: 0
---- !u!136 &13674824
+  mass: 0.3
+  moveAcceleration: 0.3
+  maxMoveSpeed: 2
+  slowdownTime: 0.3
+--- !u!136 &13688516
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

@@ -3,21 +3,18 @@ using UnityEngine;
 //[RequireComponent (typeof(BarsEffect))]
 public class CameraControl : MonoBehaviour 
 {
-    [SerializeField] float xSensitivity = 25;
-    [SerializeField] float ySensitivity = 10;
-
 	[SerializeField] float distanceAway;
 	[SerializeField] float distanceUp;
-    [SerializeField] float camSmoothDampTime = 0.1f;
 	[SerializeField] Transform followXForm;
 	float distanceFromWall = 1;
-	float wideScreen = 0.2f;
-	float targetingTime = 0.5f;
 
-	Vector3 targetPosition;
+    Vector3 targetPosition;
+    public Vector3 Tpos
+    { get { return targetPosition; } }
 	Vector3 lookDir;
 	Vector3 velocityCamSmooth = Vector3.zero;
 
+	float camSmoothDampTime = 0.1f;
 	private BarsEffect barEffect;
 	private CamStates camState = CamStates.Behind;
 
@@ -40,6 +37,9 @@ public class CameraControl : MonoBehaviour
 			Debug.LogError ("Attach a widescreen BarsEffect script to the camera", this);
 		}
 	}
+	void Update()
+	{
+	}
 
 	void OnDrawGizmos()
 	{
@@ -48,7 +48,7 @@ public class CameraControl : MonoBehaviour
 
 	void LateUpdate()
 	{
-		Vector3 characterOffset = followXForm.position + new Vector3(0f, distanceUp, 0f);
+		Vector3 characterOffset = followXForm.position + new Vector3 (0f, distanceUp, 0f);
 		// calculate direction from camera to player, kill Y, and normalize to give a valid direction with unit magnitude
 		lookDir = characterOffset - this.transform.position;
 		lookDir.y = 0;
@@ -60,9 +60,10 @@ public class CameraControl : MonoBehaviour
 
 		compensateForWalls (characterOffset, ref targetPosition);
 
-		smoothPosition(this.transform.position, targetPosition);
+		smoothPosition (this.transform.position, targetPosition);
 		// make sure the camera is looking the right way
 		transform.LookAt (followXForm);
+
 
 		//Debug.DrawRay (followXForm.position, Vector3.up * distanceUp, Color.red);
 		//Debug.DrawRay(followXForm.position, -1f * followXForm.forward * distanceUp, Color.blue);
@@ -83,39 +84,4 @@ public class CameraControl : MonoBehaviour
 			toTarget = new Vector3 (wallHit.point.x, toTarget.y, wallHit.point.z) + wallHit.normal * distanceFromWall;
 		}
 	}
-
-    /// <summary>
-    /// Makes the camera rotate on Y.
-    /// </summary>
-    /// <param name="strength">Negative makes it go left</param>
-    public void RotateY(float strength) {
-        transform.position -= transform.right * (strength / ySensitivity);
-        return;
-    }
-
-    /// <summary>
-    /// Makes the camera rotate on X.
-    /// </summary>
-    /// <param name="strength">Negative makes it go down</param>
-    public void RotateX(float strength) {
-        if (strength < 0) {
-            if (distanceUp > -0.75f) {
-                distanceAway -= (strength / xSensitivity);
-                distanceUp += (strength / xSensitivity);
-            } else if (distanceUp < 0.75f) {
-                distanceAway = 7.76f;
-                distanceUp = -0.75f;
-            }
-        } else {
-            if (distanceUp < 3) {
-                distanceAway -= (strength / xSensitivity);
-                distanceUp += (strength / xSensitivity);
-            } else if (distanceUp > 3) {
-                distanceAway = 4;
-                distanceUp = 3;
-            }
-        }
-
-        return;
-    }
 }

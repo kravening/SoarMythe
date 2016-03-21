@@ -9,7 +9,7 @@ public class SaveLoad : MonoBehaviour
 
 
 	GameObject finalCheckpoint;
-	int currentPower;
+    float currentPower;
 
 	public void Save()
 	{
@@ -64,7 +64,7 @@ public class SaveLoad : MonoBehaviour
 class PlayerSave
 {
 	public GameObject Checkpoint;
-	public int Power;
+    public float Power;
 	//add-able stuff...
 	//int, float, bool, string, v2/3/4, quaternions matrix 4x4 color rect layermask
 	//unity engine.object = gameobject component monobehavior texture2d animationclips

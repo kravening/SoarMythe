@@ -9,6 +9,9 @@ public class Powerup : MonoBehaviour {
     [SerializeField][Tooltip("How much of a power raise should I give the player?")]
     int powerUp = 0;
 
+    [SerializeField][Tooltip("Also add power so the player has more jump power?")]
+    bool addPower = false;
+
     void OnTriggerEnter(Collider other) {
         // Wouldn't wanna try and give a random object a powerup.
 		if (other.tag == Tags.PLAYER) {
@@ -17,7 +20,7 @@ public class Powerup : MonoBehaviour {
 
 			PowerContainer powerContainer = other.gameObject.GetComponent<PowerContainer> ();
             if (powerUp != 0)
-                powerContainer.PowerUp(powerUp);
+                powerContainer.PowerUp(powerUp, addPower);
             else
                 powerContainer.PowerUp();
 

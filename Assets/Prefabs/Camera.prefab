@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 459926}
   m_Layer: 0
-  m_Name: CameraContainer
+  m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.677046, y: 7.7739305, z: -9.861}
+  m_LocalPosition: {x: 97.14964, y: 5.6137996, z: 0.21371078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433852}
@@ -99,7 +99,7 @@ Camera:
   m_GameObject: {fileID: 136314}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.034482718, g: 1, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -201,6 +201,14 @@ MonoBehaviour:
   distanceUp: 2
   camSmoothDampTime: 0.3
   followXForm: {fileID: 0}
+  distanceFromWall: 1
+  wideScreen: 0.2
+  targetingTime: 0.5
+  targetPosition: {x: 0, y: 0, z: 0}
+  lookDir: {x: 0, y: 0, z: 0}
+  velocityCamSmooth: {x: 0, y: 0, z: 0}
+  barEffect: {fileID: 0}
+  camState: 0
 --- !u!124 &12454808
 Behaviour:
   m_ObjectHideFlags: 1

@@ -1,10 +1,10 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	
+
     [SerializeField]
-	bool touchingGround = false; // Am I touching ground? Used to tell the difference
-								 // between a jump, and flight.
+    bool touchingGround = false; // Am I touching ground? Used to tell the difference
+    // between a jump, and flight.
 
     public bool TouchingGround {
         get { return touchingGround; }
@@ -13,54 +13,63 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Movement attributes:")]
 
     // Used to move according to the camera.
-    [SerializeField][Tooltip("The block that follows the camera. The block should contain a PlayerMovementCameraPosition class.")]
+    [SerializeField]
+    [Tooltip("The block that follows the camera. The block should contain a PlayerMovementCameraPosition class.")]
     Transform CameraPosition;
 
-     // Speed on the ground.
-    [SerializeField][Tooltip("How the fast the player will move when on the ground.")]
+    // Speed on the ground.
+    [SerializeField]
+    [Tooltip("How the fast the player will move when on the ground.")]
     float groundSpeed = 8;
 
     // Speed in the air.
-    [SerializeField][Tooltip("How the fast the player will move when in the air.")]
+    [SerializeField]
+    [Tooltip("How the fast the player will move when in the air.")]
     float airSpeed = 2;
 
     // How high can we jump.
-    [SerializeField][Tooltip("How high the player can jump.")]
+    [SerializeField]
+    [Tooltip("How high the player can jump.")]
     float jumpHeight = 8;
 
     // This is the fly boost and is used when the player has enough power and is in the air.
     /*[SerializeField][Tooltip("How much height will I be given when I fly.")]
     float flightHeight = 5;*/
 
-    [SerializeField][Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
-                             // Using this in the Move() function rather than the update so that speed can still be changed on the go.
+    [SerializeField]
+    [Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
+    // Using this in the Move() function rather than the update so that speed can still be changed on the go.
     float speedDivider = 30; // Also using this to make the speed usable in just whole numbers while not making the player go insane speeds.
 
-    [SerializeField][Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
+    [SerializeField]
+    [Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
     float jumpDivider = 30; // Also using this to make the jumpheight usable in just whole numbers while not making the player jump insanely high.
 
-	Transform tf; // Used to do walking movement.
-	Rigidbody rb; // Used to AddForce for the jump.
-    CustomGravity cg; // Used to actually addforce for the jump.
+    Transform tf; // Used to do walking movement.
+    Rigidbody rb; // Used to AddForce for the jump.
     CheckpointController cc; // Used to set and goto last checkpoint.
     PowerContainer pc; // Used to retrieve the amount of power the player has and edit it.
 
     [Header("Miscellaneous attributes:")]
 
     // When the player hits the ground, drop an instance of this.
-	[SerializeField][Tooltip("The particle that will be instantiated when the player lands on the ground.")]
-	GameObject particleGroundHit;
+    [SerializeField]
+    [Tooltip("The particle that will be instantiated when the player lands on the ground.")]
+    GameObject particleGroundHit;
 
-	[SerializeField][Tooltip("The layer Ground should be in this to detect if the player is touching the ground.")]
-	LayerMask groundLayer; // This is compared with the layer of whatever I am touching right now.
-					       // So anything I can jump off has this as layer.
+    [SerializeField]
+    [Tooltip("The layer Ground should be in this to detect if the player is touching the ground.")]
+    LayerMask groundLayer; // This is compared with the layer of whatever I am touching right now.
+    // So anything I can jump off has this as layer.
 
-	void Start() {
-		// Getting them as soon as the class starts, because I will need them immediately after.
-		rb = GetComponent<Rigidbody>();
-		tf = GetComponent<Transform>();
+    void Start() {
+        // Getting them as soon as the class starts, because I will need them immediately after.
+        rb = GetComponent<Rigidbody>();
+        tf = GetComponent<Transform>();
         cc = GetComponent<CheckpointController>();
         pc = GetComponent<PowerContainer>();
+
+        CameraPosition = Object.FindObjectOfType<PlayerMovementCameraPosition>().gameObject.GetComponent<Transform>();
 
         // The artists tend to have issues throwing a player into their game, giving these errors if the player is lacking something will help
         // them on their way.
@@ -75,16 +84,16 @@ public class PlayerMovement : MonoBehaviour {
         if (GetComponent<KeyboardInput>() == null || GetComponent<Xbox360Wired_InputController>() == null) {
             Debug.LogError("The player gameobject is lacking an input class!");
         }
-	}
+    }
 
-	void OnTriggerEnter(Collider other) {
-		// Changing last checkpoint to the last checkpoint would be pointless, and just extra resources we need.
-		// Then if it's a checkpoint, check if it's not last and if it ain't make it the last.
-		if (other.gameObject.tag == Tags.CHARGEPAD) {
+    void OnTriggerEnter(Collider other) {
+        // Changing last checkpoint to the last checkpoint would be pointless, and just extra resources we need.
+        // Then if it's a checkpoint, check if it's not last and if it ain't make it the last.
+        if (other.gameObject.tag == Tags.CHARGEPAD) {
             pc.TouchingChargepad = true;
-            if(cc.LastCheckpoint != other.gameObject)
+            if (cc.LastCheckpoint != other.gameObject)
                 cc.SetLastCheckpoint(other.gameObject);
-		}
+        }
 
         if (other.gameObject.layer == 8) {
             GameObject newParticle = Instantiate<GameObject>(particleGroundHit);
@@ -92,18 +101,18 @@ public class PlayerMovement : MonoBehaviour {
             newParticle.transform.rotation = tf.rotation;
             touchingGround = true;
         }
-	}
+    }
 
     void OnTriggerExit(Collider other) {
-		// Make sure we set whatever we stop touching to false, so you can't charge or jump from thin air.
+        // Make sure we set whatever we stop touching to false, so you can't charge or jump from thin air.
         if (other.gameObject.layer == 8) {
-			touchingGround = false;
-		}
+            touchingGround = false;
+        }
 
-		if (other.gameObject.tag == Tags.CHARGEPAD) {
+        if (other.gameObject.tag == Tags.CHARGEPAD) {
             pc.TouchingChargepad = false;
-		}
-	}
+        }
+    }
 
     // Just made these two cause it was a lot faster and smaller then calling the full function again and again.
     private Quaternion QuatLookRot(Vector3 i) {
@@ -115,17 +124,17 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     /// <summary>
-	/// This method should only be called by input classes.
-	/// So the defaults shouldn't matter.
-	/// But they're there to be on the safe side.
-	/// </summary>
-	/// <param name="forward">Moving forward?</param>
-	/// <param name="backward">Moving backwards?</param>
-	/// <param name="left">Moving left?</param>
-	/// <param name="right">Moving right?</param>
-	/// <param name="jump">Should I jump?</param>
-	/// <param name="glide">Am I gliding?</param>
-	public void Move(bool forward = false, bool backward = false, bool left = false, bool right = false, bool jump = false, bool glide = false) {
+    /// This method should only be called by input classes.
+    /// So the defaults shouldn't matter.
+    /// But they're there to be on the safe side.
+    /// </summary>
+    /// <param name="forward">Moving forward?</param>
+    /// <param name="backward">Moving backwards?</param>
+    /// <param name="left">Moving left?</param>
+    /// <param name="right">Moving right?</param>
+    /// <param name="jump">Should I jump?</param>
+    /// <param name="glide">Am I gliding?</param>
+    public void Move(bool forward = false, bool backward = false, bool left = false, bool right = false, bool jump = false, bool glide = false) {
 
         Vector3 forwardMovement;
         Vector3 rightMovement = new Vector3();
@@ -139,10 +148,10 @@ public class PlayerMovement : MonoBehaviour {
             forwardMovement = touchingGround ? tf.forward * (groundSpeed / speedDivider) : tf.forward * (airSpeed / speedDivider);
         }
 
-		// I need this so that I can edit it if the player moves with left or right.
-		Vector3 moveBy = new Vector3();
+        // I need this so that I can edit it if the player moves with left or right.
+        Vector3 moveBy = new Vector3();
 
-		// Just add movement.
+        // Just add movement.
         // If no cameraPosition was added, I'll move make it move based
         // on the player instead.
         // If it is added, move based on the camera.
@@ -156,7 +165,7 @@ public class PlayerMovement : MonoBehaviour {
 
             // Make the player face the direction he is walking.
             // This makes it possible to go upto 8 directions. Which is also how much he can walk in the actual movement.
-            if(!left && !right) {
+            if (!left && !right) {
                 if (forward)
                     transform.rotation = QuatLerp(CameraPosition.rotation, DelTime);
                 else if (backward)
@@ -179,7 +188,7 @@ public class PlayerMovement : MonoBehaviour {
                         transform.rotation = QuatLerp(QuatLookRot(CamRight + -CamForward), DelTime);
                 }
             }
-			
+
             // After we made him face the right way, actually go the right way.
             // If I press forward or backward, apply movement accordingly.
             if (forward) {
@@ -236,31 +245,28 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-		// Then finally the add movement I made above.
-		tf.position += moveBy;
+        // Then finally the add movement I made above.
+        tf.position += moveBy;
 
-        
+
         // Then for the finale movement ability, the jump.
         // This isn't dependant on the CameraPos because it's just up.
         // So doing it last is for the best.
-		// This would only trigger the frame the space bar was pressed. And aside from that only
-		// if the player was touching the ground.
-		if (jump && touchingGround) {
+        // This would only trigger the frame the space bar was pressed. And aside from that only
+        // if the player was touching the ground.
+        if (jump && touchingGround) {
             rb.AddForce(tf.up * (jumpHeight / jumpDivider), ForceMode.Impulse);
-        } else if (jump && pc.Power > 0.5f) {
-            // Glide remains true while the the jump button is down. Unlike the actual jump
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
-        } else if (jump && pc.Power > 0.5f) {
+        } else if (glide && pc.Power > 0.5f && !touchingGround) {
             // Glide remains true while the the jump button is down. Unlike the actual jump
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
             pc.Power -= 0.5f;
         }
-        
+
         /*if (jump && pc.Power >= 10) {
             // The flight, only works if the player has enough power to remove.
-			pc.Power -= 10;
+            pc.Power -= 10;
             rb.AddForce(tf.up * (flightHeight / jumpDivider), ForceMode.Impulse);
             Debug.Log("fly");
-		}*/  
-	}
+        }*/
+    }
 }

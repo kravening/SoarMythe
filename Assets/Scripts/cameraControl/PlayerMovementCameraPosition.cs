@@ -3,13 +3,13 @@ using System.Collections;
 
 public class PlayerMovementCameraPosition : MonoBehaviour {
 
-    [SerializeField][Tooltip("It will follow this Transform to give it's own position to the player.")]
     Transform camera;
 
     // Since I'm constantly needing a Quaternion to edit, I'll just have one present in memory that will be reused instead.
     Quaternion rotation;
 
     void Start() {
+        camera = Camera.main.GetComponent<Transform>();
         rotation = new Quaternion();
     }
 

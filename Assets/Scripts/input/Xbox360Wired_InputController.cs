@@ -3,20 +3,22 @@ using System.Collections;
 using XInputDotNetPure;
 
 public class Xbox360Wired_InputController : MonoBehaviour {
-	bool playerIndexSet = false;
-	PlayerIndex playerIndex;
-	GamePadState state;
-	GamePadState prevState;
+    bool playerIndexSet = false;
+    PlayerIndex playerIndex;
+    GamePadState state;
+    GamePadState prevState;
 
-	//Objects to Affect
-	[SerializeField]PlayerMovement player;
-	[SerializeField]CameraControl cam;
+    //Objects to Affect
+    PlayerMovement player;
+    CameraControl cam;
 
-	//Project Specific (add vars for storing classes here)
+    //Project Specific (add vars for storing classes here)
 
     //behaviourModifiers
-    [SerializeField]float deadZoneAmount;
-    [SerializeField]float triggerPressedSensitivity;
+    [SerializeField]
+    float deadZoneAmount;
+    [SerializeField]
+    float triggerPressedSensitivity;
 
     //for reading
     public float LeftStickAngle;
@@ -39,25 +41,25 @@ public class Xbox360Wired_InputController : MonoBehaviour {
     bool xButton = false;
     bool yButton = false;
 
-    bool aButtonHeld = false;
-    bool bButtonHeld = false;
-    bool xButtonHeld = false;
-    bool yButtonHeld = false;
-
-	bool leftStickButton = false;
+    bool leftStickButton = false;
 
     bool forward, backward, left, right, jump, glide = false;
     bool camLeft, camRight, camUp, camDown = false;
 
     // Use this for initialization
-    void Start () {
-		cam = GameObject.FindGameObjectWithTag (Tags.MAIN_CAMERA).GetComponent<CameraControl>();
+    void Start() {
+        cam = Camera.main.GetComponent<CameraControl>();
         player = GetComponent<PlayerMovement>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		FindController ();
+
+        if (cam == null)
+            Debug.LogError("No CameraControl was found in the camera!");
+        if(player == null)
+            Debug.LogError("Player does not contain a PlayerMovement!");
+    }
+
+    // Update is called once per frame
+    void Update() {
+        FindController();
         SetState();
         CheckForButtonPress();
         CheckForButtonRelease();
@@ -65,156 +67,139 @@ public class Xbox360Wired_InputController : MonoBehaviour {
 
         ProcessAndSendMovement();
 
-        if (DeadZoneCheckRight())
-        {
+        if (DeadZoneCheckRight()) {
             RightStickX = state.ThumbSticks.Right.X;//holds x value of stick
             RightStickY = state.ThumbSticks.Right.Y;//holds y value of stick
             RightStickAngle = CalculateRotation(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y); // calculates a angle for the right stick
-        }
-        else
-        {
+        } else {
             RightStickX = 0f; // set it back to 0 if inside the deadzone
             RightStickY = 0f; // set it back to 0 if inside the deadzone
         }
-        if (DeadZoneCheckLeft())
-        {
+        if (DeadZoneCheckLeft()) {
             LeftStickX = state.ThumbSticks.Left.X;//holds x value of stick
             LeftStickY = state.ThumbSticks.Left.Y;//holds y value of stick
             LeftStickAngle = CalculateRotation(state.ThumbSticks.Left.X, state.ThumbSticks.Left.Y);   // calculates a angle for the left stick
-        }
-        else
-        {
+        } else {
             LeftStickX = 0f; // set it back to 0 if inside the deadzone
             LeftStickY = 0f; // set it back to 0 if inside the deadzone
         }
 
     }
-    void ButtonActions()
-    {
-		if (player) {
-            // Button keys
+    void ButtonActions() {
+        if (player) {
             if (bButton) {
                 glide = true;
             }
-		}
+        }
     }
     void CheckForButtonPress() // check if a button was pressed this frame aka button down
     {
         //shoulders
-		if (player) {
-			if (prevState.Buttons.LeftShoulder == ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed) {
-				leftShoulder = true;
-			}
-			if (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed) {
-				rightShoulder = true;
-			}
-			if (prevState.Triggers.Left >= triggerPressedSensitivity && leftTrigger == false) {
-				leftTrigger = true;
-			}
-			if (prevState.Triggers.Right >= triggerPressedSensitivity && rightTrigger == false) {
-				rightTrigger = true;
-			}
+        if (player) {
+            if (prevState.Buttons.LeftShoulder == ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed) {
+                leftShoulder = true;
+            }
+            if (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed) {
+                rightShoulder = true;
+            }
+            if (prevState.Triggers.Left >= triggerPressedSensitivity && leftTrigger == false) {
+                leftTrigger = true;
+            }
+            if (prevState.Triggers.Right >= triggerPressedSensitivity && rightTrigger == false) {
+                rightTrigger = true;
+            }
 
 
 
-			// buttons
-			if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed) {
-				aButton = true;
+            // buttons
+            if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed) {
+                aButton = true;
                 jump = true;
-			}
-			if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed) {
-				bButton = true;
-			}
-			if (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed) {
-				xButton = true;
-			}
-			if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed) {
-				yButton = true;
-			}
+            }
+            if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed) {
+                bButton = true;
+            }
+            if (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed) {
+                xButton = true;
+            }
+            if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed) {
+                yButton = true;
+            }
 
-			if (prevState.Buttons.LeftStick == ButtonState.Released && state.Buttons.LeftStick == ButtonState.Pressed) {
-				leftStickButton = true;
-			}
-		}
-	}
-	void CheckForButtonRelease() // check if a button is released this frame
-    {
-		if (player) {
-			//shoulders
-			if (prevState.Buttons.LeftShoulder == ButtonState.Pressed && state.Buttons.LeftShoulder == ButtonState.Released) {
-				leftShoulder = false;
-			}
-			if (prevState.Buttons.RightShoulder == ButtonState.Pressed && state.Buttons.RightShoulder == ButtonState.Released) {
-				rightShoulder = false;
-			}
-
-			if (prevState.Triggers.Left <= triggerPressedSensitivity && leftTrigger == true) {
-				leftTrigger = false;
-			}
-			if (prevState.Triggers.Right <= triggerPressedSensitivity && rightTrigger == true) {
-				rightTrigger = false;
-			}
-
-			if (prevState.Buttons.A == ButtonState.Pressed && state.Buttons.A == ButtonState.Released) {
-				aButton = false;
-			}
-			if (prevState.Buttons.B == ButtonState.Pressed && state.Buttons.B == ButtonState.Released) {
-				bButton = false;
-			}
-			if (prevState.Buttons.X == ButtonState.Pressed && state.Buttons.X == ButtonState.Released) {
-				xButton = false;
-			}
-			if (prevState.Buttons.Y == ButtonState.Pressed && state.Buttons.Y == ButtonState.Released) {
-				yButton = false;
-			}
-
-			if (prevState.Buttons.LeftStick == ButtonState.Pressed && state.Buttons.LeftStick == ButtonState.Released) {
-				leftStickButton = false;
-			}
-		}
-	}
-	
-	public bool DeadZoneCheckRight()
-    {
-        if (state.ThumbSticks.Right.X >= deadZoneAmount || state.ThumbSticks.Right.X <= -deadZoneAmount || state.ThumbSticks.Right.Y >= deadZoneAmount || state.ThumbSticks.Right.Y <= -deadZoneAmount)
-        {
-            return true;
+            if (prevState.Buttons.LeftStick == ButtonState.Released && state.Buttons.LeftStick == ButtonState.Pressed) {
+                leftStickButton = true;
+            }
         }
-        else
-        {
+    }
+    void CheckForButtonRelease() // check if a button is released this frame
+    {
+        if (player) {
+            //shoulders
+            if (prevState.Buttons.LeftShoulder == ButtonState.Pressed && state.Buttons.LeftShoulder == ButtonState.Released) {
+                leftShoulder = false;
+            }
+            if (prevState.Buttons.RightShoulder == ButtonState.Pressed && state.Buttons.RightShoulder == ButtonState.Released) {
+                rightShoulder = false;
+            }
+
+            if (prevState.Triggers.Left <= triggerPressedSensitivity && leftTrigger == true) {
+                leftTrigger = false;
+            }
+            if (prevState.Triggers.Right <= triggerPressedSensitivity && rightTrigger == true) {
+                rightTrigger = false;
+            }
+
+            if (prevState.Buttons.A == ButtonState.Pressed && state.Buttons.A == ButtonState.Released) {
+                aButton = false;
+            }
+            if (prevState.Buttons.B == ButtonState.Pressed && state.Buttons.B == ButtonState.Released) {
+                bButton = false;
+            }
+            if (prevState.Buttons.X == ButtonState.Pressed && state.Buttons.X == ButtonState.Released) {
+                xButton = false;
+            }
+            if (prevState.Buttons.Y == ButtonState.Pressed && state.Buttons.Y == ButtonState.Released) {
+                yButton = false;
+            }
+
+            if (prevState.Buttons.LeftStick == ButtonState.Pressed && state.Buttons.LeftStick == ButtonState.Released) {
+                leftStickButton = false;
+            }
+        }
+    }
+
+    public bool DeadZoneCheckRight() {
+        if (state.ThumbSticks.Right.X >= deadZoneAmount || state.ThumbSticks.Right.X <= -deadZoneAmount || state.ThumbSticks.Right.Y >= deadZoneAmount || state.ThumbSticks.Right.Y <= -deadZoneAmount) {
+            return true;
+        } else {
             return false;
         }
     }
 
-    public bool DeadZoneCheckLeft()
-    {
-        if (state.ThumbSticks.Left.X >= deadZoneAmount || state.ThumbSticks.Left.X <= -deadZoneAmount || state.ThumbSticks.Left.Y >= deadZoneAmount || state.ThumbSticks.Left.Y <= -deadZoneAmount)
-        {
+    public bool DeadZoneCheckLeft() {
+        if (state.ThumbSticks.Left.X >= deadZoneAmount || state.ThumbSticks.Left.X <= -deadZoneAmount || state.ThumbSticks.Left.Y >= deadZoneAmount || state.ThumbSticks.Left.Y <= -deadZoneAmount) {
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
 
-    void FindController(){
-		// Find a PlayerIndex, for a single player game
-		// Will find the first controller that is connected and use it
-		if (!playerIndexSet || !prevState.IsConnected) {
-			for (int i = 0; i < 4; ++i) {
-				PlayerIndex testPlayerIndex = (PlayerIndex)i;
-				GamePadState testState = GamePad.GetState (testPlayerIndex);
-				if (testState.IsConnected) {
-					//Debug.Log (string.Format ("GamePad found {0}", testPlayerIndex));
-					playerIndex = testPlayerIndex;
-					playerIndexSet = true;
-				}
-			}
-		}
+    void FindController() {
+        // Find a PlayerIndex, for a single player game
+        // Will find the first controller that is connected and use it
+        if (!playerIndexSet || !prevState.IsConnected) {
+            for (int i = 0; i < 4; ++i) {
+                PlayerIndex testPlayerIndex = (PlayerIndex)i;
+                GamePadState testState = GamePad.GetState(testPlayerIndex);
+                if (testState.IsConnected) {
+                    //Debug.Log (string.Format ("GamePad found {0}", testPlayerIndex));
+                    playerIndex = testPlayerIndex;
+                    playerIndexSet = true;
+                }
+            }
+        }
     }
-    void SetState()
-    {
+    void SetState() {
         prevState = state;
         state = GamePad.GetState(playerIndex);
     }
@@ -251,15 +236,11 @@ public class Xbox360Wired_InputController : MonoBehaviour {
             camDown = true;
         }
 
-        if (jump && glide) {
-            glide = false;
-        }
-
         player.Move(forward, backward, left, right, jump, glide);
 
         if (camLeft)
             cam.RotateY(-1);
-        else if(camRight)
+        else if (camRight)
             cam.RotateY(1);
 
         if (camUp)

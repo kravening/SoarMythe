@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  mousePos: {x: 0, y: 0}
 --- !u!114 &11423092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5a1fa3a4e6d11459e3e82433921bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeSpeed: 0.01
+  chargeSpeed: 0.05
   power: 0
   maxPower: 100
 --- !u!114 &11495010

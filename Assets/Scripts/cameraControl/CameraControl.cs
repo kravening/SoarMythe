@@ -45,7 +45,7 @@ public class CameraControl : MonoBehaviour {
 
         barEffect = GetComponent<BarsEffect>();
         if (barEffect == null) {
-            Debug.LogError("Attach a widescreen BarsEffect script to the camera", this);
+            //Debug.LogError("Attach a widescreen BarsEffect script to the camera", this);
         }
     }
 

@@ -2,7 +2,7 @@
 using System.Collections;
 using XInputDotNetPure;
 
-public class Xbox360Wired_InputController : MonoBehaviour {
+public class XboxInputGame : MonoBehaviour {
     bool playerIndexSet = false;
     PlayerIndex playerIndex;
     GamePadState state;
@@ -212,6 +212,7 @@ public class Xbox360Wired_InputController : MonoBehaviour {
     }
 
     void ProcessAndSendMovement() {
+
         if (LeftStickY > 0.001) {
             forward = true;
         } else if (LeftStickY < -0.001) {

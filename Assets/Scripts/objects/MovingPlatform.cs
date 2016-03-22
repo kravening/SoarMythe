@@ -59,7 +59,6 @@ public class MovingPlatform : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision other) {
-        Debug.Log(other.collider.name);
         if (passengers.IndexOf(other.transform) == -1) {
             passengers.Add(other.transform);
         }

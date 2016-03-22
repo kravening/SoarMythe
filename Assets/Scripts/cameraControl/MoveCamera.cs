@@ -30,7 +30,7 @@ public class MoveCamera : MonoBehaviour {
 
 	void Update()
 	{
-        targetPos = cameraControl.Tpos;
+        //targetPos = cameraControl.Tpos;
 		currentX += Input.GetAxis ("Mouse X");
 		currentY += Input.GetAxis ("Mouse Y");
 

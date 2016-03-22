@@ -4,14 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - StartingGravityPoint
+  - PlayerTemp
   - Enemy
-  - MainCamera
   - Ground
   - Player
   - Chargepad
-  - Planet
-  - PlayerTemp
   layers:
   - Default
   - TransparentFX

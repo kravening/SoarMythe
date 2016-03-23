@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour {
             Debug.LogError("The player gameobject does not contain a PowerContainer class!");
         }
 
-        if (GetComponent<KeyboardInput>() == null || GetComponent<XboxInputGame>() == null) {
+        if (GetComponent<KeyboardInput>() == null || GetComponent<XboxInputGame>() == null) { // Something is haunted about this line...
             Debug.LogError("The player gameobject is lacking an input class!");
         }
     }

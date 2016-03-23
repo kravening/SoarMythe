@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &16157877 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 118798, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -279,6 +281,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!4 &98144762 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463170, guid: 9065083d5e0797b4086f82a289a822c5, type: 2}
@@ -1006,6 +1010,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!4 &552507194 stripped
 Transform:
   m_PrefabParentObject: {fileID: 449046, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
@@ -2252,15 +2258,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454444, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.557142
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 454444, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 454444, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.2714286
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 454444, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2296,20 +2302,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454444, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2.7706306
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 454444, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2.7706308
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 454444, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: m_LocalScale.z
-      value: 2.7706301
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19949806, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 25a7712bf70f89e4797c15254491d67a, type: 2}
     - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: SizeModule.enabled
       value: 0
@@ -2436,15 +2442,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: VelocityModule.x.scalar
-      value: -10
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: EmissionModule.rate.scalar
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: CollisionModule.enabled
@@ -2461,6 +2467,38 @@ Prefab:
     - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
       propertyPath: InitialModule.startSize.minCurve.m_Curve.Array.data[0].value
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
+      propertyPath: InitialModule.startColor.maxColor.rgba
+      value: 4288766565
+      objectReference: {fileID: 0}
+    - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
+      propertyPath: InitialModule.randomizeRotationDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
+      propertyPath: ShapeModule.randomDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
+      propertyPath: ShapeModule.radius
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19822068, guid: db329379c154dff43803158822357d9e, type: 2}
+      propertyPath: VelocityModule.y.scalar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db329379c154dff43803158822357d9e, type: 2}
@@ -2679,6 +2717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &998458658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2722,6 +2762,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1001 &1016630594
 Prefab:
   m_ObjectHideFlags: 0
@@ -3179,6 +3221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &1188429551 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 156368, guid: 1afd4310b9d47784cb69d3eb8d8b2739, type: 2}
@@ -3195,6 +3239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!4 &1238950750 stripped
 Transform:
   m_PrefabParentObject: {fileID: 401602, guid: bf79a6b9499d36245be5b8979e803eab, type: 2}
@@ -3687,9 +3733,9 @@ Transform:
   - {fileID: 747116387}
   - {fileID: 670926449}
   - {fileID: 46089418}
+  - {fileID: 1447949401}
   - {fileID: 978411443}
   - {fileID: 1300706826}
-  - {fileID: 1447949401}
   - {fileID: 1836686011}
   - {fileID: 2056918499}
   m_Father: {fileID: 0}
@@ -3768,6 +3814,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &1372676313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4151,7 +4199,7 @@ Transform:
   m_Children:
   - {fileID: 245582005}
   m_Father: {fileID: 1326572583}
-  m_RootOrder: 13
+  m_RootOrder: 11
 --- !u!4 &1449261787 stripped
 Transform:
   m_PrefabParentObject: {fileID: 445098, guid: 908b8b2cd1e80284f8762ba7fd37cbd7, type: 2}
@@ -4503,6 +4551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!4 &1616626830 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e0be310bc56135241994ac0101401da2, type: 3}
@@ -4523,6 +4573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!4 &1646544142 stripped
 Transform:
   m_PrefabParentObject: {fileID: 431428, guid: 5bfa8d30984184d4881dd6efb7175f26, type: 2}
@@ -4628,6 +4680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1001 &1794358551
 Prefab:
   m_ObjectHideFlags: 0
@@ -4938,6 +4992,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &1912351627
 GameObject:
   m_ObjectHideFlags: 0
@@ -5779,6 +5835,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1001 &2103719450
 Prefab:
   m_ObjectHideFlags: 0
@@ -6001,6 +6059,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &2140462376 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 156368, guid: 1afd4310b9d47784cb69d3eb8d8b2739, type: 2}
@@ -6017,3 +6077,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0

@@ -585,10 +585,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2103080511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cccd3c0f934c5fa49b9ed32fa4bf284c, type: 3}
+  m_Script: {fileID: 11500000, guid: 84997129a049c334ab86c2647dfe7a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceAway: 4
-  distanceUp: 5
-  smooth: 3
+  maxDistance: 4.3
+  minDistance: -0.5
+  xSensitivity: 25
+  ySensitivity: 10
+  distanceAway: 3
+  distanceUp: 3
+  camSmoothDampTime: 0.1
   followXForm: {fileID: 860677968}

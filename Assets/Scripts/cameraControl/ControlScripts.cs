@@ -5,13 +5,12 @@ public class ControlScripts : MonoBehaviour {
 
 	CameraControl scriptReference1;
 	MoveCamera scriptReference2;
-    Xbox360Wired_InputController xboxInput;
+    XboxInputMenu xboxInput;
     bool xboxActive;
     
 	void Start()
 	{
-        xboxInput = GetComponent<Xbox360Wired_InputController>();
-        xboxActive = GetComponent<Xbox360Wired_InputController>().RightStickActive;
+        xboxInput = GetComponent<XboxInputMenu>();
         scriptReference1 = GetComponent<CameraControl> ();
 		scriptReference2 = GetComponent<MoveCamera> ();
 	}

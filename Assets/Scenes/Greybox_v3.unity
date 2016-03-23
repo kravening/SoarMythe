@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1001 &46089417
 Prefab:
   m_ObjectHideFlags: 0
@@ -221,6 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!4 &98144762 stripped
 Transform:
   m_PrefabParentObject: {fileID: 463170, guid: 9065083d5e0797b4086f82a289a822c5, type: 2}
@@ -1036,6 +1040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &559216493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1554,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1246404392}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!123 &666008952
@@ -2328,6 +2335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &1009171660 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 156368, guid: 1afd4310b9d47784cb69d3eb8d8b2739, type: 2}
@@ -2344,6 +2353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1001 &1016630594
 Prefab:
   m_ObjectHideFlags: 0
@@ -2781,6 +2792,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &1188429551 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 156368, guid: 1afd4310b9d47784cb69d3eb8d8b2739, type: 2}
@@ -2797,6 +2810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!4 &1238950750 stripped
 Transform:
   m_PrefabParentObject: {fileID: 401602, guid: bf79a6b9499d36245be5b8979e803eab, type: 2}
@@ -2806,7 +2821,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 666008951}
     m_Modifications:
     - target: {fileID: 427934, guid: 51070f80a1c204c46bdddd098a11bdee, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2814,7 +2829,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 427934, guid: 51070f80a1c204c46bdddd098a11bdee, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.77
+      value: 2.5900002
       objectReference: {fileID: 0}
     - target: {fileID: 427934, guid: 51070f80a1c204c46bdddd098a11bdee, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2838,7 +2853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 427934, guid: 51070f80a1c204c46bdddd098a11bdee, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2355346, guid: 51070f80a1c204c46bdddd098a11bdee, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -3448,6 +3463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &1372676313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,7 +3688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ece385f28b10634cb38b0f24637c9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityStrength: 9.81
 --- !u!1 &1408141125
 GameObject:
   m_ObjectHideFlags: 0
@@ -4152,6 +4168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!4 &1616626830 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e0be310bc56135241994ac0101401da2, type: 3}
@@ -4172,6 +4190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &1652131289
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,6 +4417,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1001 &1794358551
 Prefab:
   m_ObjectHideFlags: 0
@@ -4539,10 +4561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b3193c358a0f443a426d5f36214e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 1
-  moveAcceleration: 0.3
-  maxMoveSpeed: 2
-  slowdownTime: 0.3
 --- !u!114 &1815509404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4554,10 +4572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c755ab1347aa4724a916fa208454d9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetLerp: 1
-  linkDistance: 10
-  rotateCatchupSpeed: 1
-  rotateSpeed: 0.1
 --- !u!54 &1815509405
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4609,6 +4623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5a1fa3a4e6d11459e3e82433921bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargeSpeed: 0.01
   power: 0
   maxPower: 20
 --- !u!114 &1815509409
@@ -4622,13 +4637,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca7b17b2d27cee408d5dfaa7960287d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchingGround: 0
+  CameraPosition: {fileID: 0}
   groundSpeed: 8
   airSpeed: 2
-  speedDevider: 30
+  jumpHeight: 8
+  speedDivider: 30
+  jumpDivider: 30
   particleGroundHit: {fileID: 0}
-  ground:
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
 --- !u!114 &1815509413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4641,6 +4660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  mousePos: {x: 0, y: 0}
 --- !u!1001 &1836686010
 Prefab:
   m_ObjectHideFlags: 0
@@ -4785,6 +4805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &1912351627
 GameObject:
   m_ObjectHideFlags: 0
@@ -5630,6 +5652,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1001 &2103719450
 Prefab:
   m_ObjectHideFlags: 0
@@ -5852,6 +5876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0
 --- !u!1 &2140462376 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 156368, guid: 1afd4310b9d47784cb69d3eb8d8b2739, type: 2}
@@ -5868,3 +5894,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
+  powerUp: 0
+  addPower: 0

@@ -102,23 +102,23 @@ public class CameraControl : MonoBehaviour {
     /// <param name="strength">Negative makes it go down</param>
     public void RotateX(float strength) {
         if (strength < 0) {
-            if (distanceUp > -0.5f) {
+            if (distanceUp > minDistance) {
                 //distanceAway -= (strength / xSensitivity);
                 distanceUp += (strength / xSensitivity);
             }
         } else {
-            if (distanceUp < 4.3f) {
+            if (distanceUp < maxDistance) {
                 //distanceAway -= (strength / xSensitivity);
                 distanceUp += (strength / xSensitivity);
             }
         }
 
-        if (distanceUp < -0.5f) {
+        if (distanceUp < minDistance) {
             //distanceAway = 7.5f;
             distanceUp = -0.5f;
         }
 
-        if (distanceUp > 4.3f) {
+        if (distanceUp > maxDistance) {
             //distanceAway = 2.7f;
             distanceUp = 4.3f;
         }

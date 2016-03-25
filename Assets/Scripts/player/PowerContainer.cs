@@ -48,9 +48,16 @@ public class PowerContainer : MonoBehaviour {
     /// However this could also be used to remove maxpower if need be.
     /// </summary>
     /// <param name="toAdd">Raise the max by toAdd.</param>
-    public void PowerUp(int toAdd = 10, bool addPower = false) {
-        maxPower += toAdd;
-        if (addPower)
-            power += toAdd;
+    public void PowerUp(float toAdd = 10, bool addPower = false) {
+        if (maxPower - toAdd < 0) {
+            maxPower = 0;
+            power = 0;
+            return;
+        } else {
+            maxPower += toAdd;
+            if (addPower)
+                power += toAdd;
+
+        }
     }
 }

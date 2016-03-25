@@ -20,13 +20,22 @@ public class MovingPlatform : MonoBehaviour {
     [SerializeField][Range(0,0.1f)][Tooltip("How fast the platform will move.")]
     float speed = 0.1f;
 
+    // For ease I want access to both.
+    [SerializeField][Tooltip("Use lerp or movetowards?")]
+    bool useLerp = false;
+
+    [SerializeField]
+    float lastY;
+
     void Start() {
         pointsCount = points.Count - 1;
         nextPoint++;
         platform = GetComponent<Transform>();
+
+        lastY = platform.position.y;
     }
 
-    void Update() {
+    void FixedUpdate() {
         // This for loop would just grab resources to make two variables it won't use if this is outside the editor.
         # if UNITY_EDITOR
         for(int i = 0; i < points.Count; i++) {
@@ -37,13 +46,25 @@ public class MovingPlatform : MonoBehaviour {
         #endif
 
         if (Vector3.Distance(platform.position, points[nextPoint].position) > 0.5f) {
-            platform.position = Vector3.MoveTowards(platform.position, points[nextPoint].position, speed);
+
+            float diffLastY = transform.position.y - lastY;
+
+            if (!useLerp)
+                platform.position = Vector3.MoveTowards(platform.position, points[nextPoint].position, speed);
+            else
+                platform.position = Vector3.Lerp(platform.position, points[nextPoint].position, speed);
+
             for (int i = 0; i < passengers.Count; i++) {
                 Transform passenger = passengers[i];
                 Vector3 customPoint = points[nextPoint].position;
-                customPoint.y = passenger.position.y;
-                passenger.position = Vector3.MoveTowards(passenger.position, customPoint, speed);
+                customPoint.y = passenger.position.y + diffLastY;
+                if(!useLerp)
+                    passenger.position = Vector3.MoveTowards(passenger.position, customPoint, speed);
+                else
+                    passenger.position = Vector3.Lerp(passenger.position, customPoint, speed);
             }
+
+            lastY = transform.position.y;
         } else {
             if (lastPoint >= pointsCount) {
                 lastPoint = 0;

@@ -8,7 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 484772}
-  m_Layer: 0
+  - 114: {fileID: 11432058}
+  m_Layer: 9
   m_Name: Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +26,7 @@ GameObject:
   - 4: {fileID: 408198}
   - 198: {fileID: 19829668}
   - 199: {fileID: 19921884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sun_explosions_pfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +43,7 @@ GameObject:
   - 4: {fileID: 463120}
   - 198: {fileID: 19863478}
   - 199: {fileID: 19953080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sun_glow_pfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +61,7 @@ GameObject:
   - 23: {fileID: 2333180}
   - 95: {fileID: 9516840}
   - 33: {fileID: 3332808}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sun_inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,8 +80,24 @@ GameObject:
   - 65: {fileID: 6528556}
   - 23: {fileID: 2398472}
   - 114: {fileID: 11412508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: firering
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &158348
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 408756}
+  - 108: {fileID: 10807160}
+  m_Layer: 0
+  m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +115,7 @@ GameObject:
   - 23: {fileID: 2382140}
   - 95: {fileID: 9525236}
   - 123: {fileID: 12364016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sun_outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +134,7 @@ GameObject:
   - 23: {fileID: 2342554}
   - 95: {fileID: 9571020}
   - 114: {fileID: 11420312}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: fire_ring_sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,11 +148,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122710}
   m_LocalRotation: {x: -0.00000016292068, y: -1, z: -0.00000016292068, w: 2.654315e-14}
-  m_LocalPosition: {x: -1.3154476, y: -1.168642, z: -12.245436}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.6870294, y: 4.687033, z: 4.687033}
   m_Children: []
   m_Father: {fileID: 484772}
   m_RootOrder: 3
+--- !u!4 &408756
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 461688}
+  m_RootOrder: 0
 --- !u!4 &427340
 Transform:
   m_ObjectHideFlags: 1
@@ -143,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3154476, y: -1.168642, z: -12.245436}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0194747, y: 1.0194746, z: 1.0194746}
   m_Children:
   - {fileID: 461912}
@@ -156,7 +185,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3154476, y: -1.168642, z: -12.245436}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8.998807, y: 8.998803, z: 8.998803}
   m_Children: []
   m_Father: {fileID: 484772}
@@ -168,9 +197,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3154476, y: -1.168642, z: -12.245436}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 9.271147, y: 9.271143, z: 9.271143}
-  m_Children: []
+  m_Children:
+  - {fileID: 408756}
   m_Father: {fileID: 484772}
   m_RootOrder: 1
 --- !u!4 &461912
@@ -192,7 +222,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125136}
   m_LocalRotation: {x: -0.00000016292068, y: -1, z: -0.00000016292068, w: 2.654315e-14}
-  m_LocalPosition: {x: -1.3154476, y: -1.168642, z: -12.245436}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.4343996, y: 4.4344006, z: 4.4344006}
   m_Children: []
   m_Father: {fileID: 484772}
@@ -204,7 +234,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.6724, y: 5.9277, z: 62.113}
+  m_LocalPosition: {x: -0.9, y: 16.647217, z: 67}
   m_LocalScale: {x: 5.07232, y: 5.072321, z: 5.072321}
   m_Children:
   - {fileID: 445098}
@@ -409,6 +439,39 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!108 &10807160
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158348}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 2
+  m_Color: {r: 1, g: 0.85098046, b: 0.2784314, a: 1}
+  m_Intensity: 8
+  m_Range: 252.76157
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: 3
+    m_Strength: 1
+    m_Bias: 0
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294966783
+  m_Lightmapping: 1
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
 --- !u!114 &11412508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -431,6 +494,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cac04f0ddc81140840234be38966cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11432058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea4956f156643c438634b336f1a6840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.1
+  toPull: {fileID: 0}
+  toPullTo: {fileID: 445098}
+  Pull: 0
 --- !u!123 &12364016
 LensFlare:
   m_ObjectHideFlags: 1
@@ -2254,7 +2332,7 @@ ParticleSystem:
       minMaxState: 1
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 1000000000
+    maxNumParticles: 10000
     rotation3D: 1
   ShapeModule:
     serializedVersion: 2

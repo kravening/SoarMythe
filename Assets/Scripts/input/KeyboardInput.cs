@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KeyboardInput : MonoBehaviour {
     PlayerMovement playerMovement;
@@ -32,6 +33,10 @@ public class KeyboardInput : MonoBehaviour {
         UpdateMousePos();
 
         SendCameraMovement();
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            SceneManager.LoadScene("Prototype_V1");
+        }
 
 		playerMovement.Move(up, down, left, right, jump, glide);
 	}

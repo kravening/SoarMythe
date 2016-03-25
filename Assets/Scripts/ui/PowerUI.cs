@@ -20,7 +20,7 @@ public class PowerUI : MonoBehaviour {
 		slider.value = pc.Power < Mathf.Floor(pc.Power / 2) ? pc.Power - 1 : pc.Power;
         slider.maxValue = pc.MaxPower;
 
-        text.text = Mathf.Round(pc.Power) + " / " + pc.MaxPower;
+        text.text = Mathf.Round(pc.Power) + " / " + (pc.MaxPower > 0 ? (int)pc.MaxPower : 0); // If it's less than 0 I don't want it to display that.
 
         if (pc.Power <= 0) {
             fillArea.SetActive(false);

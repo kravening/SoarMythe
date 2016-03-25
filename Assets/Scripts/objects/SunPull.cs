@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class sunPull : MonoBehaviour {
+public class SunPull : MonoBehaviour {
     [SerializeField][Tooltip("How fast do I pull ToPull to ToPullTo?")]
     float speed = 0.1f;
     
@@ -23,12 +23,17 @@ public class sunPull : MonoBehaviour {
 
 	void Update () {
         if (Pull) {
-            toPull.position = Vector3.Lerp(toPull.position, toPullTo.position, Time.deltaTime * speed);
+
+            if (Vector3.Distance(toPull.position, toPullTo.position) <= 35) {
+                rb.velocity *= 0.9f;
+            } else {
+                rb.AddForce(-Vector3.MoveTowards(toPull.position, toPullTo.position, Time.deltaTime * speed) / 10);
+            }
+
             if (firstRun) {
                 firstRun = false;
                 rb.useGravity = false;
-                rb.velocity = new Vector3(0, 0, 0);
-
+                rb.velocity *= 0.7f;
                 toPull.gameObject.GetComponent<PlayerMovement>().IsAlive = false;
             }
         } else {

@@ -18,7 +18,7 @@ public class PlayerLandPoint : MonoBehaviour {
 
         Physics.Raycast(ray, out hit);
 
-        GameObject other = hit.collider.gameObject != null ? hit.collider.gameObject : null;
+        GameObject other = hit.collider != null ? hit.collider.gameObject : null;
 
         #if UNITY_EDITOR
             Debug.DrawRay(rayStart, -transform.up, Color.red, 0, false);
@@ -28,8 +28,7 @@ public class PlayerLandPoint : MonoBehaviour {
             if (other.layer == 8) {
                 marker.gameObject.SetActive(true);
 
-
-                float plusY = other.transform.position.y + other.transform.lossyScale.y / 2 + 0.01f;
+                float plusY = other.transform.position.y + other.transform.lossyScale.y / 2 + 0.03f;
 
                 marker.position = new Vector3(transform.position.x, plusY , transform.position.z);
             } else {

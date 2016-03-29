@@ -115,12 +115,12 @@ public class CameraControl : MonoBehaviour {
 
         if (distanceUp < minDistance) {
             //distanceAway = 7.5f;
-            distanceUp = -0.5f;
+            distanceUp = minDistance;
         }
 
         if (distanceUp > maxDistance) {
             //distanceAway = 2.7f;
-            distanceUp = 4.3f;
+            distanceUp = maxDistance;
         }
 
         return;

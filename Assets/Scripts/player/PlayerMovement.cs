@@ -45,6 +45,14 @@ public class PlayerMovement : MonoBehaviour {
     [Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
     float jumpDivider = 30; // Also using this to make the jumpheight usable in just whole numbers while not making the player jump insanely high.
 
+    [SerializeField]
+    [Tooltip("Will I turn when I go left or right?")]
+    bool smoothTurning = false;
+    
+    [SerializeField]
+    [Tooltip("Speed at which I turn.")]
+    float turningSpeed = 1;
+
     Transform tf; // Used to do walking movement.
     Rigidbody rb; // Used to AddForce for the jump.
     CheckpointController cc; // Used to set and goto last checkpoint.
@@ -153,7 +161,10 @@ public class PlayerMovement : MonoBehaviour {
     /// <param name="jump">Should I jump?</param>
     /// <param name="glide">Am I gliding?</param>
     public void Move(bool forward = false, bool backward = false, bool left = false, bool right = false, bool jump = false, bool glide = false) {
-        Vector3 forwardMovement;
+        Vector3 forwardMovement; // This is needed in all cases.
+
+        // These two are given empty vectors, they are not always needed but will throw errors if I leave them empty.
+        Vector3 sideForwardMovement = new Vector3();
         Vector3 rightMovement = new Vector3();
 
         if (isAlive) {
@@ -161,13 +172,17 @@ public class PlayerMovement : MonoBehaviour {
                 // This is probably really intensive, considering it happens during Update();
                 // Although tf.forward is not constant so I really need to recreate this every time.
                 forwardMovement = touchingGround ? CameraPosition.forward * (groundSpeed / speedDivider) : CameraPosition.forward * (airSpeed / speedDivider);
+                sideForwardMovement = touchingGround ? tf.forward * (groundSpeed / speedDivider) : CameraPosition.forward * (airSpeed / speedDivider);
                 rightMovement = touchingGround ? CameraPosition.right * (groundSpeed / speedDivider) : CameraPosition.right * (airSpeed / speedDivider);
             } else {
                 forwardMovement = touchingGround ? tf.forward * (groundSpeed / speedDivider) : tf.forward * (airSpeed / speedDivider);
             }
         } else {
-            forwardMovement = new Vector3();;
+            forwardMovement = new Vector3();
+
             rightMovement = new Vector3();
+            sideForwardMovement = new Vector3();
+
             touchingGround = false;
         }
 
@@ -223,8 +238,12 @@ public class PlayerMovement : MonoBehaviour {
             // If I'm just walking left or right, do that.
             if (!forward && !backward) {
                 if (left) {
+                    if (smoothTurning)
+                        moveBy += forwardMovement * turningSpeed * 0;
                     moveBy += -rightMovement / 1.25f;
                 } else if (right) {
+                    if (smoothTurning)
+                        moveBy += forwardMovement * turningSpeed * 0;
                     moveBy += rightMovement / 1.25f;
                 }
             }

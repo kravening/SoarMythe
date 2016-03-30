@@ -58,7 +58,7 @@ public class XboxInputGame : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         FindController();
         SetState();
         CheckForButtonPress();

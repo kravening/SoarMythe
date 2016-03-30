@@ -85,10 +85,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &113479235 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 435688, guid: 0586c5c308de1594190fe6e9a596128f, type: 2}
-  m_PrefabInternal: {fileID: 1542174533}
 --- !u!4 &129270496 stripped
 Transform:
   m_PrefabParentObject: {fileID: 440696, guid: 97c813a8834630b41a48bd91a598c9ac, type: 2}
@@ -1132,7 +1128,8 @@ MonoBehaviour:
   - {fileID: 709617558}
   speed: 0.05
   useLerp: 0
-  lastY: 0
+  lastPos: {x: 0, y: 0, z: 0}
+  currentPos: {x: 0, y: 0, z: 0}
 --- !u!33 &1840732723
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1262,18 +1259,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 11491972, guid: 97c813a8834630b41a48bd91a598c9ac, type: 2}
+      propertyPath: marker
+      value: 
+      objectReference: {fileID: 2029655763}
     - target: {fileID: 11423092, guid: 97c813a8834630b41a48bd91a598c9ac, type: 2}
       propertyPath: lastCheckpoint
       value: 
       objectReference: {fileID: 1854404854}
-    - target: {fileID: 11428342, guid: 97c813a8834630b41a48bd91a598c9ac, type: 2}
-      propertyPath: smoothTurning
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11435820, guid: 97c813a8834630b41a48bd91a598c9ac, type: 2}
-      propertyPath: marker
-      value: 
-      objectReference: {fileID: 113479235}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97c813a8834630b41a48bd91a598c9ac, type: 2}
   m_IsPrefabParent: 0
@@ -1283,6 +1276,10 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1901203128}
   m_Script: {fileID: 11500000, guid: fa5a1fa3a4e6d11459e3e82433921bdb, type: 3}
+--- !u!4 &2029655763 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 435688, guid: 0586c5c308de1594190fe6e9a596128f, type: 2}
+  m_PrefabInternal: {fileID: 1542174533}
 --- !u!1 &2076880847
 GameObject:
   m_ObjectHideFlags: 0

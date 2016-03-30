@@ -9,10 +9,18 @@ public class PlayerLandPoint : MonoBehaviour {
     [SerializeField]
     LayerMask ground;
 
-	void Update () {
-        Vector3 rayStart = transform.position;
-        rayStart.y -= 0.96f;
+    PlayerMovement pm;
 
+    void Start() {
+        pm = GetComponent<PlayerMovement>();
+    }
+
+	void Update () {
+        // Setup the rays position.
+        Vector3 rayStart = transform.position;
+        rayStart.y -= transform.lossyScale.y / 1.2f;
+
+        // Set up the ray.
         Ray ray = new Ray(rayStart, -transform.up);
         RaycastHit hit;
 
@@ -20,22 +28,31 @@ public class PlayerLandPoint : MonoBehaviour {
 
         GameObject other = hit.collider != null ? hit.collider.gameObject : null;
 
-        #if UNITY_EDITOR
-            Debug.DrawRay(rayStart, -transform.up, Color.red, 0, false);
+        #if UNITY_EDITOR // Just to be on the safe side.
+            Debug.DrawRay(rayStart, -transform.up * 10, Color.red, 0, false);
         #endif
 
         if(other != null) {
             if (other.layer == 8) {
-                marker.gameObject.SetActive(true);
+                if (!pm.TouchingGround) {
+                    SetMarkerActive(true);
 
-                float plusY = other.transform.position.y + other.transform.lossyScale.y / 2 + 0.03f;
+                    Vector3 positionToSetTo = hit.point;
+                    positionToSetTo.y += 0.03f;
 
-                marker.position = new Vector3(transform.position.x, plusY , transform.position.z);
+                    marker.position = positionToSetTo;
+                } else {
+                    SetMarkerActive(false);
+                }
             } else {
-                marker.gameObject.SetActive(false);
+                SetMarkerActive(false);
             }
         } else {
-            marker.gameObject.SetActive(false);
+            SetMarkerActive(false);
         }
 	}
+
+    void SetMarkerActive(bool state) {
+        marker.gameObject.SetActive(state);
+    }
 }

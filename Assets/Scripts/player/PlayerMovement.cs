@@ -201,6 +201,8 @@ public class PlayerMovement : MonoBehaviour {
             Vector3 CamForward = CameraPosition.forward;
             Vector3 CamRight = CameraPosition.right;
 
+            Quaternion fullRotation = QuatLerp(QuatLookRot(-CamRight), 1);
+
             // Make the player face the direction he is walking.
             // This makes it possible to go upto 8 directions. Which is also how much he can walk in the actual movement.
             if (!left && !right) {
@@ -238,13 +240,22 @@ public class PlayerMovement : MonoBehaviour {
             // If I'm just walking left or right, do that.
             if (!forward && !backward) {
                 if (left) {
-                    if (smoothTurning)
-                        moveBy += forwardMovement * turningSpeed * 0;
                     moveBy += -rightMovement / 1.25f;
                 } else if (right) {
-                    if (smoothTurning)
-                        moveBy += forwardMovement * turningSpeed * 0;
                     moveBy += rightMovement / 1.25f;
+                }
+
+                // If either going left or right and smoothturning is on apply forward movement.
+                if (smoothTurning) {
+                    if(left) {
+                        if(Quaternion.Angle(fullRotation, tf.rotation) > 10) {
+                            moveBy += forwardMovement * turningSpeed;
+                        }
+                    } else if(right) {   
+                        if(Quaternion.Angle(fullRotation, tf.rotation) < 170) {
+                            moveBy += forwardMovement * turningSpeed;
+                        }
+                    }
                 }
             }
 

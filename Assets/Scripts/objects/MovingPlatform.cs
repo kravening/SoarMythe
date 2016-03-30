@@ -25,14 +25,18 @@ public class MovingPlatform : MonoBehaviour {
     bool useLerp = false;
 
     [SerializeField]
-    float lastY;
+    Vector3 lastPos;
+
+    [SerializeField]
+    Vector3 currentPos;
 
     void Start() {
         pointsCount = points.Count - 1;
         nextPoint++;
         platform = GetComponent<Transform>();
 
-        lastY = platform.position.y;
+        lastPos = new Vector3();
+        currentPos = transform.position;
     }
 
     void FixedUpdate() {
@@ -47,7 +51,9 @@ public class MovingPlatform : MonoBehaviour {
 
         if (Vector3.Distance(platform.position, points[nextPoint].position) > 0.5f) {
 
-            float diffLastY = transform.position.y - lastY;
+            currentPos = transform.position;
+
+            Vector3 diffLastPos = currentPos - lastPos;
 
             if (!useLerp)
                 platform.position = Vector3.MoveTowards(platform.position, points[nextPoint].position, speed);
@@ -56,15 +62,16 @@ public class MovingPlatform : MonoBehaviour {
 
             for (int i = 0; i < passengers.Count; i++) {
                 Transform passenger = passengers[i];
-                Vector3 customPoint = points[nextPoint].position;
-                customPoint.y = passenger.position.y + diffLastY;
+                Vector3 customPoint = passenger.position;
+
+                customPoint += diffLastPos;
+
                 if(!useLerp)
                     passenger.position = Vector3.MoveTowards(passenger.position, customPoint, speed);
                 else
                     passenger.position = Vector3.Lerp(passenger.position, customPoint, speed);
             }
 
-            lastY = transform.position.y;
         } else {
             if (lastPoint >= pointsCount) {
                 lastPoint = 0;
@@ -77,6 +84,8 @@ public class MovingPlatform : MonoBehaviour {
                 nextPoint++;
             }
         }
+
+        lastPos = currentPos;
     }
 
     void OnCollisionEnter(Collision other) {

@@ -39,7 +39,20 @@ public class XboxInputMenu : MonoBehaviour {
 
     bool leftStickButton = false;
 
-    bool up, down, left, right;
+    bool up, down, left, right = false;
+
+    public bool Up {
+        get { return up;  }
+    }
+    public bool Down {
+        get { return down; }
+    }
+    public bool Left {
+        get { return left; }
+    }
+    public bool Right {
+        get { return right; }
+    }
 
     void Update() {
         FindController();

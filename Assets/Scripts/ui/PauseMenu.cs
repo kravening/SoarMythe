@@ -5,7 +5,6 @@ using System.Collections;
 public class PauseMenu : MonoBehaviour {
 
 	public string MainMenu;
-	public string Options;
 
 	public bool isPaused;
 
@@ -40,17 +39,9 @@ public class PauseMenu : MonoBehaviour {
 			pauseMenuContainer.blocksRaycasts = true;
 		}
 	}
-	public void saveGame()
-	{
-		saveLoad.Save ();
-	}
-	public void load()
-	{
-		saveLoad.Load ();
-	}
 	public void mainMenu()
 	{
-		Application.LoadLevel (MainMenu);
+		Application.LoadLevel("MainMenu");
 	}
 	public void quit()
 	{

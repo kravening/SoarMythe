@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 using XInputDotNetPure;
 
 public class XboxInputGame : MonoBehaviour {
@@ -124,6 +124,10 @@ public class XboxInputGame : MonoBehaviour {
             }
             if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed) {
                 yButton = true;
+            }
+
+            if (prevState.Buttons.Back == ButtonState.Released && state.Buttons.Back == ButtonState.Pressed) {
+                SceneManager.LoadScene("Prototype_V1");
             }
 
             if (prevState.Buttons.LeftStick == ButtonState.Released && state.Buttons.LeftStick == ButtonState.Pressed) {

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using XInputDotNetPure;
 
 public class XboxInputMenu : MonoBehaviour {
@@ -11,47 +10,44 @@ public class XboxInputMenu : MonoBehaviour {
     //Project Specific (add vars for storing classes here)
 
     //behaviourModifiers
-    [SerializeField]
-    float deadZoneAmount;
-    [SerializeField]
-    float triggerPressedSensitivity;
+    //[SerializeField]
+    float deadZoneAmount, triggerPressedSensitivity;
 
     //for reading
-    public float LeftStickAngle;
-    public float RightStickAngle;
-    public bool RightStickActive;
-    public bool LeftStickActive;
-    public float LeftStickX;
-    public float LeftStickY;
-    public float RightStickX;
-    public float RightStickY;
+    bool LeftStickActive, RightStickActive;
+    float LeftStickAngle, RightStickAngle, RightStickY, RightStickX, LeftStickY, LeftStickX;
 
     //bools for buttons
-    bool leftShoulder = false;
-    bool rightShoulder = false;
-    bool leftTrigger = false;
-    bool rightTrigger = false;
+    bool leftShoulder, rightShoulder, leftTrigger, rightTrigger = false;
 
-    bool aButton = false;
-    bool bButton = false;
-    bool xButton = false;
-    bool yButton = false;
+    [SerializeField]
+    bool aButton, bButton, xButton, yButton = false;
 
     bool leftStickButton = false;
 
+    MainMenuHandler mmh;
+
+    //[SerializeField]
     bool up, down, left, right = false;
 
+    [SerializeField]
+    bool dpadUp, dpadDown, dpadLeft, dpadRight = false;
+
     public bool Up {
-        get { return up;  }
+        get { return dpadUp; }
     }
     public bool Down {
-        get { return down; }
+        get { return dpadDown; }
     }
     public bool Left {
-        get { return left; }
+        get { return dpadLeft; }
     }
     public bool Right {
-        get { return right; }
+        get { return dpadRight; }
+    }
+
+    void Start() {
+        mmh = GetComponent<MainMenuHandler>();
     }
 
     void Update() {
@@ -59,7 +55,7 @@ public class XboxInputMenu : MonoBehaviour {
         SetState();
         CheckForButtonPress();
         CheckForButtonRelease();
-        ButtonActions(); //do things like shooting here
+        ButtonActions();
 
         ProcessAndSendMovement();
 
@@ -100,11 +96,29 @@ public class XboxInputMenu : MonoBehaviour {
             rightTrigger = true;
         }
 
+        if (prevState.DPad.Left == ButtonState.Released && state.DPad.Left == ButtonState.Pressed) {
+            dpadLeft = true;
+        }
+        if (prevState.DPad.Right == ButtonState.Released && state.DPad.Right == ButtonState.Pressed) {
+            dpadRight = true;
+        }
 
+        if (prevState.DPad.Up == ButtonState.Released && state.DPad.Up == ButtonState.Pressed) {
+            dpadUp = true;
+
+            mmh.MoveUp();
+        }
+        if (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed) {
+            dpadDown = true;
+
+            mmh.MoveDown();
+        }
 
         // buttons
         if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed) {
             aButton = true;
+
+            mmh.PressActionButton();
         }
         if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed) {
             bButton = true;
@@ -153,6 +167,19 @@ public class XboxInputMenu : MonoBehaviour {
         if (prevState.Buttons.LeftStick == ButtonState.Pressed && state.Buttons.LeftStick == ButtonState.Released) {
             leftStickButton = false;
         }
+
+        if (state.DPad.Left == ButtonState.Released && prevState.DPad.Left == ButtonState.Pressed) {
+            dpadLeft = false;
+        }
+        if (state.DPad.Right == ButtonState.Released && prevState.DPad.Right == ButtonState.Pressed) {
+            dpadRight = false;
+        }
+        if (state.DPad.Up == ButtonState.Released && prevState.DPad.Up == ButtonState.Pressed) {
+            dpadUp = false;
+        }
+        if (state.DPad.Down == ButtonState.Released && prevState.DPad.Down == ButtonState.Pressed) {
+            dpadDown = false;
+        }
     }
 
     public bool DeadZoneCheckRight() {
@@ -199,6 +226,7 @@ public class XboxInputMenu : MonoBehaviour {
     }
 
     void ProcessAndSendMovement() {
+        up = down = left = right = false;
 
         if (LeftStickY > 0.001) {
             up = true;
@@ -212,6 +240,12 @@ public class XboxInputMenu : MonoBehaviour {
             left = true;
         }
 
-        up = down = left = right = false;
+        if (left && right) {
+            left = right = false;
+        }
+
+        if (up && down) {
+            up = down = false;
+        }
     }
 }

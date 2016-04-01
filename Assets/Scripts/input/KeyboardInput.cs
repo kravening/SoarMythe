@@ -12,6 +12,9 @@ public class KeyboardInput : MonoBehaviour {
     [SerializeField]
     Vector2 mousePos;
 
+    [SerializeField]
+    Vector2 lastMousePos;
+
     public Vector2 MousePos {
         get { return mousePos; }
     }
@@ -74,6 +77,8 @@ public class KeyboardInput : MonoBehaviour {
     void UpdateMousePos() {
         mousePos.x = Input.GetAxis("Horizontal");
         mousePos.y = Input.GetAxis("Vertical");
+
+        mousePos -= lastMousePos;
     }
 
     void SendCameraMovement() {

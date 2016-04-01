@@ -24,11 +24,7 @@ public class SunPull : MonoBehaviour {
 	void Update () {
         if (Pull) {
 
-            if (Vector3.Distance(toPull.position, toPullTo.position) <= 35) {
-                rb.velocity *= 0.9f;
-            } else {
-                rb.AddForce(-Vector3.MoveTowards(toPull.position, toPullTo.position, Time.deltaTime * speed) / 10);
-            }
+            rb.AddForce(-Vector3.MoveTowards(toPull.position, toPullTo.position, Time.deltaTime * speed) / 10);
 
             if (firstRun) {
                 firstRun = false;

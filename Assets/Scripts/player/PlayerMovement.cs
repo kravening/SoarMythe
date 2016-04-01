@@ -33,8 +33,8 @@ public class PlayerMovement : MonoBehaviour {
     float jumpHeight = 8;
 
     // This is the fly boost and is used when the player has enough power and is in the air.
-    /*[SerializeField][Tooltip("How much height will I be given when I fly.")]
-    float flightHeight = 5;*/
+    [SerializeField][Tooltip("How much height will I be given when I fly.")]
+    float flightHeight = 5;
 
     [SerializeField]
     [Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
@@ -309,17 +309,17 @@ public class PlayerMovement : MonoBehaviour {
         // if the player was touching the ground.
         if (jump && touchingGround) {
             rb.AddForce(tf.up * (jumpHeight / jumpDivider), ForceMode.Impulse);
-        } else if (glide && pc.Power > 0.5f && !touchingGround) {
-            // Glide remains true while the the jump button is down. Unlike the actual jump
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
-            pc.Power -= 0.5f;
-        }
-
-        /*if (jump && pc.Power >= 10) {
+        } else if (jump && pc.Power >= 10) {
             // The flight, only works if the player has enough power to remove.
             pc.Power -= 10;
             rb.AddForce(tf.up * (flightHeight / jumpDivider), ForceMode.Impulse);
             Debug.Log("fly");
-        }*/
+        }
+		
+		if (glide && pc.Power > 0.5f && !touchingGround) {
+            // Glide remains true while the the jump button is down. Unlike the actual jump
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
+            pc.Power -= 0.5f;
+        }
     }
 }

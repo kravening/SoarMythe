@@ -1,21 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
-	public string MainMenu;
-
+    public string MainMenu;
 	public bool isPaused;
 
 	[SerializeField]
 	CanvasGroup pauseMenuContainer;
-	SaveLoad saveLoad;
 
 	void Start() {
 		//pauseMenuContainer.GetComponent<CanvasGroup> ();
-		saveLoad = GetComponent<SaveLoad> ();
-
 		if (isPaused) {
 			Time.timeScale = 1.0f;
 		} else {
@@ -41,7 +37,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 	public void mainMenu()
 	{
-		Application.LoadLevel("MainMenu");
+		SceneManager.LoadScene("MainMenu");
 	}
 	public void quit()
 	{

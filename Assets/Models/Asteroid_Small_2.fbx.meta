@@ -1,0 +1,228 @@
+fileFormatVersion: 2
+guid: e999924bb59d13a44880015c488930c7
+timeCreated: 1459753558
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BASE_ASTEROID_1
+    100004: Cube
+    100006: Cube_1
+    100008: Cube_10
+    100010: Cube_11
+    100012: Cube_12
+    100014: Cube_13
+    100016: Cube_14
+    100018: Cube_15
+    100020: Cube_2
+    100022: Cube_3
+    100024: Cube_4
+    100026: Cube_5
+    100028: Cube_6
+    100030: Cube_7
+    100032: Cube_8
+    100034: Cube_9
+    100036: Plane
+    100038: Plane_1
+    100040: Plane_3
+    100042: PLATFORM_1
+    100044: Asteroid_Small_2
+    100046: transform1
+    100048: transform10
+    100050: transform11
+    100052: transform12
+    100054: transform13
+    100056: transform14
+    100058: transform15
+    100060: transform16
+    100062: transform17
+    100064: transform18
+    100066: transform19
+    100068: transform2
+    100070: transform20
+    100072: transform21
+    100074: transform3
+    100076: transform4
+    100078: transform5
+    100080: transform6
+    100082: transform7
+    100084: transform8
+    100086: transform9
+    400000: //RootNode
+    400002: BASE_ASTEROID_1
+    400004: Cube
+    400006: Cube_1
+    400008: Cube_10
+    400010: Cube_11
+    400012: Cube_12
+    400014: Cube_13
+    400016: Cube_14
+    400018: Cube_15
+    400020: Cube_2
+    400022: Cube_3
+    400024: Cube_4
+    400026: Cube_5
+    400028: Cube_6
+    400030: Cube_7
+    400032: Cube_8
+    400034: Cube_9
+    400036: Plane
+    400038: Plane_1
+    400040: Plane_3
+    400042: PLATFORM_1
+    400044: Asteroid_Small_2
+    400046: transform1
+    400048: transform10
+    400050: transform11
+    400052: transform12
+    400054: transform13
+    400056: transform14
+    400058: transform15
+    400060: transform16
+    400062: transform17
+    400064: transform18
+    400066: transform19
+    400068: transform2
+    400070: transform20
+    400072: transform21
+    400074: transform3
+    400076: transform4
+    400078: transform5
+    400080: transform6
+    400082: transform7
+    400084: transform8
+    400086: transform9
+    2300000: BASE_ASTEROID_1
+    2300002: Cube
+    2300004: Cube_1
+    2300006: Cube_10
+    2300008: Cube_11
+    2300010: Cube_12
+    2300012: Cube_13
+    2300014: Cube_14
+    2300016: Cube_15
+    2300018: Cube_2
+    2300020: Cube_3
+    2300022: Cube_4
+    2300024: Cube_5
+    2300026: Cube_6
+    2300028: Cube_7
+    2300030: Cube_8
+    2300032: Cube_9
+    2300034: Plane
+    2300036: Plane_1
+    2300038: Plane_3
+    2300040: PLATFORM_1
+    2300042: Asteroid_Small_2
+    3300000: BASE_ASTEROID_1
+    3300002: Cube
+    3300004: Cube_1
+    3300006: Cube_10
+    3300008: Cube_11
+    3300010: Cube_12
+    3300012: Cube_13
+    3300014: Cube_14
+    3300016: Cube_15
+    3300018: Cube_2
+    3300020: Cube_3
+    3300022: Cube_4
+    3300024: Cube_5
+    3300026: Cube_6
+    3300028: Cube_7
+    3300030: Cube_8
+    3300032: Cube_9
+    3300034: Plane
+    3300036: Plane_1
+    3300038: Plane_3
+    3300040: PLATFORM_1
+    3300042: Asteroid_Small_2
+    4300000: Plane_1
+    4300002: Cube_15
+    4300004: Cube_14
+    4300006: Cube_13
+    4300008: Cube_12
+    4300010: Plane
+    4300012: Plane_3
+    4300014: Cube_11
+    4300016: Cube_10
+    4300018: Cube_9
+    4300020: Cube_8
+    4300022: Cube_7
+    4300024: Cube_6
+    4300026: Cube_5
+    4300028: Cube_4
+    4300030: Cube_3
+    4300032: Cube_2
+    4300034: Cube_1
+    4300036: Cube
+    4300038: BASE_ASTEROID_1
+    4300040: PLATFORM_1
+    4300042: Asteroid_Small_2
+    7400000: C4D Animation Take
+    7400002: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

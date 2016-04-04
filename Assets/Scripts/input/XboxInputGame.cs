@@ -9,8 +9,8 @@ public class XboxInputGame : MonoBehaviour {
     GamePadState prevState;
 
     //Objects to Affect
-    PlayerMovement player;
-    CameraControl cam;
+    PlayerMovement pm;
+    CameraControl cc;
 
     //Project Specific (add vars for storing classes here)
 
@@ -43,17 +43,17 @@ public class XboxInputGame : MonoBehaviour {
 
     bool leftStickButton = false;
 
-    bool forward, backward, left, right, jump, glide = false;
+    bool up, down, left, right, jump, glide = false;
     bool camLeft, camRight, camUp, camDown = false;
 
     // Use this for initialization
     void Start() {
-        cam = Camera.main.GetComponent<CameraControl>();
-        player = GetComponent<PlayerMovement>();
+        cc = Camera.main.GetComponent<CameraControl>();
+        pm = GetComponent<PlayerMovement>();
 
-        if (cam == null)
+        if (cc == null)
             Debug.LogError("No CameraControl was found in the camera!");
-        if(player == null)
+        if(pm == null)
             Debug.LogError("Player does not contain a PlayerMovement!");
     }
 
@@ -65,7 +65,8 @@ public class XboxInputGame : MonoBehaviour {
         CheckForButtonRelease();
         ButtonActions(); //do things like shooting here
 
-        ProcessAndSendMovement();
+        if (pm.IsAlive)
+            ProcessAndSendMovement();
 
         if (DeadZoneCheckRight()) {
             RightStickX = state.ThumbSticks.Right.X;//holds x value of stick
@@ -86,7 +87,7 @@ public class XboxInputGame : MonoBehaviour {
 
     }
     void ButtonActions() {
-        if (player) {
+        if (pm) {
             if (bButton) {
                 glide = true;
             }
@@ -95,7 +96,7 @@ public class XboxInputGame : MonoBehaviour {
     void CheckForButtonPress() // check if a button was pressed this frame aka button down
     {
         //shoulders
-        if (player) {
+        if (pm) {
             if (prevState.Buttons.LeftShoulder == ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed) {
                 leftShoulder = true;
             }
@@ -127,7 +128,7 @@ public class XboxInputGame : MonoBehaviour {
             }
 
             if (prevState.Buttons.Back == ButtonState.Released && state.Buttons.Back == ButtonState.Pressed) {
-                SceneManager.LoadScene("Prototype_V1");
+                GameController.RestartCurrentScene();
             }
 
             if (prevState.Buttons.LeftStick == ButtonState.Released && state.Buttons.LeftStick == ButtonState.Pressed) {
@@ -137,7 +138,7 @@ public class XboxInputGame : MonoBehaviour {
     }
     void CheckForButtonRelease() // check if a button is released this frame
     {
-        if (player) {
+        if (pm) {
             //shoulders
             if (prevState.Buttons.LeftShoulder == ButtonState.Pressed && state.Buttons.LeftShoulder == ButtonState.Released) {
                 leftShoulder = false;
@@ -218,9 +219,9 @@ public class XboxInputGame : MonoBehaviour {
     void ProcessAndSendMovement() {
 
         if (LeftStickY > 0.001) {
-            forward = true;
+            up = true;
         } else if (LeftStickY < -0.001) {
-            backward = true;
+            down = true;
         }
 
         if (LeftStickX > 0.001) {
@@ -241,19 +242,19 @@ public class XboxInputGame : MonoBehaviour {
             camDown = true;
         }
 
-        player.Move(forward, backward, left, right, jump, glide);
+        pm.Move(up, down, left, right, jump, glide);
 
         if (camLeft)
-            cam.RotateY(-1);
+            cc.RotateY(-1);
         else if (camRight)
-            cam.RotateY(1);
+            cc.RotateY(1);
 
         if (camUp)
-            cam.RotateX(1);
+            cc.RotateX(1);
         else if (camDown)
-            cam.RotateX(-1);
+            cc.RotateX(-1);
 
-        forward = backward = left = right = jump = glide = false;
+        up = down = left = right = jump = glide = false;
         camLeft = camRight = camUp = camDown = false;
     }
 }

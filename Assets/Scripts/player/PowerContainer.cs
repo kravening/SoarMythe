@@ -2,10 +2,10 @@
 
 public class PowerContainer : MonoBehaviour {
 
-    [SerializeField][Range(0.001f,0.1f)][Tooltip("How fast the lerp charges the power.")]
+    [SerializeField][Range(0.001f,0.1f), Tooltip("How fast the lerp charges the power.")]
     float chargeSpeed = 0.01f;
 
-    [SerializeField][Tooltip("The amount of power that is and can be contained")] // The amount of jump power the player has, and the max he can have are both set here.
+    [SerializeField, Tooltip("The amount of power that is and can be contained")] // The amount of jump power the player has, and the max he can have are both set here.
     float power, maxPower = 20;
 
     bool touchingChargepad;
@@ -25,7 +25,9 @@ public class PowerContainer : MonoBehaviour {
     }
 
 	void Update () {
-
+        if (power <= 0) {
+            GameController.LoseGame();
+        }
 
         // Don't wanna have more than the max power.
         if (power > maxPower) {

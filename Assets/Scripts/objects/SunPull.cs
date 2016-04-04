@@ -2,13 +2,13 @@
 using System.Collections;
 
 public class SunPull : MonoBehaviour {
-    [SerializeField][Tooltip("How fast do I pull ToPull to ToPullTo?")]
+    [SerializeField, Tooltip("How fast do I pull ToPull to ToPullTo?")]
     float speed = 0.1f;
     
-    [SerializeField][Tooltip("What will I pull towards ToPullTo?")]
+    [SerializeField, Tooltip("What will I pull towards ToPullTo?")]
     Transform toPull;
 
-    [SerializeField][Tooltip("What will I pull ToPull towards?")]
+    [SerializeField, Tooltip("What will I pull ToPull towards?")]
     Transform toPullTo;
 
     public bool Pull = false;

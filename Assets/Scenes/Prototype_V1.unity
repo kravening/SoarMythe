@@ -1126,7 +1126,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15.4
+  m_Radius: 13.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &320188242
 MonoBehaviour:
@@ -3930,6 +3930,46 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 401602, guid: bf79a6b9499d36245be5b8979e803eab, type: 2}
   m_PrefabInternal: {fileID: 1309496738}
+--- !u!1 &1254168347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1254168348}
+  - 65: {fileID: 1254168349}
+  m_Layer: 10
+  m_Name: RaycastPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1254168348
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1254168347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.296, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1738525456}
+  m_RootOrder: 2
+--- !u!65 &1254168349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1254168347}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1254503051
 Prefab:
   m_ObjectHideFlags: 0
@@ -4778,6 +4818,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 256
+  raycastPoint: {fileID: 1254168348}
 --- !u!114 &1348688462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4813,8 +4854,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
-  mousePos: {x: 0, y: 0}
-  lastMousePos: {x: 0, y: 0}
+  mouseSensitivity: {x: 0.4, y: 0.2}
+  mouseSensitivityDivider: 2
 --- !u!114 &1348688464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4840,15 +4881,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca7b17b2d27cee408d5dfaa7960287d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingGround: 1
   groundSpeed: 4
   airSpeed: 2.5
-  jumpHeight: 5
+  jumpHeight: 8
   flightHeight: 5
   speedDivider: 30
   jumpDivider: 1
   smoothTurning: 0
   turningSpeed: 0.5
+  jumpConsumption: 10
+  glideConsumption: 0.5
   particleGroundHit: {fileID: 152700, guid: 32224060f43e0f44fa2ef287413496c5, type: 2}
   groundLayer:
     serializedVersion: 2
@@ -5304,6 +5346,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.05
   m_Center: {x: -0.0021411178, y: -0.001947373, z: -0.003983348}
+--- !u!114 &1402634318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1402634310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ff6c2a06919704b9ff238e55b24378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winTrigger: 0
 --- !u!1 &1406498010
 GameObject:
   m_ObjectHideFlags: 0
@@ -6099,8 +6153,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1670929637}
   - 33: {fileID: 1670929636}
-  - 136: {fileID: 1670929635}
   - 23: {fileID: 1670929634}
+  - 64: {fileID: 1670929638}
+  - 114: {fileID: 1670929635}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -6134,19 +6189,18 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!136 &1670929635
-CapsuleCollider:
+--- !u!114 &1670929635
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1670929633}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ff6c2a06919704b9ff238e55b24378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winTrigger: 1
 --- !u!33 &1670929636
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6169,6 +6223,18 @@ Transform:
   - {fileID: 438153122}
   m_Father: {fileID: 0}
   m_RootOrder: 12
+--- !u!64 &1670929638
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1670929633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1709187120
 GameObject:
   m_ObjectHideFlags: 0
@@ -6274,6 +6340,7 @@ Transform:
   m_Children:
   - {fileID: 959858132}
   - {fileID: 1472897799}
+  - {fileID: 1254168348}
   m_Father: {fileID: 0}
   m_RootOrder: 6
 --- !u!1 &1755401496
@@ -6847,6 +6914,46 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1918896078}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1918976563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1918976565}
+  - 114: {fileID: 1918976564}
+  m_Layer: 0
+  m_Name: WinTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1918976564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1918976563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ff6c2a06919704b9ff238e55b24378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winTrigger: 1
+--- !u!4 &1918976565
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1918976563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 74.19735, y: -18.200361, z: 35.99881}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
 --- !u!1 &1926416876 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 118798, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}

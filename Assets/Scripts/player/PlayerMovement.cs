@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    [SerializeField]
     bool touchingGround = false; // Am I touching ground? Used to tell the difference
-    // between a jump, and flight.
+                                 // between a jump, and flight.
 
     public bool TouchingGround {
         get { return touchingGround; }
@@ -13,44 +12,36 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Movement attributes:")]
 
     // Used to move according to the camera.
-    /*[SerializeField]
-    [Tooltip("The block that follows the camera. The block should contain a PlayerMovementCameraPosition class.")]*/
+    /*[SerializeField, Tooltip("The block that follows the camera. The block should contain a PlayerMovementCameraPosition class.")]*/
     Transform CameraPosition;
 
     // Speed on the ground.
-    [SerializeField]
-    [Tooltip("How the fast the player will move when on the ground.")]
+    [SerializeField, Tooltip("How the fast the player will move when on the ground.")]
     float groundSpeed = 8;
 
     // Speed in the air.
-    [SerializeField]
-    [Tooltip("How the fast the player will move when in the air.")]
+    [SerializeField, Tooltip("How the fast the player will move when in the air.")]
     float airSpeed = 2;
 
     // How high can we jump.
-    [SerializeField]
-    [Tooltip("How high the player can jump.")]
+    [SerializeField, Tooltip("How high the player can jump.")]
     float jumpHeight = 8;
 
     // This is the fly boost and is used when the player has enough power and is in the air.
-    [SerializeField][Tooltip("How much height will I be given when I fly.")]
+    [SerializeField, Tooltip("How much height will I be given when I fly.")]
     float flightHeight = 5;
 
-    [SerializeField]
-    [Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
+    [SerializeField, Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
     // Using this in the Move() function rather than the update so that speed can still be changed on the go.
     float speedDivider = 30; // Also using this to make the speed usable in just whole numbers while not making the player go insane speeds.
 
-    [SerializeField]
-    [Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
+    [SerializeField, Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
     float jumpDivider = 30; // Also using this to make the jumpheight usable in just whole numbers while not making the player jump insanely high.
 
-    [SerializeField]
-    [Tooltip("Will I turn when I go left or right?")]
+    [SerializeField, Tooltip("Will I turn when I go left or right?")]
     bool smoothTurning = false;
     
-    [SerializeField]
-    [Tooltip("Speed at which I turn.")]
+    [SerializeField, Tooltip("Speed at which I turn.")]
     float turningSpeed = 1;
 
     Transform tf; // Used to do walking movement.
@@ -58,15 +49,23 @@ public class PlayerMovement : MonoBehaviour {
     CheckpointController cc; // Used to set and goto last checkpoint.
     PowerContainer pc; // Used to retrieve the amount of power the player has and edit it.
 
+    [Header("Power consumption")]
+
+    // The amount of power a jump boost takes.
+    [SerializeField, Tooltip("This happens only when the player jumps in the air.")]
+    float jumpConsumption = 10;
+
+    // The amount of power gliding takes each frame.
+    [SerializeField, Tooltip("This is negated each frame. So don't have it too high.")]
+    float glideConsumption = 0.5f;
+
     [Header("Miscellaneous attributes:")]
 
     // When the player hits the ground, drop an instance of this.
-    [SerializeField]
-    [Tooltip("The particle that will be instantiated when the player lands on the ground.")]
+    [SerializeField, Tooltip("The particle that will be instantiated when the player lands on the ground.")]
     GameObject particleGroundHit;
 
-    [SerializeField]
-    [Tooltip("The layer Ground should be in this to detect if the player is touching the ground.")]
+    [SerializeField, Tooltip("The layer Ground should be in this to detect if the player is touching the ground.")]
     LayerMask groundLayer; // This is compared with the layer of whatever I am touching right now.
     // So anything I can jump off has this as layer.
 
@@ -309,17 +308,16 @@ public class PlayerMovement : MonoBehaviour {
         // if the player was touching the ground.
         if (jump && touchingGround) {
             rb.AddForce(tf.up * (jumpHeight / jumpDivider), ForceMode.Impulse);
-        } else if (jump && pc.Power >= 10) {
+        } else if (jump && pc.Power >= jumpConsumption) {
             // The flight, only works if the player has enough power to remove.
-            pc.Power -= 10;
+            pc.Power -= jumpConsumption;
             rb.AddForce(tf.up * (flightHeight / jumpDivider), ForceMode.Impulse);
-            Debug.Log("fly");
         }
 		
-		if (glide && pc.Power > 0.5f && !touchingGround) {
+		if (glide && pc.Power > glideConsumption && !touchingGround) {
             // Glide remains true while the the jump button is down. Unlike the actual jump
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
-            pc.Power -= 0.5f;
+            pc.Power -= glideConsumption;
         }
     }
 }

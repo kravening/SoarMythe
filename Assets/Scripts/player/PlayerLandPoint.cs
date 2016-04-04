@@ -9,6 +9,9 @@ public class PlayerLandPoint : MonoBehaviour {
     [SerializeField]
     LayerMask ground;
 
+    [SerializeField, Tooltip("From where I cast my ray")]
+    Transform raycastPoint;
+
     PlayerMovement pm;
 
     void Start() {
@@ -17,8 +20,7 @@ public class PlayerLandPoint : MonoBehaviour {
 
 	void Update () {
         // Setup the rays position.
-        Vector3 rayStart = transform.position;
-        rayStart.y -= transform.lossyScale.y / 1.2f;
+        Vector3 rayStart = raycastPoint.position;
 
         // Set up the ray.
         Ray ray = new Ray(rayStart, -transform.up);

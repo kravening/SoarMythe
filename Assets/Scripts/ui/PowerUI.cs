@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PowerUI : MonoBehaviour {
 
-	[SerializeField][Tooltip("This is in the player. Need it to display (max)power.")]
+	[SerializeField, Tooltip("This is in the player. Need it to display (max)power.")]
 	PowerContainer pc;
 
     GameObject fillArea;

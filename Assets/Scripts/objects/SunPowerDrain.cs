@@ -3,8 +3,7 @@ using System.Collections;
 
 public class SunPowerDrain : MonoBehaviour {
 
-    [SerializeField]
-    [Tooltip("Distance * drain = damage to max power")]
+    [SerializeField, Tooltip("Distance * drain = damage to max power")]
     float drain, toLose;
 
     void OnTriggerStay(Collider other) {

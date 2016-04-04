@@ -1,26 +1,38 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class KeyboardInput : MonoBehaviour {
-    PlayerMovement playerMovement;
+    PlayerMovement pm;
 
 	[SerializeField]
 	PauseMenu pauseMenu;
 
-    bool up, right, down, left, jump, glide, use, pause = false;
+    bool up, right, down, left, jump, glide, pause, restart = false;
 
     [SerializeField]
-    Vector2 mousePos;
+    Vector2 mouseSensitivity = new Vector2(1, 1);
+
+    Vector2 mousePosChanges, lastMousePos;
 
     [SerializeField]
-    Vector2 lastMousePos;
+    float mouseSensitivityDivider = 2;
+
+    CameraControl cc;
+
+    PowerContainer pc;
 
     public Vector2 MousePos {
-        get { return mousePos; }
+        get { return mousePosChanges; }
     }
 
 	void Start(){
-		playerMovement = gameObject.GetComponent<PlayerMovement>();
+		pm = gameObject.GetComponent<PlayerMovement>();
+        cc = Camera.main.GetComponent<CameraControl>();
+        pc = GetComponent<PowerContainer>();
+
+        if (cc == null)
+            Debug.LogError("No CameraControl was found in the camera!");
+        if (pm == null)
+            Debug.LogError("Player does not contain a PlayerMovement!");
 	}
 
 	void Update() {
@@ -37,11 +49,13 @@ public class KeyboardInput : MonoBehaviour {
 
         SendCameraMovement();
 
-        if (Input.GetKeyDown(KeyCode.R)) {
-            SceneManager.LoadScene("Prototype_V1");
+        if (restart) {
+            GameController.RestartCurrentScene();
         }
 
-		playerMovement.Move(up, down, left, right, jump, glide);
+        if (pm.IsAlive)
+            pm.Move(up, down, left, right, jump, glide);
+
 	}
 
     void CheckKeys() {
@@ -49,8 +63,7 @@ public class KeyboardInput : MonoBehaviour {
         down = Input.GetKey(KeyCode.S);
         left = Input.GetKey(KeyCode.A);
         right = Input.GetKey(KeyCode.D);
-
-        glide = Input.GetKey(KeyCode.Space);
+        glide = Input.GetKey(KeyCode.E);
 
         if (left && right) {
             left = right = false;
@@ -63,7 +76,7 @@ public class KeyboardInput : MonoBehaviour {
 
     void CheckKeysDown() {
 		jump = Input.GetKeyDown(KeyCode.Space);
-		use = Input.GetKeyDown(KeyCode.E);
+        restart = Input.GetKeyDown(KeyCode.R);
     }
 
 	void CheckSpecialKeys() {
@@ -75,13 +88,22 @@ public class KeyboardInput : MonoBehaviour {
 	}
 
     void UpdateMousePos() {
-        mousePos.x = Input.GetAxis("Horizontal");
-        mousePos.y = Input.GetAxis("Vertical");
+        mousePosChanges.x = Input.mousePosition.x;
+        mousePosChanges.y = Input.mousePosition.y;
 
-        mousePos -= lastMousePos;
+        mousePosChanges -= lastMousePos;
+
+        lastMousePos = Input.mousePosition;
     }
 
     void SendCameraMovement() {
-        // Do things
+
+        // Rotate X is up and down.
+        // So mousesensitivity X and mousePosChanges on Y since that's up and down.
+        cc.RotateX((mouseSensitivity.x / mouseSensitivityDivider) * mousePosChanges.y);
+
+        // Rotate Y is left and right.
+        // So the Y of mousesensitivity and X of mousePosChanges because that's left and right.
+        cc.RotateY((mouseSensitivity.y / mouseSensitivityDivider) * mousePosChanges.x);
     }
 }

@@ -6,7 +6,7 @@ public class MovingPlatform : MonoBehaviour {
     Transform platform;
 
     // The points between which the platform loops.
-    [SerializeField][Tooltip("The platform will move between these points, also it will start at the first one in the array.")]
+    [SerializeField, Tooltip("The platform will move between these points, also it will start at the first one in the array.")]
     List<Transform> points = new List<Transform>();
     
     // The container for anything that should be affected by the platform.
@@ -17,18 +17,15 @@ public class MovingPlatform : MonoBehaviour {
     int pointsCount, lastPoint, nextPoint = 0;
 
     // The speed at which the platform moves.
-    [SerializeField][Range(0,0.1f)][Tooltip("How fast the platform will move.")]
+    [SerializeField, Range(0,0.1f), Tooltip("How fast the platform will move.")]
     float speed = 0.1f;
 
     // For ease I want access to both.
-    [SerializeField][Tooltip("Use lerp or movetowards?")]
+    [SerializeField, Tooltip("Use lerp or movetowards?")]
     bool useLerp = false;
 
     [SerializeField]
-    Vector3 lastPos;
-
-    [SerializeField]
-    Vector3 currentPos;
+    Vector3 lastPos, currentPos;
 
     void Start() {
         pointsCount = points.Count - 1;

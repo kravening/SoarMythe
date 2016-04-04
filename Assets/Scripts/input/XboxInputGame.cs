@@ -43,8 +43,14 @@ public class XboxInputGame : MonoBehaviour {
 
     bool leftStickButton = false;
 
-    bool up, down, left, right, jump, glide = false;
+    bool up, down, left, right, jump, glide, startButton = false;
     bool camLeft, camRight, camUp, camDown = false;
+
+    public bool StartButton {
+        get {
+            return startButton;
+        }
+    }
 
     // Use this for initialization
     void Start() {
@@ -126,6 +132,9 @@ public class XboxInputGame : MonoBehaviour {
             if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed) {
                 yButton = true;
             }
+            if (prevState.Buttons.Start == ButtonState.Released && state.Buttons.Start == ButtonState.Pressed) {
+                startButton = true;
+            }
 
             if (prevState.Buttons.Back == ButtonState.Released && state.Buttons.Back == ButtonState.Pressed) {
                 GameController.RestartCurrentScene();
@@ -165,6 +174,9 @@ public class XboxInputGame : MonoBehaviour {
             }
             if (prevState.Buttons.Y == ButtonState.Pressed && state.Buttons.Y == ButtonState.Released) {
                 yButton = false;
+            }
+            if (prevState.Buttons.Start == ButtonState.Pressed && state.Buttons.Start == ButtonState.Released) {
+                startButton = true;
             }
 
             if (prevState.Buttons.LeftStick == ButtonState.Pressed && state.Buttons.LeftStick == ButtonState.Released) {

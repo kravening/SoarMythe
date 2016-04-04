@@ -27,13 +27,16 @@ public class MainMenuHandler : MonoBehaviour {
     [SerializeField]
     Color selectedButtonColor = Color.red;
 
-    [SerializeField]
     List<Transform> currentPath;
 
     [SerializeField]
     bool moveToNewPlace, up, down, reachedEndPath = false;
 
     bool insideMenu = true;
+
+    public bool InsideMenu {
+        get { return insideMenu; }    
+    }
 
     Transform camera;
 
@@ -45,8 +48,6 @@ public class MainMenuHandler : MonoBehaviour {
     void Start() {
         xinput = GetComponent<XboxInputMenu>();
         camera = Camera.main.transform;
-
-        SetColor(MainMenuButtons[currentButton], selectedButtonColor);
     }
 
     void FixedUpdate() {
@@ -134,7 +135,9 @@ public class MainMenuHandler : MonoBehaviour {
 
     void ButtonChangeHandling() {
         // Check if it's within limits.
-        if (currentButton < 0) {
+        if (currentButton == -10) {
+            // Do nothing, just need this for mouse.
+        } else if (currentButton < 0) {
             currentButton = MainMenuButtons.Count - 1;
         }
 
@@ -143,8 +146,12 @@ public class MainMenuHandler : MonoBehaviour {
         }
 
         // Then edit the colors.
-        SetColor(MainMenuButtons[currentButton], selectedButtonColor);
-        SetColor(MainMenuButtons[lastButton], Color.white);
+        if (currentButton >= 0) {
+            SetColor(MainMenuButtons[currentButton], selectedButtonColor);
+        }
+        if (lastButton >= 0) {
+            SetColor(MainMenuButtons[lastButton], Color.white);
+        }
     }
 
     /// <summary>
@@ -196,6 +203,23 @@ public class MainMenuHandler : MonoBehaviour {
         } else {
             moveToNewPlace = true;
         }
+    }
+
+    public void SetActiveButton(GameObject button) {
+        if (MainMenuButtons.IndexOf(button) != currentButton) {
+            lastButton = currentButton;
+
+            currentButton = MainMenuButtons.IndexOf(button);
+
+            ButtonChangeHandling();
+        }
+    }
+
+    public void SetActiveButton(int index) {
+        lastButton = currentButton;
+        currentButton = index;
+
+        ButtonChangeHandling();
     }
 
     Vector3 Bezier2(Transform s, Transform p, Transform e, float t) {

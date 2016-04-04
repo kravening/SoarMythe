@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: ceb9f6738c42de847b4cf788157cb173
+timeCreated: 1459415262
+licenseType: Free
+ShaderImporter:
+  defaultTextures:
+  - _DistortTex: {fileID: 2800000, guid: 7c818f3b4244f374eb7d21af9b6bbe66, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

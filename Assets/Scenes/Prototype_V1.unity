@@ -7801,11 +7801,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432474, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22432474, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22410084, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchoredPosition.x

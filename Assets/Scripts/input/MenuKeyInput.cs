@@ -66,7 +66,6 @@ public class MenuKeyInput : MonoBehaviour {
 
             if (didRayHit && hit.collider != null) {
                 mmh.SetActiveButton(hit.collider.transform.GetChild(0).gameObject);
-                Debug.DrawLine(ray.origin, hit.point, Color.red);
             }
         }
         leftMouse = false;

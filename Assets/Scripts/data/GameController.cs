@@ -15,12 +15,15 @@ public static class GameController {
         }
     }
 
-    public static void LoseGame() {
+    public static void LoseGame(string cause = null) {
         if (!gameEnded) {
             gameEnded = true;
 
             // Trigger Lose UI.
-            Debug.Log("Seems like you died.. How tragic.");
+            if(cause != null)
+                Debug.Log("Seems like you died.. How tragic. Death by " + cause);
+            else
+                Debug.Log("Seems like you died.. How tragic. Death by unknown cause.");
         }
     }
 

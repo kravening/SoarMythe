@@ -73,7 +73,6 @@ public class PlayerMovement : MonoBehaviour {
     LayerMask groundLayer; // This is compared with the layer of whatever I am touching right now.
     // So anything I can jump off has this as layer.
 
-    [SerializeField]
     Vector3 vel;
 
     bool isAlive = true;

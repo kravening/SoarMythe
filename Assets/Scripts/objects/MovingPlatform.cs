@@ -24,7 +24,6 @@ public class MovingPlatform : MonoBehaviour {
     [SerializeField, Tooltip("Use lerp or movetowards?")]
     bool useLerp = false;
 
-    [SerializeField]
     Vector3 lastPos, currentPos;
 
     void Start() {

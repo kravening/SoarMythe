@@ -10,7 +10,7 @@ public class EndTrigger : MonoBehaviour {
             if (winTrigger) {
                 GameController.WinGame();
             } else {
-                GameController.LoseGame();
+                GameController.LoseGame(gameObject.name);
             }
         }
     }

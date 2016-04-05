@@ -25,8 +25,8 @@ public class PowerContainer : MonoBehaviour {
     }
 
 	void Update () {
-        if (power <= 0) {
-            GameController.LoseGame();
+        if (maxPower <= 0) {
+            GameController.LoseGame("losing power.");
         }
 
         // Don't wanna have more than the max power.

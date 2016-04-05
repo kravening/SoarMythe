@@ -8,6 +8,7 @@ public class TextFieldIngame : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
+        // Display text for player
 		if (col.transform.name == "Player") {
 			display = true;
 		}
@@ -15,6 +16,7 @@ public class TextFieldIngame : MonoBehaviour {
 
 	void OnTriggerExit(Collider col)
 	{
+        // Stop displaying the text
 		if (col.transform.name == "Player") 
 		{
 			display = false;
@@ -23,6 +25,7 @@ public class TextFieldIngame : MonoBehaviour {
 
 	void OnGUI()
 	{
+        // Create the text
 		if (display == true) 
 		{
 			GUI.Box (new Rect(360,300,Screen.width-700, Screen.height-650), text);

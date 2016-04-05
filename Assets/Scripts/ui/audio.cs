@@ -12,6 +12,7 @@ public class audio : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider coll)
 	{
+        // When player enters play audio
 		if (coll.gameObject.tag == "Player") 
 		{
 			Audio.PlayOneShot (impact, 1.0f);
@@ -19,6 +20,7 @@ public class audio : MonoBehaviour {
     }
 	void OnTriggerExit(Collider coll)
 	{
+        // When player moves out stop playing audio
 		if (coll.gameObject.tag == "Player") 
 		{
 			Audio.Stop ();

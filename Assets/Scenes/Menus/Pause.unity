@@ -188,6 +188,7 @@ MonoBehaviour:
   groundSpeed: 8
   airSpeed: 2
   jumpHeight: 8
+  flightHeight: 5
   speedDivider: 30
   jumpDivider: 30
   smoothTurning: 0
@@ -209,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1684586487}
   mousePos: {x: 0, y: 0}
+  lastMousePos: {x: 0, y: 0}
 --- !u!1 &41792381
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,9 +831,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMenu: MainMenu
-  Options: Options
   isPaused: 1
-  pauseMenuContainer: {fileID: 1684586488}
+  pauseButtons: []
 --- !u!225 &1684586488
 CanvasGroup:
   m_ObjectHideFlags: 0

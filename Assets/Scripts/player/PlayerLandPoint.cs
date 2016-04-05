@@ -12,6 +12,9 @@ public class PlayerLandPoint : MonoBehaviour {
     [SerializeField, Tooltip("From where I cast my ray")]
     Transform raycastPoint;
 
+    [SerializeField, Tooltip("Layers to ignore")]
+    LayerMask layerMask;
+
     PlayerMovement pm;
 
     void Start() {
@@ -26,35 +29,33 @@ public class PlayerLandPoint : MonoBehaviour {
         Ray ray = new Ray(rayStart, -transform.up);
         RaycastHit hit;
 
-        Physics.Raycast(ray, out hit);
+        Physics.Raycast(ray, out hit, layerMask);
 
         GameObject other = hit.collider != null ? hit.collider.gameObject : null;
 
-        #if UNITY_EDITOR // Just to be on the safe side.
-            Debug.DrawRay(rayStart, -transform.up * 10, Color.red, 0, false);
-        #endif
+        Debug.DrawRay(rayStart, -transform.up * 10, Color.red, 0, false);
 
         if(other != null) {
             if (other.layer == 8) {
                 if (!pm.TouchingGround) {
-                    SetMarkerActive(true);
+                    SetActive(true);
 
                     Vector3 positionToSetTo = hit.point;
                     positionToSetTo.y += 0.03f;
 
                     marker.position = positionToSetTo;
                 } else {
-                    SetMarkerActive(false);
+                    SetActive(false);
                 }
             } else {
-                SetMarkerActive(false);
+                SetActive(false);
             }
         } else {
-            SetMarkerActive(false);
+            SetActive(false);
         }
 	}
 
-    void SetMarkerActive(bool state) {
+    void SetActive(bool state) {
         marker.gameObject.SetActive(state);
     }
 }

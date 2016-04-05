@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -128,6 +128,10 @@ Prefab:
     - target: {fileID: 154110, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_Name
       value: Chargepad 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 154110, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
@@ -365,7 +369,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -510,7 +518,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -999,7 +1011,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -1202,7 +1218,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -1670,7 +1690,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -2045,7 +2069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &609565823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2236,7 +2260,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -2717,7 +2745,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -3250,7 +3282,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -3720,7 +3756,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -3792,6 +3832,10 @@ Prefab:
     - target: {fileID: 154110, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_Name
       value: Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 154110, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
@@ -4291,7 +4335,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -4766,7 +4814,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -4819,6 +4871,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   raycastPoint: {fileID: 1254168348}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 3072
 --- !u!114 &1348688462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5585,7 +5640,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -5986,7 +6045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1617956977
 Transform:
   m_ObjectHideFlags: 0
@@ -7047,6 +7106,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1.1830666
       objectReference: {fileID: 0}
+    - target: {fileID: 154110, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
   m_IsPrefabParent: 0
@@ -7329,7 +7392,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -7373,6 +7440,10 @@ Prefab:
     - target: {fileID: 424964, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 154110, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
@@ -7636,7 +7707,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 155282, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
+      propertyPath: m_TagString
+      value: Powerup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436142, guid: ca9bd51f57f1f9142ab7445e737a7747, type: 2}
@@ -7801,11 +7876,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432474, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22432474, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22410084, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchoredPosition.x

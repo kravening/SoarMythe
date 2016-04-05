@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
     public string MainMenu;
 	public bool isPaused;
-
-	[SerializeField]
+    bool up, down = false;
+    [SerializeField]
+    List<GameObject> pauseButtons;
 	CanvasGroup pauseMenuContainer;
 
-    XboxInputMenu xboxInputPause;
+    XboxInputMenu xboxInput;
 
     void Start() {
-        xboxInputPause = GetComponent<XboxInputMenu>();
+        xboxInput = GetComponent<XboxInputMenu>();
 		//pauseMenuContainer.GetComponent<CanvasGroup> ();
 		if (isPaused) {
 			Time.timeScale = 1.0f;
@@ -21,6 +22,16 @@ public class PauseMenu : MonoBehaviour {
 			Time.timeScale = 0.0f;
 		}
 	}
+    void FixedUpdate()
+    {
+        control();
+
+    }
+    void control()
+    {
+        up = xboxInput.Up;
+        down = xboxInput.Down;
+    }
 
 	public void togglePause()
 	{
@@ -50,5 +61,4 @@ public class PauseMenu : MonoBehaviour {
         // Quit the game
 		Application.Quit ();
 	}
-
 }

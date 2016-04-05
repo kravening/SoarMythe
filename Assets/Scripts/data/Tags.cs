@@ -12,5 +12,6 @@ public static class Tags {
 	public static readonly string ENEMY = "Enemy";
 	public static readonly string CHARGEPAD = "Chargepad";
 	public static readonly string SPAWN = "Respawn";
+    public static readonly string POWERUP = "Powerup";
 
 }

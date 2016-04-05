@@ -9,11 +9,15 @@ public class PlayerMovement : MonoBehaviour {
         get { return touchingGround; }
     }
 
-    [Header("Movement attributes:")]
-
     // Used to move according to the camera.
     /*[SerializeField, Tooltip("The block that follows the camera. The block should contain a PlayerMovementCameraPosition class.")]*/
     Transform CameraPosition;
+
+    [Header("Movement attributes:")]
+
+    // I don't want the player to be able to just shoot himself into space with stacking force of the jump.
+    [SerializeField, Tooltip("Not to have the player fly into space when you spam jump.")]
+    float maxVelocity = 10;
 
     // Speed on the ground.
     [SerializeField, Tooltip("How the fast the player will move when on the ground.")]
@@ -69,6 +73,9 @@ public class PlayerMovement : MonoBehaviour {
     LayerMask groundLayer; // This is compared with the layer of whatever I am touching right now.
     // So anything I can jump off has this as layer.
 
+    [SerializeField]
+    Vector3 vel;
+
     bool isAlive = true;
 
     public bool IsAlive {
@@ -82,6 +89,8 @@ public class PlayerMovement : MonoBehaviour {
         tf = GetComponent<Transform>();
         cc = GetComponent<CheckpointController>();
         pc = GetComponent<PowerContainer>();
+
+        vel = new Vector3();
 
         CameraPosition = Object.FindObjectOfType<PlayerMovementCameraPosition>().gameObject.GetComponent<Transform>();
 
@@ -318,6 +327,18 @@ public class PlayerMovement : MonoBehaviour {
             // Glide remains true while the the jump button is down. Unlike the actual jump
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
             pc.Power -= glideConsumption;
+        }
+
+        if(jump && !glide) {
+            if (!touchingGround) {
+                Vector3 vel = rb.velocity;
+
+                if (vel.y > maxVelocity) {
+                    vel.y = maxVelocity;
+                }
+
+                rb.velocity = vel;
+            }
         }
     }
 }

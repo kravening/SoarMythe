@@ -4,12 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerTemp
   - Enemy
   - Ground
   - Player
   - Chargepad
-  - Planet
   layers:
   - Default
   - TransparentFX
@@ -21,8 +19,8 @@ TagManager:
   - 
   - Ground
   - IgnoredByLight
-  - 
-  - 
+  - PowerUp
+  - Chargepad
   - 
   - 
   - 

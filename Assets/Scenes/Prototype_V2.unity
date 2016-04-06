@@ -5212,14 +5212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadZoneAmount: 0
   triggerPressedSensitivity: 0
-  LeftStickAngle: 0
-  RightStickAngle: 0
-  RightStickActive: 0
-  LeftStickActive: 0
-  LeftStickX: 0
-  LeftStickY: 0
-  RightStickX: 0
-  RightStickY: 0
 --- !u!114 &1348688463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5338,7 +5330,7 @@ CapsuleCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1348688460}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 55768fb4a58b34a4ebaf7df50200104d, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.37
@@ -8044,11 +8036,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432474, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22432474, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22410084, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchoredPosition.x

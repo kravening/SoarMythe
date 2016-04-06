@@ -16,30 +16,13 @@ public class XboxInputGame : MonoBehaviour {
 
     //behaviourModifiers
     [SerializeField]
-    float deadZoneAmount;
-    [SerializeField]
-    float triggerPressedSensitivity;
+    float deadZoneAmount, triggerPressedSensitivity;
 
     //for reading
-    public float LeftStickAngle;
-    public float RightStickAngle;
-    public bool RightStickActive;
-    public bool LeftStickActive;
-    public float LeftStickX;
-    public float LeftStickY;
-    public float RightStickX;
-    public float RightStickY;
+    float LeftStickAngle, RightStickAngle, LeftStickX, LeftStickY, RightStickX, RightStickY;
+    bool RightStickActive, LeftStickActive;
 
-    //bools for buttons
-    bool leftShoulder = false;
-    bool rightShoulder = false;
-    bool leftTrigger = false;
-    bool rightTrigger = false;
-
-    bool aButton = false;
-    bool bButton = false;
-    bool xButton = false;
-    bool yButton = false;
+    bool aButton,  bButton, xButton, yButton = false;
 
     bool leftStickButton = false;
 
@@ -101,24 +84,7 @@ public class XboxInputGame : MonoBehaviour {
     }
     void CheckForButtonPress() // check if a button was pressed this frame aka button down
     {
-        //shoulders
         if (pm) {
-            if (prevState.Buttons.LeftShoulder == ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed) {
-                leftShoulder = true;
-            }
-            if (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed) {
-                rightShoulder = true;
-            }
-            if (prevState.Triggers.Left >= triggerPressedSensitivity && leftTrigger == false) {
-                leftTrigger = true;
-            }
-            if (prevState.Triggers.Right >= triggerPressedSensitivity && rightTrigger == false) {
-                rightTrigger = true;
-            }
-
-
-
-            // buttons
             if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed) {
                 aButton = true;
                 jump = true;
@@ -148,20 +114,6 @@ public class XboxInputGame : MonoBehaviour {
     void CheckForButtonRelease() // check if a button is released this frame
     {
         if (pm) {
-            //shoulders
-            if (prevState.Buttons.LeftShoulder == ButtonState.Pressed && state.Buttons.LeftShoulder == ButtonState.Released) {
-                leftShoulder = false;
-            }
-            if (prevState.Buttons.RightShoulder == ButtonState.Pressed && state.Buttons.RightShoulder == ButtonState.Released) {
-                rightShoulder = false;
-            }
-
-            if (prevState.Triggers.Left <= triggerPressedSensitivity && leftTrigger == true) {
-                leftTrigger = false;
-            }
-            if (prevState.Triggers.Right <= triggerPressedSensitivity && rightTrigger == true) {
-                rightTrigger = false;
-            }
 
             if (prevState.Buttons.A == ButtonState.Pressed && state.Buttons.A == ButtonState.Released) {
                 aButton = false;
@@ -177,10 +129,6 @@ public class XboxInputGame : MonoBehaviour {
             }
             if (prevState.Buttons.Start == ButtonState.Pressed && state.Buttons.Start == ButtonState.Released) {
                 startButton = true;
-            }
-
-            if (prevState.Buttons.LeftStick == ButtonState.Pressed && state.Buttons.LeftStick == ButtonState.Released) {
-                leftStickButton = false;
             }
         }
     }

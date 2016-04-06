@@ -3591,14 +3591,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadZoneAmount: 0
   triggerPressedSensitivity: 0
-  LeftStickAngle: 0
-  RightStickAngle: 0
-  RightStickActive: 0
-  LeftStickActive: 0
-  LeftStickX: 0
-  LeftStickY: 0
-  RightStickX: 0
-  RightStickY: 0
 --- !u!114 &658999762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8675,6 +8667,7 @@ GameObject:
   - 4: {fileID: 1907754257}
   - 114: {fileID: 1907754256}
   - 114: {fileID: 1907754258}
+  - 114: {fileID: 1907754259}
   m_Layer: 0
   m_Name: MainMenuHandler
   m_TagString: Untagged
@@ -8698,8 +8691,6 @@ MonoBehaviour:
   - {fileID: 1756055994}
   - {fileID: 1937470006}
   - {fileID: 1571909911}
-  currentButton: 0
-  lastButton: 0
   startPoint: {fileID: 2074741424}
   creditsPath:
   - {fileID: 1189541906}
@@ -8707,11 +8698,7 @@ MonoBehaviour:
   controlsPath:
   - {fileID: 852180683}
   - {fileID: 1125937353}
-  selectedButtonColor: {r: 0.45588237, g: 1, b: 0.8423935, a: 1}
-  moveToNewPlace: 0
-  up: 0
-  down: 0
-  reachedEndPath: 0
+  highlightButtonColor: {r: 1, g: 0, b: 0, a: 1}
   cameraSpeed: 0.3
 --- !u!4 &1907754257
 Transform:
@@ -8745,6 +8732,17 @@ MonoBehaviour:
   dpadDown: 0
   dpadLeft: 0
   dpadRight: 0
+--- !u!114 &1907754259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1907754255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b87daebe10e8c4fa1f27c77322aa19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1931285231
 GameObject:
   m_ObjectHideFlags: 0

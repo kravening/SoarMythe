@@ -7,40 +7,49 @@ using UnityEditor;
 
 public class MainMenuHandler : MonoBehaviour {
 
-    [SerializeField]
+    // The buttons part of the main menu.
+    [SerializeField, Tooltip("Put all the buttons the main menu will contain in here")]
     List<GameObject> MainMenuButtons;
     
-    [SerializeField]
+    // Containers for last button and current, only need last to reset it.
     int currentButton, lastButton = 0;
 
+    // To get input from.
+    // Keyinput gives his input.
     XboxInputMenu xinput;
 
-    [SerializeField]
+    // This is always the first of the Bezier function to lerp between them.
+    [SerializeField, Tooltip("The home point of the camera. Where it starts.")]
     Transform startPoint;
 
-    [SerializeField]
-    List<Transform> creditsPath;
+    // Basically two points to lerp with the Bezier function.
+    [SerializeField, Tooltip("The paths the camera takes to go to the screen.")]
+    List<Transform> creditsPath, controlsPath;
 
-    [SerializeField]
-    List<Transform> controlsPath;
+    // The highlight color.
+    [SerializeField, Tooltip("The color of the selected button.")]
+    Color highlightButtonColor = Color.red;
 
-    [SerializeField]
-    Color selectedButtonColor = Color.red;
-
+    // The current path the camera is (going to be) taking.
     List<Transform> currentPath;
 
-    [SerializeField]
-    bool moveToNewPlace, up, down, reachedEndPath = false;
+    /*
+     * MoveToNewPlace = Have the camera move.
+     * Up = Move cursor up.
+     * Down = Move cursor down.
+     * ReachedEndPath = Have I reached the end of my path?
+     * InsideMenu = Used to have B be the action button.
+     */
+    bool moveToNewPlace, up, down, reachedEndPath, insideMenu = true;
 
-    bool insideMenu = true;
-
+    // For outsides to see if I am.
     public bool InsideMenu {
         get { return insideMenu; }    
     }
 
     Transform camera;
 
-    [SerializeField]
+    [SerializeField, Tooltip("The speed at which the camera lerps.")]
     float cameraSpeed = 0.2f;
 
     float time;
@@ -48,22 +57,30 @@ public class MainMenuHandler : MonoBehaviour {
     void Start() {
         xinput = GetComponent<XboxInputMenu>();
         camera = Camera.main.transform;
+
+        // Basically have the start button highlighted.
+        ButtonChangeHandling();
     }
 
     void FixedUpdate() {
+        // Get xinputs.
         UpdateVariables();
 
+        // If I reached the end last frame set reached false first.
+        // And inside true.
         if (reachedEndPath) {
             reachedEndPath = false;
             insideMenu = true;
         } else {
             if (moveToNewPlace) {
+                // Edit time to have the lerp work.
                 if (!insideMenu) {
                     time -= Time.fixedDeltaTime * cameraSpeed;
                 } else {
                     time += Time.fixedDeltaTime * cameraSpeed;
                 }
 
+                // If it's above set it back, cant have the camera go further.
                 if (time < 0) {
                     insideMenu = true;
                     moveToNewPlace = false;
@@ -74,6 +91,7 @@ public class MainMenuHandler : MonoBehaviour {
                     time = 1;
                 }
 
+                // Edit camera position.
                 camera.position = Bezier2(startPoint, currentPath[0], currentPath[1], time);
             }
         }
@@ -95,6 +113,9 @@ public class MainMenuHandler : MonoBehaviour {
         ButtonChangeHandling();
     }
 
+    /// <summary>
+    /// Retrieve up and down from xinpit
+    /// </summary>
     void UpdateVariables() {
         // Retrieve up and down from XboxInputMenu class.
         up = xinput.Up;
@@ -146,11 +167,11 @@ public class MainMenuHandler : MonoBehaviour {
         }
 
         // Then edit the colors.
-        if (currentButton >= 0) {
-            SetColor(MainMenuButtons[currentButton], selectedButtonColor);
-        }
         if (lastButton >= 0) {
             SetColor(MainMenuButtons[lastButton], Color.white);
+        }
+        if (currentButton >= 0) {
+            SetColor(MainMenuButtons[currentButton], highlightButtonColor);
         }
     }
 
@@ -205,6 +226,10 @@ public class MainMenuHandler : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Set active button to the given button.
+    /// </summary>
+    /// <param name="button">The button to become my new active.</param>
     public void SetActiveButton(GameObject button) {
         if (MainMenuButtons.IndexOf(button) != currentButton) {
             lastButton = currentButton;
@@ -215,6 +240,11 @@ public class MainMenuHandler : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Set active button to given index number.
+    /// The index of the buttons List<>.
+    /// </summary>
+    /// <param name="index">Index number from buttons List<>.</param>
     public void SetActiveButton(int index) {
         lastButton = currentButton;
         currentButton = index;
@@ -225,6 +255,8 @@ public class MainMenuHandler : MonoBehaviour {
     Vector3 Bezier2(Transform s, Transform p, Transform e, float t) {
         float rt = 1 - t;
 
+        // If I am further than 1 or 0, I reached the end.
+        // Set variable to true then.
         if (insideMenu) {
             if (t >= 1) {
                 rt = 0;

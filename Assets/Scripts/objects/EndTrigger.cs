@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class EndTrigger : MonoBehaviour {
     [SerializeField, Tooltip("Do I win? If false I trigger a loss.")]

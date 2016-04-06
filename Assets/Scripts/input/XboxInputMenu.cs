@@ -132,7 +132,7 @@ public class XboxInputMenu : MonoBehaviour {
         //Input whatever...
 
         if (pause) {
-            pauseMenu.togglePause();
+            pauseMenu.TogglePause();
         }
     }
 

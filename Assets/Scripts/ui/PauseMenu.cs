@@ -4,8 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
-    public string MainMenu;
-	public bool isPaused;
+    string mainMenu;
+    public string MainMenu {
+        get { return mainMenu; }
+        set { mainMenu = value; }
+    }
+	bool isPaused;
+    public bool IsPaused {
+        get { return isPaused; }
+        set { isPaused = value; }
+    }
     bool up, down = false;
     [SerializeField]
     List<GameObject> pauseButtons;
@@ -33,7 +41,7 @@ public class PauseMenu : MonoBehaviour {
         down = xboxInput.Down;
     }
 
-	public void togglePause()
+	public void TogglePause()
 	{
 		if (isPaused) {
             // Set's false and time continue's again
@@ -51,12 +59,12 @@ public class PauseMenu : MonoBehaviour {
 			pauseMenuContainer.blocksRaycasts = true;
 		}
 	}
-	public void mainMenu()
+	public void LoadMenu()
 	{
         // Load MainMenu
 		SceneManager.LoadScene("MainMenu");
 	}
-	public void quit()
+	public void Quit()
 	{
         // Quit the game
 		Application.Quit ();

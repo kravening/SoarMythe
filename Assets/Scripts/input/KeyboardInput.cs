@@ -83,7 +83,7 @@ public class KeyboardInput : MonoBehaviour {
 		pause = Input.GetKeyDown (KeyCode.Escape);
 
 		if (pause) {
-			pauseMenu.togglePause ();
+			pauseMenu.TogglePause ();
 		}
 	}
 

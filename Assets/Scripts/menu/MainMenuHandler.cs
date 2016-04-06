@@ -40,9 +40,9 @@ public class MainMenuHandler : MonoBehaviour {
 
     Transform camera;
 
+    [SerializeField]
     float cameraSpeed = 0.2f;
 
-    [SerializeField]
     float time;
 
     void Start() {
@@ -180,7 +180,7 @@ public class MainMenuHandler : MonoBehaviour {
         if (insideMenu) {
             switch (currentButton) {
                 case 0:
-                    SceneManager.LoadScene("Prototype_V1");
+                    SceneManager.LoadScene("Prototype_V2");
                     break;
                 case 1:
                     currentPath = controlsPath;

@@ -58,47 +58,13 @@ public class XboxInputMenu : MonoBehaviour {
         SetState();
         CheckForButtonPress();
         CheckForButtonRelease();
-        ButtonActions();
 
         PauseMenu();
         ProcessAndSendMovement();
-
-        if (DeadZoneCheckRight()) {
-            RightStickX = state.ThumbSticks.Right.X;//holds x value of stick
-            RightStickY = state.ThumbSticks.Right.Y;//holds y value of stick
-            RightStickAngle = CalculateRotation(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y); // calculates a angle for the right stick
-        } else {
-            RightStickX = 0f; // set it back to 0 if inside the deadzone
-            RightStickY = 0f; // set it back to 0 if inside the deadzone
-        }
-        if (DeadZoneCheckLeft()) {
-            LeftStickX = state.ThumbSticks.Left.X;//holds x value of stick
-            LeftStickY = state.ThumbSticks.Left.Y;//holds y value of stick
-            LeftStickAngle = CalculateRotation(state.ThumbSticks.Left.X, state.ThumbSticks.Left.Y);   // calculates a angle for the left stick
-        } else {
-            LeftStickX = 0f; // set it back to 0 if inside the deadzone
-            LeftStickY = 0f; // set it back to 0 if inside the deadzone
-        }
-
     }
-    void ButtonActions() {
-        // Actions. 
-    }
+
     void CheckForButtonPress() // check if a button was pressed this frame aka button down
     {
-        //shoulders
-        if (prevState.Buttons.LeftShoulder == ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed) {
-            leftShoulder = true;
-        }
-        if (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed) {
-            rightShoulder = true;
-        }
-        if (prevState.Triggers.Left >= triggerPressedSensitivity && leftTrigger == false) {
-            leftTrigger = true;
-        }
-        if (prevState.Triggers.Right >= triggerPressedSensitivity && rightTrigger == false) {
-            rightTrigger = true;
-        }
 
         if (prevState.DPad.Left == ButtonState.Released && state.DPad.Left == ButtonState.Pressed) {
             dpadLeft = true;
@@ -122,39 +88,18 @@ public class XboxInputMenu : MonoBehaviour {
         if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed) {
             aButton = true;
 
-            mmh.PressActionButton();
+            if(mmh.InsideMenu)
+                mmh.PressActionButton();
         }
         if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed) {
             bButton = true;
-        }
-        if (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed) {
-            xButton = true;
-        }
-        if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed) {
-            yButton = true;
-        }
 
-        if (prevState.Buttons.LeftStick == ButtonState.Released && state.Buttons.LeftStick == ButtonState.Pressed) {
-            leftStickButton = true;
+            if(!mmh.InsideMenu)
+                mmh.PressActionButton();
         }
     }
     void CheckForButtonRelease() // check if a button is released this frame
     {
-        //shoulders
-        if (prevState.Buttons.LeftShoulder == ButtonState.Pressed && state.Buttons.LeftShoulder == ButtonState.Released) {
-            leftShoulder = false;
-        }
-        if (prevState.Buttons.RightShoulder == ButtonState.Pressed && state.Buttons.RightShoulder == ButtonState.Released) {
-            rightShoulder = false;
-        }
-
-        if (prevState.Triggers.Left <= triggerPressedSensitivity && leftTrigger == true) {
-            leftTrigger = false;
-        }
-        if (prevState.Triggers.Right <= triggerPressedSensitivity && rightTrigger == true) {
-            rightTrigger = false;
-        }
-
         if (prevState.Buttons.A == ButtonState.Pressed && state.Buttons.A == ButtonState.Released) {
             aButton = false;
         }
@@ -166,10 +111,6 @@ public class XboxInputMenu : MonoBehaviour {
         }
         if (prevState.Buttons.Y == ButtonState.Pressed && state.Buttons.Y == ButtonState.Released) {
             yButton = false;
-        }
-
-        if (prevState.Buttons.LeftStick == ButtonState.Pressed && state.Buttons.LeftStick == ButtonState.Released) {
-            leftStickButton = false;
         }
 
         if (state.DPad.Left == ButtonState.Released && prevState.DPad.Left == ButtonState.Pressed) {
@@ -195,22 +136,6 @@ public class XboxInputMenu : MonoBehaviour {
         }
     }
 
-    public bool DeadZoneCheckRight() {
-        if (state.ThumbSticks.Right.X >= deadZoneAmount || state.ThumbSticks.Right.X <= -deadZoneAmount || state.ThumbSticks.Right.Y >= deadZoneAmount || state.ThumbSticks.Right.Y <= -deadZoneAmount) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public bool DeadZoneCheckLeft() {
-        if (state.ThumbSticks.Left.X >= deadZoneAmount || state.ThumbSticks.Left.X <= -deadZoneAmount || state.ThumbSticks.Left.Y >= deadZoneAmount || state.ThumbSticks.Left.Y <= -deadZoneAmount) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     void FindController() {
         // Find a PlayerIndex, for a single player game
         // Will find the first controller that is connected and use it
@@ -226,16 +151,10 @@ public class XboxInputMenu : MonoBehaviour {
             }
         }
     }
+
     void SetState() {
         prevState = state;
         state = GamePad.GetState(playerIndex);
-    }
-
-    float CalculateRotation(float X, float Y) // calculates angle based on incoming X & Y values;
-    {
-        float angle = (Mathf.Atan2(X, Y) * Mathf.Rad2Deg);
-        //Debug.Log(angle);
-        return angle;
     }
 
     void ProcessAndSendMovement() {

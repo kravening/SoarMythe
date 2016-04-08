@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,15 +7,9 @@ public class AudioSourceController : MonoBehaviour
 	[SerializeField]
 	private List<AudioClip> audioList = new List<AudioClip>();
 	[SerializeField]
-	private float audioVolume;
+    private float audioVolume, minPitch, maxPitch;
 	[SerializeField]
-	private bool autoStopSound;
-	[SerializeField]
-	private bool randomisePitch;
-	[SerializeField]
-	private float minPitch;
-	[SerializeField]
-	private float maxPitch;
+	private bool autoStopSound, randomisePitch;
 
 
 	private AudioSource audioSource;
@@ -37,6 +30,24 @@ public class AudioSourceController : MonoBehaviour
 			print("there is nothing in the audioList you dingus");
 		}
 	}
+
+    /// <summary>
+    /// The most intensive, uses a for loop to find the right sound.
+    /// By index is the preferred way.
+    /// </summary>
+    /// <param name="name">Name of the song.</param>
+    public void ChangeAudioSourceByName(string name) {
+        for (int i = 0; i < audioList.Count; i++) {
+            AudioClip clip = audioList[i];
+
+            if (clip.name == name) {
+                PlayAudioClip(i);
+                return;
+            }
+        }
+
+        print(name + " is not a valid sound you dingus"); // Gotta follow the dingus road.
+    }
 
 	public void ChangeAudioSourceByIndex(int index)
 	{

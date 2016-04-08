@@ -15,7 +15,6 @@ public class XboxInputGame : MonoBehaviour {
     //Project Specific (add vars for storing classes here)
 
     //behaviourModifiers
-    [SerializeField]
     float deadZoneAmount, triggerPressedSensitivity;
 
     //for reading
@@ -105,12 +104,18 @@ public class XboxInputGame : MonoBehaviour {
         if (prevState.DPad.Up == ButtonState.Released && state.DPad.Up == ButtonState.Pressed)
         {
             dpadUp = true;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
         }
         if (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed)
         {
             dpadDown = true;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
         }
         if (pm) {
             if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed) {
@@ -233,15 +238,17 @@ public class XboxInputGame : MonoBehaviour {
 
         pm.Move(up, down, left, right, jump, glide);
 
-        if (camLeft)
-            cc.RotateY(-1);
-        else if (camRight)
-            cc.RotateY(1);
+        if (cc != null) {
+            if (camLeft)
+                cc.RotateY(-1);
+            else if (camRight)
+                cc.RotateY(1);
 
-        if (camUp)
-            cc.RotateX(1);
-        else if (camDown)
-            cc.RotateX(-1);
+            if (camUp)
+                cc.RotateX(1);
+            else if (camDown)
+                cc.RotateX(-1);
+        }
 
         up = down = left = right = jump = glide = false;
         camLeft = camRight = camUp = camDown = false;

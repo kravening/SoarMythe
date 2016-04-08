@@ -97,22 +97,6 @@ public class MainMenuHandler : MonoBehaviour {
         }
     }
 
-    // This function isn't actually used for anything. But it might be.
-    /// <summary>
-    /// Change the current button to a new value.
-    /// </summary>
-    /// <param name="newButton">Int of new button</param>
-    void SetSelectedButton(int newButton) {
-        // Set last to current to edit its color.
-        lastButton = currentButton;
-
-        // Set current to the new one.
-        currentButton = newButton;
-
-        // Then have this handle the changes.
-        ButtonChangeHandling();
-    }
-
     /// <summary>
     /// Retrieve up and down from xinpit
     /// </summary>
@@ -232,9 +216,7 @@ public class MainMenuHandler : MonoBehaviour {
     /// <param name="button">The button to become my new active.</param>
     public void SetActiveButton(GameObject button) {
         if (MainMenuButtons.IndexOf(button) != currentButton) {
-            lastButton = currentButton;
-
-            currentButton = MainMenuButtons.IndexOf(button);
+            SwitchButton(MainMenuButtons.IndexOf(button));
 
             ButtonChangeHandling();
         }
@@ -244,12 +226,18 @@ public class MainMenuHandler : MonoBehaviour {
     /// Set active button to given index number.
     /// The index of the buttons List<>.
     /// </summary>
-    /// <param name="index">Index number from buttons List<>.</param>
-    public void SetActiveButton(int index) {
-        lastButton = currentButton;
-        currentButton = index;
+    /// <param name="newIndex">Index number from buttons List<>.</param>
+    public void SetActiveButton(int newIndex) {
+        SwitchButton(newIndex);
 
         ButtonChangeHandling();
+    }
+
+    // A private function to do two lines faster.
+    void SwitchButton(int newIndex) {
+        lastButton = currentButton;
+
+        currentButton = newIndex;
     }
 
     Vector3 Bezier2(Transform s, Transform p, Transform e, float t) {

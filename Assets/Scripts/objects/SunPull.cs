@@ -11,6 +11,9 @@ public class SunPull : MonoBehaviour {
     [SerializeField, Tooltip("What will I pull ToPull towards?")]
     Transform toPullTo;
 
+    [SerializeField, Tooltip("Use rigidbody force or just move it there?")]
+    bool byForce = true;
+
     public bool Pull = false;
 
     bool firstRun = true;
@@ -24,7 +27,11 @@ public class SunPull : MonoBehaviour {
 	void Update () {
         if (Pull) {
 
-            rb.AddForce(-Vector3.MoveTowards(toPull.position, toPullTo.position, Time.deltaTime * speed) / 10);
+            if (byForce) {
+                rb.AddForce(-Vector3.MoveTowards(toPull.position, toPullTo.position, Time.deltaTime * speed) / 10);
+            } else {
+                toPull.position = Vector3.MoveTowards(toPull.position, toPullTo.position, Time.deltaTime * speed);
+            }
 
             if (firstRun) {
                 firstRun = false;
@@ -32,6 +39,7 @@ public class SunPull : MonoBehaviour {
                 rb.velocity *= 0.7f;
                 toPull.gameObject.GetComponent<PlayerMovement>().IsAlive = false;
             }
+
         } else {
             if (!firstRun) {
                 firstRun = true;

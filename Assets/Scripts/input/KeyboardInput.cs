@@ -85,6 +85,7 @@ public class KeyboardInput : MonoBehaviour {
 
 		if (pause)
 			pauseMenu.togglePause();
+
 	}
 
     void UpdateMousePos() {

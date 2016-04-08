@@ -27,9 +27,6 @@ public class XboxInputMenu : MonoBehaviour {
 
     MainMenuHandler mmh;
 
-    [SerializeField]
-    PauseMenu pauseMenu;
-
     //[SerializeField]
     bool up, down, left, right, pause = false;
 
@@ -59,7 +56,6 @@ public class XboxInputMenu : MonoBehaviour {
         CheckForButtonPress();
         CheckForButtonRelease();
 
-        PauseMenu();
         ProcessAndSendMovement();
     }
 
@@ -124,15 +120,6 @@ public class XboxInputMenu : MonoBehaviour {
         }
         if (state.DPad.Down == ButtonState.Released && prevState.DPad.Down == ButtonState.Pressed) {
             dpadDown = false;
-        }
-    }
-
-    void PauseMenu()
-    {
-        //Input whatever...
-
-        if (pause) {
-            pauseMenu.togglePause();
         }
     }
 

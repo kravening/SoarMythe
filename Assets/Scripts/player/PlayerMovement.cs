@@ -58,9 +58,12 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField, Tooltip("I highly suggest you keep this above 10, it just makes the game crash otherwise.")]
     float jumpDivider = 30; // Also using this to make the jumpheight usable in just whole numbers while not making the player jump insanely high.
 
+    // This is really not a fully working thing.
+    // I never bothered to fix it. But it's there.
     [SerializeField, Tooltip("Will I turn when I go left or right?")]
     bool smoothTurning = false;
     
+    // For smooth turning, doesn't work that well anyway.
     [SerializeField, Tooltip("Speed at which I turn.")]
     float turningSpeed = 1;
 
@@ -351,15 +354,9 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void EditAnimations(bool moving, bool jump, bool glide) {
-
-        ac.TouchingGround = touchingGround;
-
+        ac.IsRunning = moving;
         ac.HasJumped = jump;
+        ac.TouchingGround = touchingGround;
         ac.IsGliding = glide;
-
-        if (touchingGround) {
-            ac.IsRunning = moving;
-        }
-
     }
 }

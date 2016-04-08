@@ -98,28 +98,18 @@ public class XboxInputGame : MonoBehaviour {
         if (prevState.DPad.Up == ButtonState.Released && state.DPad.Up == ButtonState.Pressed)
         {
             dpadUp = true;
-
-            Pm.MoveUp();
         }
         if (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed)
         {
             dpadDown = true;
-
-            Pm.MoveDown();
         }
         if (pm) {
             if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed) {
                 aButton = true;
                 jump = true;
-                if (Pm.InsidePause) {
-                    Pm.PressActionButton();
-                }
             }
             if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed) {
                 bButton = true;
-                if (Pm.InsidePause) {
-                    Pm.PressActionButton();
-                }
             }
             if (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed) {
                 xButton = true;

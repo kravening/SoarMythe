@@ -7,7 +7,11 @@ public class AnimationController : MonoBehaviour {
     Animator animator;
 
     // Define all the movement variables.
+    [SerializeField]
     bool isRunning, touchingGround, isGliding, hasJumped = false;
+    // I could use hasJumped as a trigger instead.
+    // But I'm already neck deep in the way it works now.
+    // For my sanity's sake it's better to keep it like this.
 
     // And throw them to the sharks.
     public bool IsRunning {
@@ -20,7 +24,7 @@ public class AnimationController : MonoBehaviour {
     public bool TouchingGround {
         set {
             touchingGround = value;
-            animator.SetBool("touchingGround", value);
+            SetBool("touchingGround", value);
         }
         get { return touchingGround; }
     }
@@ -28,7 +32,7 @@ public class AnimationController : MonoBehaviour {
     public bool IsGliding {
         set {
             isGliding = value;
-            animator.SetBool("isGliding", value);
+            SetBool("isGliding", value);
         }
         get { return isGliding; }
     }
@@ -36,7 +40,7 @@ public class AnimationController : MonoBehaviour {
     public bool HasJumped {
         set {
             hasJumped = value;
-            animator.SetBool("hasJumped", value);
+            SetBool("hasJumped", value);
         }
         get { return hasJumped; }
     }
@@ -45,18 +49,26 @@ public class AnimationController : MonoBehaviour {
         get { return animator; }
     }
 
+    bool GetBool(string i) {
+        return animator.GetBool(i);
+    }
+
+    void SetBool(string i, bool val) {
+        animator.SetBool(i, val);
+    }
+
     void FixedUpdate() {
         // Just incase they're changed in the editor..
-        if(animator.GetBool("isRunning") != isRunning)
-            animator.SetBool("isRunning", isRunning);
+        if(GetBool("isRunning") != isRunning)
+            SetBool("isRunning", isRunning);
 
-        if (animator.GetBool("isFalling") != touchingGround)
-            animator.SetBool("isFalling", touchingGround);
+        if (GetBool("touchingGround") != touchingGround)
+            SetBool("touchingGround", touchingGround);
 
-        if (animator.GetBool("isGliding") != isGliding)
-            animator.SetBool("isGliding", isGliding);
+        if (GetBool("isGliding") != isGliding)
+            SetBool("isGliding", isGliding);
 
-        if (animator.GetBool("hasJumped") != hasJumped)
-            animator.SetBool("hasJumped", hasJumped);
+        if (GetBool("hasJumped") != hasJumped)
+            SetBool("hasJumped", hasJumped);
     }
 }

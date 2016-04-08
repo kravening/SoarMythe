@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -51,16 +51,16 @@ LightmapSettings:
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 3
-    m_Resolution: 2
-    m_BakeResolution: 40
-    m_TextureWidth: 1024
+    m_Resolution: 5
+    m_BakeResolution: 3
+    m_TextureWidth: 64
     m_TextureHeight: 1024
     m_AOMaxDistance: 1
     m_Padding: 2
-    m_CompAOExponent: 0
+    m_CompAOExponent: 6
     m_LightmapParameters: {fileID: 0}
     m_TextureCompression: 1
     m_FinalGather: 0
@@ -825,8 +825,6 @@ MonoBehaviour:
   - {fileID: 207084600}
   speed: 0.1
   useLerp: 0
-  lastPos: {x: 0, y: 0, z: 0}
-  currentPos: {x: 0, y: 0, z: 0}
 --- !u!64 &245470994
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1064,8 +1062,6 @@ MonoBehaviour:
   - {fileID: 1019555170}
   speed: 0.05
   useLerp: 0
-  lastPos: {x: 0, y: 0, z: 0}
-  currentPos: {x: 0, y: 0, z: 0}
 --- !u!135 &320188241
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1508,8 +1504,6 @@ MonoBehaviour:
   - {fileID: 1755401497}
   speed: 0.1
   useLerp: 0
-  lastPos: {x: 0, y: 0, z: 0}
-  currentPos: {x: 0, y: 0, z: 0}
 --- !u!23 &423995544
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2294,8 +2288,6 @@ MonoBehaviour:
   - {fileID: 299894454}
   speed: 0.1
   useLerp: 0
-  lastPos: {x: 0, y: 0, z: 0}
-  currentPos: {x: 0, y: 0, z: 0}
 --- !u!64 &590061661
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3375,6 +3367,67 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 960286689}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &962546655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 962546656}
+  - 108: {fileID: 962546657}
+  m_Layer: 0
+  m_Name: Point light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &962546656
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962546655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1823539139}
+  m_RootOrder: 0
+--- !u!108 &962546657
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962546655}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 2
+  m_Color: {r: 1, g: 0.45588237, b: 0.45588237, a: 1}
+  m_Intensity: 5.32
+  m_Range: 20
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
 --- !u!4 &974466781 stripped
 Transform:
   m_PrefabParentObject: {fileID: 424964, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
@@ -3605,8 +3658,6 @@ MonoBehaviour:
   - {fileID: 1854077957}
   speed: 0.02
   useLerp: 0
-  lastPos: {x: 0, y: 0, z: 0}
-  currentPos: {x: 0, y: 0, z: 0}
 --- !u!23 &1020442124
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3893,8 +3944,6 @@ MonoBehaviour:
   - {fileID: 94375667}
   speed: 0.1
   useLerp: 0
-  lastPos: {x: 0, y: 0, z: 0}
-  currentPos: {x: 0, y: 0, z: 0}
 --- !u!64 &1099257372
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4487,8 +4536,6 @@ MonoBehaviour:
   - {fileID: 1854077957}
   speed: 0.02
   useLerp: 0
-  lastPos: {x: 0, y: 0, z: 0}
-  currentPos: {x: 0, y: 0, z: 0}
 --- !u!23 &1297794041
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4542,8 +4589,6 @@ MonoBehaviour:
   - {fileID: 1396216811}
   speed: 0.1
   useLerp: 0
-  lastPos: {x: 0, y: 0, z: 0}
-  currentPos: {x: 0, y: 0, z: 0}
 --- !u!64 &1297794044
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4942,14 +4987,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadZoneAmount: 0
   triggerPressedSensitivity: 0
-  LeftStickAngle: 0
-  RightStickAngle: 0
-  RightStickActive: 0
-  LeftStickActive: 0
-  LeftStickX: 0
-  LeftStickY: 0
-  RightStickX: 0
-  RightStickY: 0
 --- !u!114 &1348688463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5005,7 +5042,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  vel: {x: 0, y: 0, z: 0}
 --- !u!54 &1348688466
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6045,6 +6081,30 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 10.931459
       objectReference: {fileID: 0}
+    - target: {fileID: 2300002, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: c61dfea558a4a9b4eb1da1b8ebdaad89, type: 2}
+    - target: {fileID: 2300002, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: c61dfea558a4a9b4eb1da1b8ebdaad89, type: 2}
+    - target: {fileID: 2300000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 24dc98c2ccba9c94fb35878cf78d7581, type: 2}
+    - target: {fileID: 2300000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72f738a5a055d83408484105e375cd15, type: 2}
+    - target: {fileID: 100002, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
   m_IsPrefabParent: 0
@@ -6742,6 +6802,62 @@ Transform:
   - {fileID: 231005327}
   m_Father: {fileID: 1023141610}
   m_RootOrder: 1
+--- !u!1 &1804506600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1804506601}
+  m_Layer: 0
+  m_Name: Lights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1804506601
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804506600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 91.43847, y: 4.922838, z: -4.94135}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1823539139}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+--- !u!1 &1823539138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1823539139}
+  m_Layer: 0
+  m_Name: LightsMeteorStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1823539139
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1823539138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 962546656}
+  m_Father: {fileID: 1804506601}
+  m_RootOrder: 0
 --- !u!1 &1839420996
 GameObject:
   m_ObjectHideFlags: 0
@@ -6822,8 +6938,6 @@ MonoBehaviour:
   - {fileID: 641744883}
   speed: 0.1
   useLerp: 0
-  lastPos: {x: 0, y: 0, z: 0}
-  currentPos: {x: 0, y: 0, z: 0}
 --- !u!64 &1852498769
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7029,8 +7143,6 @@ MonoBehaviour:
   - {fileID: 721045917}
   speed: 0.1
   useLerp: 0
-  lastPos: {x: 0, y: 0, z: 0}
-  currentPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1936358879
 Prefab:
   m_ObjectHideFlags: 0

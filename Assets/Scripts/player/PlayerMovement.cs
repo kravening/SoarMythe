@@ -358,5 +358,6 @@ public class PlayerMovement : MonoBehaviour {
         ac.HasJumped = jump;
         ac.TouchingGround = touchingGround;
         ac.IsGliding = glide;
+        print(moving + " || " + jump + " || " + touchingGround + " || " + glide);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using XInputDotNetPure;
+using System.Collections.Generic;
 
 public class XboxInputGame : MonoBehaviour {
     bool playerIndexSet = false;
@@ -11,7 +11,6 @@ public class XboxInputGame : MonoBehaviour {
     //Objects to Affect
     PlayerMovement pm;
     CameraControl cc;
-    PauseMenu Pm;
 
     //Project Specific (add vars for storing classes here)
 
@@ -29,9 +28,9 @@ public class XboxInputGame : MonoBehaviour {
     [SerializeField]
     bool dpadUp, dpadDown;
 
-    bool up, down, left, right, jump, glide, startButton, pause = false;
+    bool up, down, left, right, jump, glide, startButton = false;
     bool camLeft, camRight, camUp, camDown = false;
-
+    
     public bool Up
     {
         get { return dpadUp; }
@@ -50,7 +49,6 @@ public class XboxInputGame : MonoBehaviour {
     void Start() {
         cc = Camera.main.GetComponent<CameraControl>();
         pm = GetComponent<PlayerMovement>();
-        Pm = GetComponent<PauseMenu>();
 
         if (cc == null)
             Debug.LogError("No CameraControl was found in the camera!");
@@ -87,6 +85,14 @@ public class XboxInputGame : MonoBehaviour {
         }
 
     }
+    void PauseControls()
+    {
+        if ()
+        {
+            PauseMenu
+        }
+    }
+
     void ButtonActions() {
         if (pm) {
             if (bButton) {
@@ -100,27 +106,19 @@ public class XboxInputGame : MonoBehaviour {
         {
             dpadUp = true;
 
-            Pm.MoveUp();
         }
         if (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed)
         {
             dpadDown = true;
 
-            Pm.MoveDown();
         }
         if (pm) {
             if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed) {
                 aButton = true;
                 jump = true;
-                if (Pm.InsidePause) {
-                    Pm.PressActionButton();
-                }
             }
             if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed) {
                 bButton = true;
-                if (Pm.InsidePause) {
-                    Pm.PressActionButton();
-                }
             }
             if (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed) {
                 xButton = true;
@@ -130,6 +128,7 @@ public class XboxInputGame : MonoBehaviour {
             }
             if (prevState.Buttons.Start == ButtonState.Released && state.Buttons.Start == ButtonState.Pressed) {
                 startButton = true;
+                PauseControls();
             }
 
             if (prevState.Buttons.Back == ButtonState.Released && state.Buttons.Back == ButtonState.Pressed) {
@@ -160,15 +159,6 @@ public class XboxInputGame : MonoBehaviour {
             if (prevState.Buttons.Start == ButtonState.Pressed && state.Buttons.Start == ButtonState.Released) {
                 startButton = true;
             }
-        }
-    }
-    void PauseMenu()
-    {
-        //Input whatever...
-
-        if (pause)
-        {
-            Pm.TogglePause();
         }
     }
 

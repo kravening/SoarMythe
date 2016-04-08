@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a45bc4a698259345a65aa8fe07a91e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1684586487}
+  pauseMenu: {fileID: 0}
   mouseSensitivity: {x: 1, y: 1}
   mouseSensitivityDivider: 2
 --- !u!1 &41792381
@@ -434,8 +434,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1684586487}
-        m_MethodName: quit
+      - m_Target: {fileID: 1865242963}
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1567289963}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!114 &1214405192
@@ -819,8 +819,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1684586487}
-        m_MethodName: togglePause
+      - m_Target: {fileID: 1865242963}
+        m_MethodName: TogglePause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -873,9 +873,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1684586486}
-  - 114: {fileID: 1684586487}
   - 225: {fileID: 1684586488}
-  - 114: {fileID: 1684586489}
   m_Layer: 0
   m_Name: PauseMenu-Container
   m_TagString: Untagged
@@ -896,19 +894,6 @@ Transform:
   - {fileID: 1214405188}
   m_Father: {fileID: 1865242962}
   m_RootOrder: 0
---- !u!114 &1684586487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1684586485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 358caa752b2266d41844179c91e0aa1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightButtonColor: {r: 1, g: 0, b: 0, a: 1}
-  pauseButtons: []
 --- !u!225 &1684586488
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -920,18 +905,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1684586489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1684586485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d9407e20b68dc478a51efa4545415f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  finalCheckpoint: {fileID: 0}
 --- !u!1 &1752795830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,8 +980,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1684586487}
-        m_MethodName: mainMenu
+      - m_Target: {fileID: 1865242963}
+        m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1125,6 +1098,7 @@ GameObject:
   - 223: {fileID: 1865242961}
   - 114: {fileID: 1865242960}
   - 114: {fileID: 1865242959}
+  - 114: {fileID: 1865242963}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1205,3 +1179,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1865242963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1865242958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358caa752b2266d41844179c91e0aa1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuContainer: {fileID: 1684586488}

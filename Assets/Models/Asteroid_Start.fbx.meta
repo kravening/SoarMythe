@@ -8,15 +8,25 @@ ModelImporter:
     100000: //RootNode
     100002: Cube_MeshPart0
     100004: Cube_MeshPart1
+    100006: Cube_11_MeshPart0
+    100008: Cube_11_MeshPart1
     400000: //RootNode
     400002: Cube_MeshPart0
     400004: Cube_MeshPart1
+    400006: Cube_11_MeshPart0
+    400008: Cube_11_MeshPart1
     2300000: Cube_MeshPart0
     2300002: Cube_MeshPart1
+    2300004: Cube_11_MeshPart0
+    2300006: Cube_11_MeshPart1
     3300000: Cube_MeshPart0
     3300002: Cube_MeshPart1
+    3300004: Cube_11_MeshPart0
+    3300006: Cube_11_MeshPart1
     4300000: Cube_MeshPart0
     4300002: Cube_MeshPart1
+    4300004: Cube_11_MeshPart0
+    4300006: Cube_11_MeshPart1
     9500000: //RootNode
   materials:
     importMaterials: 1

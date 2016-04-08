@@ -6,6 +6,7 @@ public class KeyboardInput : MonoBehaviour {
 	[SerializeField]
 	PauseMenu pauseMenu;
 
+    [SerializeField]
     bool up, right, down, left, jump, glide, pause, restart = false;
 
     [SerializeField]
@@ -47,11 +48,11 @@ public class KeyboardInput : MonoBehaviour {
         // Get Mouse Axis
         UpdateMousePos();
 
-        SendCameraMovement();
+        if(cc != null)
+            SendCameraMovement();
 
-        if (restart) {
+        if (restart)
             GameController.RestartCurrentScene();
-        }
 
         if (pm.IsAlive)
             pm.Move(up, down, left, right, jump, glide);
@@ -80,11 +81,10 @@ public class KeyboardInput : MonoBehaviour {
     }
 
 	void CheckSpecialKeys() {
-		pause = Input.GetKeyDown (KeyCode.Escape);
+		pause = Input.GetKeyDown(KeyCode.Escape);
 
-		if (pause) {
-			pauseMenu.togglePause ();
-		}
+		if (pause)
+			pauseMenu.togglePause();
 	}
 
     void UpdateMousePos() {
@@ -97,7 +97,6 @@ public class KeyboardInput : MonoBehaviour {
     }
 
     void SendCameraMovement() {
-
         // Rotate X is up and down.
         // So mousesensitivity X and mousePosChanges on Y since that's up and down.
         cc.RotateX((mouseSensitivity.x / mouseSensitivityDivider) * mousePosChanges.y);

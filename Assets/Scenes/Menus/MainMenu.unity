@@ -217,6 +217,7 @@ GameObject:
   - 92: {fileID: 45621702}
   - 124: {fileID: 45621701}
   - 81: {fileID: 45621700}
+  - 114: {fileID: 45621699}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -224,6 +225,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &45621699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 45621698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7370efa0f5b31af49be6fd436b89feca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioList:
+  - {fileID: 8300000, guid: 735481ee1ea425e429bc533ab098cc12, type: 3}
+  - {fileID: 8300000, guid: ec21cb26c5f617a4180721e2aebceeee, type: 3}
+  - {fileID: 8300000, guid: ef1c629024a3e1343b8d3e60d8649985, type: 3}
+  - {fileID: 8300000, guid: ddfad70d5b6032d479d5fcdb77495fa0, type: 3}
+  - {fileID: 8300000, guid: 4668aaaa9fbbccf4dafbf7cc66f4e88f, type: 3}
+  audioVolume: 0
+  minPitch: 0
+  maxPitch: 0
+  autoStopSound: 0
+  randomisePitch: 0
 --- !u!81 &45621700
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8698,8 +8721,8 @@ MonoBehaviour:
   controlsPath:
   - {fileID: 852180683}
   - {fileID: 1125937353}
-  highlightButtonColor: {r: 1, g: 0, b: 0, a: 1}
-  cameraSpeed: 0.3
+  highlightButtonColor: {r: 1, g: 0, b: 0.972414, a: 1}
+  cameraSpeed: 0.5
 --- !u!4 &1907754257
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,6 @@ public class XboxInputGame : MonoBehaviour {
     //Project Specific (add vars for storing classes here)
 
     //behaviourModifiers
-    [SerializeField]
     float deadZoneAmount, triggerPressedSensitivity;
 
     //for reading
@@ -204,15 +203,17 @@ public class XboxInputGame : MonoBehaviour {
 
         pm.Move(up, down, left, right, jump, glide);
 
-        if (camLeft)
-            cc.RotateY(-1);
-        else if (camRight)
-            cc.RotateY(1);
+        if (cc != null) {
+            if (camLeft)
+                cc.RotateY(-1);
+            else if (camRight)
+                cc.RotateY(1);
 
-        if (camUp)
-            cc.RotateX(1);
-        else if (camDown)
-            cc.RotateX(-1);
+            if (camUp)
+                cc.RotateX(1);
+            else if (camDown)
+                cc.RotateX(-1);
+        }
 
         up = down = left = right = jump = glide = false;
         camLeft = camRight = camUp = camDown = false;

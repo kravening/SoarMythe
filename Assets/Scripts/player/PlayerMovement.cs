@@ -9,6 +9,22 @@ public class PlayerMovement : MonoBehaviour {
         get { return touchingGround; }
     }
 
+    bool isAlive = true; // Am I alive? Used to make the player unable to move.
+
+    public bool IsAlive {
+        get { return isAlive; }
+        set { isAlive = value; }
+    }
+
+    Transform tf; // Used to do walking movement.
+    Rigidbody rb; // Used to AddForce for the jump.
+    CheckpointController cc; // Used to set and goto last checkpoint.
+    PowerContainer pc; // Used to retrieve the amount of power the player has and edit it.
+    AnimationController ac; // To activate animations with.
+
+    // Make it once and just keep editing it.
+    Vector3 vel;
+
     // Used to move according to the camera.
     /*[SerializeField, Tooltip("The block that follows the camera. The block should contain a PlayerMovementCameraPosition class.")]*/
     Transform CameraPosition;
@@ -48,11 +64,6 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField, Tooltip("Speed at which I turn.")]
     float turningSpeed = 1;
 
-    Transform tf; // Used to do walking movement.
-    Rigidbody rb; // Used to AddForce for the jump.
-    CheckpointController cc; // Used to set and goto last checkpoint.
-    PowerContainer pc; // Used to retrieve the amount of power the player has and edit it.
-
     [Header("Power consumption")]
 
     // The amount of power a jump boost takes.
@@ -73,21 +84,13 @@ public class PlayerMovement : MonoBehaviour {
     LayerMask groundLayer; // This is compared with the layer of whatever I am touching right now.
     // So anything I can jump off has this as layer.
 
-    Vector3 vel;
-
-    bool isAlive = true;
-
-    public bool IsAlive {
-        get { return isAlive; }
-        set { isAlive = value; }
-    }
-
     void Start() {
         // Getting them as soon as the class starts, because I will need them immediately after.
         rb = GetComponent<Rigidbody>();
         tf = GetComponent<Transform>();
         cc = GetComponent<CheckpointController>();
         pc = GetComponent<PowerContainer>();
+        ac = GetComponent<AnimationController>();
 
         vel = new Vector3();
 
@@ -176,7 +179,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (isAlive) {
             if (CameraPosition != null) {
-                // This is probably really intensive, considering it happens during Update();
+                // This is probably really intensive, considering it happens during FixedUpdate();
                 // Although tf.forward is not constant so I really need to recreate this every time.
                 forwardMovement = touchingGround ? CameraPosition.forward * (groundSpeed / speedDivider) : CameraPosition.forward * (airSpeed / speedDivider);
                 sideForwardMovement = touchingGround ? tf.forward * (groundSpeed / speedDivider) : CameraPosition.forward * (airSpeed / speedDivider);
@@ -197,9 +200,9 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 moveBy = new Vector3();
 
         // Just add movement.
-        // If no cameraPosition was added, I'll move make it move based
-        // on the player instead.
-        // If it is added, move based on the camera.
+        // If no cameraPosition was added, I'll make it move
+        // based on the player instead.
+        // If it is added, move according to the camera.
         if (CameraPosition != null) {
 
             // Move the player facing away from the camera.
@@ -339,5 +342,24 @@ public class PlayerMovement : MonoBehaviour {
                 rb.velocity = vel;
             }
         }
+
+        // If any of these is true, it will send true.
+        // If they're all false it will send false.
+        bool moving = left || right || forward || backward;
+
+        EditAnimations(moving, jump, glide);
+    }
+
+    void EditAnimations(bool moving, bool jump, bool glide) {
+
+        ac.TouchingGround = touchingGround;
+
+        ac.HasJumped = jump;
+        ac.IsGliding = glide;
+
+        if (touchingGround) {
+            ac.IsRunning = moving;
+        }
+
     }
 }

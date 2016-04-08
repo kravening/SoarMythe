@@ -21,6 +21,11 @@ public class MenuKeyInput : MonoBehaviour {
         bool enter = Input.GetKeyDown(KeyCode.Return);
         bool space = Input.GetKeyDown(KeyCode.Space);
 
+        if (!mmh.InsideMenu) {
+            // So that the player can jump in the config.
+            space = false;
+        }
+
         if (wKey && s) {
             wKey = s = false;
         }
@@ -65,7 +70,9 @@ public class MenuKeyInput : MonoBehaviour {
             bool didRayHit = Physics.Raycast(ray, out hit);
 
             if (didRayHit && hit.collider != null) {
-                mmh.SetActiveButton(hit.collider.transform.GetChild(0).gameObject);
+                int children = hit.collider.transform.childCount;
+                if(children > 1)
+                    mmh.SetActiveButton(hit.collider.transform.GetChild(0).gameObject);
             }
         }
         leftMouse = false;

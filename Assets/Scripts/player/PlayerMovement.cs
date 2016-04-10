@@ -358,6 +358,7 @@ public class PlayerMovement : MonoBehaviour {
         ac.HasJumped = jump;
         ac.TouchingGround = touchingGround;
         ac.IsGliding = glide;
+        ac.Charging = pc.Power < pc.MaxPower && pc.TouchingChargepad ? true : false;
         //print(moving + " || " + jump + " || " + touchingGround + " || " + glide);
     }
 }

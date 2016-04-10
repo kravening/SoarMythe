@@ -8,10 +8,12 @@ public class AnimationController : MonoBehaviour {
 
     // Define all the movement variables.
     [SerializeField]
-    bool isRunning, touchingGround, isGliding, hasJumped = false;
-    // I could use hasJumped as a trigger instead.
+    bool isRunning, touchingGround, isGliding, hasJumped, charging = false;
+    // I could use hasJumped & charging as a trigger instead.
     // But I'm already neck deep in the way it works now.
     // For my sanity's sake it's better to keep it like this.
+    // It seems SetBool also functions as SetTrigger if the value given is true.
+    // Nice. I've converted both to a trigger then.
 
     // And throw them to the sharks.
     public bool IsRunning {
@@ -37,6 +39,14 @@ public class AnimationController : MonoBehaviour {
         get { return isGliding; }
     }
 
+    public bool Charging {
+        set {
+            charging = value;
+            SetBool("charging", value);
+        }
+        get { return hasJumped; }
+    }
+
     public bool HasJumped {
         set {
             hasJumped = value;
@@ -57,6 +67,10 @@ public class AnimationController : MonoBehaviour {
         animator.SetBool(i, val);
     }
 
+    void SetTrigger(string i) {
+        animator.SetTrigger(i);
+    }
+
     void FixedUpdate() {
         // Just incase they're changed in the editor..
         if(GetBool("isRunning") != isRunning)
@@ -70,5 +84,8 @@ public class AnimationController : MonoBehaviour {
 
         if (GetBool("hasJumped") != hasJumped)
             SetBool("hasJumped", hasJumped);
+
+        if (GetBool("charging") != charging)
+            SetBool("charging", charging);
     }
 }

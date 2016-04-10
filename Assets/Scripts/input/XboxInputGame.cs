@@ -86,10 +86,10 @@ public class XboxInputGame : MonoBehaviour {
     }
     void PauseControls()
     {
-        if ()
+        /*if ()
         {
             PauseMenu
-        }
+        }*/
     }
 
     void ButtonActions() {
@@ -104,18 +104,10 @@ public class XboxInputGame : MonoBehaviour {
         if (prevState.DPad.Up == ButtonState.Released && state.DPad.Up == ButtonState.Pressed)
         {
             dpadUp = true;
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
         }
         if (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed)
         {
             dpadDown = true;
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
         }
         if (pm) {
             if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed) {

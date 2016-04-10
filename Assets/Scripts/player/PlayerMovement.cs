@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour {
 
     // I need to check enter and stay due to a small flaw that turns the touchingground off if you stop touching a wall.
     void OnTriggerEnter(Collider other) {
-        CollisionChecker(other, true);
+        CollisionChecker(other, false);
     }
 
     void OnTriggerStay(Collider other) {
@@ -358,6 +358,6 @@ public class PlayerMovement : MonoBehaviour {
         ac.HasJumped = jump;
         ac.TouchingGround = touchingGround;
         ac.IsGliding = glide;
-        print(moving + " || " + jump + " || " + touchingGround + " || " + glide);
+        //print(moving + " || " + jump + " || " + touchingGround + " || " + glide);
     }
 }

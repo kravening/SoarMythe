@@ -1,0 +1,774 @@
+fileFormatVersion: 2
+guid: 1c1a3a7c1fb66eb4a9502b0e12f734ea
+timeCreated: 1460145909
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: main_character_0034:Atlas
+    100002: main_character_0034:Back
+    100004: main_character_0034:body
+    100006: main_character_0034:Chest_CTRL
+    100008: main_character_0034:chest_piece
+    100010: main_character_0034:Head
+    100012: main_character_0034:Head_CTRL
+    100014: main_character_0034:Hip_CTRL
+    100016: main_character_0034:J_LWR_CTRL
+    100018: main_character_0034:J_UPR_CTRL
+    100020: main_character_0034:jetpack
+    100022: main_character_0034:jetpack_left
+    100024: main_character_0034:jetpack_right
+    100026: main_character_0034:L_Ankle
+    100028: main_character_0034:L_Arm_CTRL
+    100030: main_character_0034:L_Arm_IK
+    100032: main_character_0034:L_Arm_Pole
+    100034: main_character_0034:L_Collar
+    100036: main_character_0034:L_Elbow
+    100038: main_character_0034:L_Foot
+    100040: main_character_0034:L_Hand
+    100042: main_character_0034:L_Hip
+    100044: main_character_0034:L_Index
+    100046: main_character_0034:L_Index_Knuckle_1
+    100048: main_character_0034:L_Index_Knuckle_2
+    100050: main_character_0034:L_Index_Tip
+    100052: main_character_0034:L_Knee
+    100054: main_character_0034:L_Leg_CTRL
+    100056: main_character_0034:L_Leg_IK
+    100058: main_character_0034:L_Leg_Pole
+    100060: main_character_0034:L_Middle
+    100062: main_character_0034:L_Middle_Knuckle_1
+    100064: main_character_0034:L_Middle_Knuckle_2
+    100066: main_character_0034:L_Middle_Tip
+    100068: main_character_0034:L_Pinkie
+    100070: main_character_0034:L_Pinkie_Knuckle_1
+    100072: main_character_0034:L_Pinkie_Knuckle_2
+    100074: main_character_0034:L_Pinkie_Tip
+    100076: main_character_0034:L_Ring
+    100078: main_character_0034:L_Ring_Knuckle_1
+    100080: main_character_0034:L_Ring_Knuckle_2
+    100082: main_character_0034:L_Ring_Tip
+    100084: main_character_0034:L_Shoulder
+    100086: main_character_0034:L_Thumb
+    100088: main_character_0034:L_Thumb_Knuckle_1
+    100090: main_character_0034:L_THumb_Knuckle_2
+    100092: main_character_0034:L_Thumb_Tip
+    100094: main_character_0034:L_Toe
+    100096: main_character_0034:L_Wrist
+    100098: main_character_0034:left_wing
+    100100: main_character_0034:left_wing_tip
+    100102: main_character_0034:Main_CTRL
+    100104: main_character_0034:Neck
+    100106: main_character_0034:Neck_base
+    100108: main_character_0034:R_Ankle
+    100110: main_character_0034:R_Arm_CTRL
+    100112: main_character_0034:R_Arm_IK
+    100114: main_character_0034:R_Arm_Pole
+    100116: main_character_0034:R_Collar
+    100118: main_character_0034:R_Elbow
+    100120: main_character_0034:R_Foot
+    100122: main_character_0034:R_Hand
+    100124: main_character_0034:R_Hip
+    100126: main_character_0034:R_Index
+    100128: main_character_0034:R_Index_Knuckle_1
+    100130: main_character_0034:R_Index_Knuckle_2
+    100132: main_character_0034:R_Index_Tip
+    100134: main_character_0034:R_Knee
+    100136: main_character_0034:R_Leg_CTRL
+    100138: main_character_0034:R_Leg_IK
+    100140: main_character_0034:R_Leg_Pole
+    100142: main_character_0034:R_Middle
+    100144: main_character_0034:R_Middle_Knuckle_1
+    100146: main_character_0034:R_Middle_Knuckle_2
+    100148: main_character_0034:R_Middle_Tip
+    100150: main_character_0034:R_Pinkie
+    100152: main_character_0034:R_Pinkie_Knuckle_1
+    100154: main_character_0034:R_Pinkie_Knuckle_2
+    100156: main_character_0034:R_Pinkie_Tip
+    100158: main_character_0034:R_Ring
+    100160: main_character_0034:R_Ring_Knuckle_1
+    100162: main_character_0034:R_Ring_Knuckle_2
+    100164: main_character_0034:R_Ring_Tip
+    100166: main_character_0034:R_Shoulder
+    100168: main_character_0034:R_Thumb
+    100170: main_character_0034:R_Thumb_Knuckle_1
+    100172: main_character_0034:R_THumb_Knuckle_2
+    100174: main_character_0034:R_Thumb_Tip
+    100176: main_character_0034:R_Toe
+    100178: main_character_0034:R_Wrist
+    100180: main_character_0034:right_wing
+    100182: main_character_0034:right_wing_tip
+    100184: main_character_0034:shoulderpad_left
+    100186: main_character_0034:shoulderpad_right
+    100188: main_character_0034:skirt
+    100190: main_character_0034:Spine
+    100192: main_character_0034:Spine_IK_curve
+    100194: main_character_0034:Spinke_IK
+    100196: main_character_0034:Tailbone
+    100198: main_character_0034:Torso
+    100200: main_character_0034:Torso_CTRL
+    100202: //RootNode
+    400000: main_character_0034:Atlas
+    400002: main_character_0034:Back
+    400004: main_character_0034:body
+    400006: main_character_0034:Chest_CTRL
+    400008: main_character_0034:chest_piece
+    400010: main_character_0034:Head
+    400012: main_character_0034:Head_CTRL
+    400014: main_character_0034:Hip_CTRL
+    400016: main_character_0034:J_LWR_CTRL
+    400018: main_character_0034:J_UPR_CTRL
+    400020: main_character_0034:jetpack
+    400022: main_character_0034:jetpack_left
+    400024: main_character_0034:jetpack_right
+    400026: main_character_0034:L_Ankle
+    400028: main_character_0034:L_Arm_CTRL
+    400030: main_character_0034:L_Arm_IK
+    400032: main_character_0034:L_Arm_Pole
+    400034: main_character_0034:L_Collar
+    400036: main_character_0034:L_Elbow
+    400038: main_character_0034:L_Foot
+    400040: main_character_0034:L_Hand
+    400042: main_character_0034:L_Hip
+    400044: main_character_0034:L_Index
+    400046: main_character_0034:L_Index_Knuckle_1
+    400048: main_character_0034:L_Index_Knuckle_2
+    400050: main_character_0034:L_Index_Tip
+    400052: main_character_0034:L_Knee
+    400054: main_character_0034:L_Leg_CTRL
+    400056: main_character_0034:L_Leg_IK
+    400058: main_character_0034:L_Leg_Pole
+    400060: main_character_0034:L_Middle
+    400062: main_character_0034:L_Middle_Knuckle_1
+    400064: main_character_0034:L_Middle_Knuckle_2
+    400066: main_character_0034:L_Middle_Tip
+    400068: main_character_0034:L_Pinkie
+    400070: main_character_0034:L_Pinkie_Knuckle_1
+    400072: main_character_0034:L_Pinkie_Knuckle_2
+    400074: main_character_0034:L_Pinkie_Tip
+    400076: main_character_0034:L_Ring
+    400078: main_character_0034:L_Ring_Knuckle_1
+    400080: main_character_0034:L_Ring_Knuckle_2
+    400082: main_character_0034:L_Ring_Tip
+    400084: main_character_0034:L_Shoulder
+    400086: main_character_0034:L_Thumb
+    400088: main_character_0034:L_Thumb_Knuckle_1
+    400090: main_character_0034:L_THumb_Knuckle_2
+    400092: main_character_0034:L_Thumb_Tip
+    400094: main_character_0034:L_Toe
+    400096: main_character_0034:L_Wrist
+    400098: main_character_0034:left_wing
+    400100: main_character_0034:left_wing_tip
+    400102: main_character_0034:Main_CTRL
+    400104: main_character_0034:Neck
+    400106: main_character_0034:Neck_base
+    400108: main_character_0034:R_Ankle
+    400110: main_character_0034:R_Arm_CTRL
+    400112: main_character_0034:R_Arm_IK
+    400114: main_character_0034:R_Arm_Pole
+    400116: main_character_0034:R_Collar
+    400118: main_character_0034:R_Elbow
+    400120: main_character_0034:R_Foot
+    400122: main_character_0034:R_Hand
+    400124: main_character_0034:R_Hip
+    400126: main_character_0034:R_Index
+    400128: main_character_0034:R_Index_Knuckle_1
+    400130: main_character_0034:R_Index_Knuckle_2
+    400132: main_character_0034:R_Index_Tip
+    400134: main_character_0034:R_Knee
+    400136: main_character_0034:R_Leg_CTRL
+    400138: main_character_0034:R_Leg_IK
+    400140: main_character_0034:R_Leg_Pole
+    400142: main_character_0034:R_Middle
+    400144: main_character_0034:R_Middle_Knuckle_1
+    400146: main_character_0034:R_Middle_Knuckle_2
+    400148: main_character_0034:R_Middle_Tip
+    400150: main_character_0034:R_Pinkie
+    400152: main_character_0034:R_Pinkie_Knuckle_1
+    400154: main_character_0034:R_Pinkie_Knuckle_2
+    400156: main_character_0034:R_Pinkie_Tip
+    400158: main_character_0034:R_Ring
+    400160: main_character_0034:R_Ring_Knuckle_1
+    400162: main_character_0034:R_Ring_Knuckle_2
+    400164: main_character_0034:R_Ring_Tip
+    400166: main_character_0034:R_Shoulder
+    400168: main_character_0034:R_Thumb
+    400170: main_character_0034:R_Thumb_Knuckle_1
+    400172: main_character_0034:R_THumb_Knuckle_2
+    400174: main_character_0034:R_Thumb_Tip
+    400176: main_character_0034:R_Toe
+    400178: main_character_0034:R_Wrist
+    400180: main_character_0034:right_wing
+    400182: main_character_0034:right_wing_tip
+    400184: main_character_0034:shoulderpad_left
+    400186: main_character_0034:shoulderpad_right
+    400188: main_character_0034:skirt
+    400190: main_character_0034:Spine
+    400192: main_character_0034:Spine_IK_curve
+    400194: main_character_0034:Spinke_IK
+    400196: main_character_0034:Tailbone
+    400198: main_character_0034:Torso
+    400200: main_character_0034:Torso_CTRL
+    400202: //RootNode
+    2300000: main_character_0034:chest_piece
+    2300002: main_character_0034:jetpack_left
+    2300004: main_character_0034:jetpack_right
+    2300006: main_character_0034:left_wing
+    2300008: main_character_0034:left_wing_tip
+    2300010: main_character_0034:right_wing
+    2300012: main_character_0034:right_wing_tip
+    2300014: main_character_0034:shoulderpad_left
+    2300016: main_character_0034:shoulderpad_right
+    2300018: main_character_0034:skirt
+    3300000: main_character_0034:chest_piece
+    3300002: main_character_0034:jetpack_left
+    3300004: main_character_0034:jetpack_right
+    3300006: main_character_0034:left_wing
+    3300008: main_character_0034:left_wing_tip
+    3300010: main_character_0034:right_wing
+    3300012: main_character_0034:right_wing_tip
+    3300014: main_character_0034:shoulderpad_left
+    3300016: main_character_0034:shoulderpad_right
+    3300018: main_character_0034:skirt
+    4300000: main_character_0034:shoulderpad_left
+    4300002: main_character_0034:shoulderpad_right
+    4300004: main_character_0034:skirt
+    4300006: main_character_0034:body
+    4300008: main_character_0034:chest_piece
+    4300010: main_character_0034:jetpack_right
+    4300012: main_character_0034:right_wing
+    4300014: main_character_0034:right_wing_tip
+    4300016: main_character_0034:jetpack_left
+    4300018: main_character_0034:left_wing
+    4300020: main_character_0034:left_wing_tip
+    7400000: Glide_transition
+    7400002: Glide_loop
+    9500000: //RootNode
+    13700000: main_character_0034:body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Glide_transition
+      takeName: Take 001
+      firstFrame: 5
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: main_character_0034:body
+        weight: 1
+      - path: main_character_0034:chest_piece
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_left
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_left/main_character_0034:left_wing
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_left/main_character_0034:left_wing/main_character_0034:left_wing_tip
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_right
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_right/main_character_0034:right_wing
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_right/main_character_0034:right_wing/main_character_0034:right_wing_tip
+        weight: 1
+      - path: main_character_0034:L_Arm_IK
+        weight: 1
+      - path: main_character_0034:L_Leg_IK
+        weight: 1
+      - path: main_character_0034:Main_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:L_Leg_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:L_Leg_Pole
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:R_Leg_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:R_Leg_Pole
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:Head_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:J_UPR_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:L_Arm_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:L_Arm_Pole
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:R_Arm_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:R_Arm_Pole
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Hip_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Hip_CTRL/main_character_0034:J_LWR_CTRL
+        weight: 1
+      - path: main_character_0034:R_Arm_IK
+        weight: 1
+      - path: main_character_0034:R_Leg_IK
+        weight: 1
+      - path: main_character_0034:Spine_IK_curve
+        weight: 1
+      - path: main_character_0034:Spinke_IK
+        weight: 1
+      - path: main_character_0034:Tailbone
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:L_Hip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:L_Hip/main_character_0034:L_Knee
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:L_Hip/main_character_0034:L_Knee/main_character_0034:L_Ankle
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:L_Hip/main_character_0034:L_Knee/main_character_0034:L_Ankle/main_character_0034:L_Foot
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:L_Hip/main_character_0034:L_Knee/main_character_0034:L_Ankle/main_character_0034:L_Foot/main_character_0034:L_Toe
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:R_Hip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:R_Hip/main_character_0034:R_Knee
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:R_Hip/main_character_0034:R_Knee/main_character_0034:R_Ankle
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:R_Hip/main_character_0034:R_Knee/main_character_0034:R_Ankle/main_character_0034:R_Foot
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:R_Hip/main_character_0034:R_Knee/main_character_0034:R_Ankle/main_character_0034:R_Foot/main_character_0034:R_Toe
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:skirt
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Index
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Index/main_character_0034:L_Index_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Index/main_character_0034:L_Index_Knuckle_1/main_character_0034:L_Index_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Index/main_character_0034:L_Index_Knuckle_1/main_character_0034:L_Index_Knuckle_2/main_character_0034:L_Index_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Middle
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Middle/main_character_0034:L_Middle_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Middle/main_character_0034:L_Middle_Knuckle_1/main_character_0034:L_Middle_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Middle/main_character_0034:L_Middle_Knuckle_1/main_character_0034:L_Middle_Knuckle_2/main_character_0034:L_Middle_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Pinkie
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Pinkie/main_character_0034:L_Pinkie_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Pinkie/main_character_0034:L_Pinkie_Knuckle_1/main_character_0034:L_Pinkie_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Pinkie/main_character_0034:L_Pinkie_Knuckle_1/main_character_0034:L_Pinkie_Knuckle_2/main_character_0034:L_Pinkie_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Ring
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Ring/main_character_0034:L_Ring_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Ring/main_character_0034:L_Ring_Knuckle_1/main_character_0034:L_Ring_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Ring/main_character_0034:L_Ring_Knuckle_1/main_character_0034:L_Ring_Knuckle_2/main_character_0034:L_Ring_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Thumb
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Thumb/main_character_0034:L_Thumb_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Thumb/main_character_0034:L_Thumb_Knuckle_1/main_character_0034:L_THumb_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Thumb/main_character_0034:L_Thumb_Knuckle_1/main_character_0034:L_THumb_Knuckle_2/main_character_0034:L_Thumb_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:shoulderpad_left
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:Neck_base
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:Neck_base/main_character_0034:Neck
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:Neck_base/main_character_0034:Neck/main_character_0034:Head
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Index
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Index/main_character_0034:R_Index_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Index/main_character_0034:R_Index_Knuckle_1/main_character_0034:R_Index_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Index/main_character_0034:R_Index_Knuckle_1/main_character_0034:R_Index_Knuckle_2/main_character_0034:R_Index_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Middle
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Middle/main_character_0034:R_Middle_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Middle/main_character_0034:R_Middle_Knuckle_1/main_character_0034:R_Middle_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Middle/main_character_0034:R_Middle_Knuckle_1/main_character_0034:R_Middle_Knuckle_2/main_character_0034:R_Middle_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Pinkie
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Pinkie/main_character_0034:R_Pinkie_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Pinkie/main_character_0034:R_Pinkie_Knuckle_1/main_character_0034:R_Pinkie_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Pinkie/main_character_0034:R_Pinkie_Knuckle_1/main_character_0034:R_Pinkie_Knuckle_2/main_character_0034:R_Pinkie_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Ring
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Ring/main_character_0034:R_Ring_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Ring/main_character_0034:R_Ring_Knuckle_1/main_character_0034:R_Ring_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Ring/main_character_0034:R_Ring_Knuckle_1/main_character_0034:R_Ring_Knuckle_2/main_character_0034:R_Ring_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Thumb
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Thumb/main_character_0034:R_Thumb_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Thumb/main_character_0034:R_Thumb_Knuckle_1/main_character_0034:R_THumb_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Thumb/main_character_0034:R_Thumb_Knuckle_1/main_character_0034:R_THumb_Knuckle_2/main_character_0034:R_Thumb_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:shoulderpad_right
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Glide_loop
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: main_character_0034:body
+        weight: 1
+      - path: main_character_0034:chest_piece
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_left
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_left/main_character_0034:left_wing
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_left/main_character_0034:left_wing/main_character_0034:left_wing_tip
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_right
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_right/main_character_0034:right_wing
+        weight: 1
+      - path: main_character_0034:chest_piece/main_character_0034:jetpack/main_character_0034:jetpack_right/main_character_0034:right_wing/main_character_0034:right_wing_tip
+        weight: 1
+      - path: main_character_0034:L_Arm_IK
+        weight: 1
+      - path: main_character_0034:L_Leg_IK
+        weight: 1
+      - path: main_character_0034:Main_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:L_Leg_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:L_Leg_Pole
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:R_Leg_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:R_Leg_Pole
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:Head_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:J_UPR_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:L_Arm_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:L_Arm_Pole
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:R_Arm_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Chest_CTRL/main_character_0034:R_Arm_Pole
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Hip_CTRL
+        weight: 1
+      - path: main_character_0034:Main_CTRL/main_character_0034:Torso_CTRL/main_character_0034:Hip_CTRL/main_character_0034:J_LWR_CTRL
+        weight: 1
+      - path: main_character_0034:R_Arm_IK
+        weight: 1
+      - path: main_character_0034:R_Leg_IK
+        weight: 1
+      - path: main_character_0034:Spine_IK_curve
+        weight: 1
+      - path: main_character_0034:Spinke_IK
+        weight: 1
+      - path: main_character_0034:Tailbone
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:L_Hip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:L_Hip/main_character_0034:L_Knee
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:L_Hip/main_character_0034:L_Knee/main_character_0034:L_Ankle
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:L_Hip/main_character_0034:L_Knee/main_character_0034:L_Ankle/main_character_0034:L_Foot
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:L_Hip/main_character_0034:L_Knee/main_character_0034:L_Ankle/main_character_0034:L_Foot/main_character_0034:L_Toe
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:R_Hip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:R_Hip/main_character_0034:R_Knee
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:R_Hip/main_character_0034:R_Knee/main_character_0034:R_Ankle
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:R_Hip/main_character_0034:R_Knee/main_character_0034:R_Ankle/main_character_0034:R_Foot
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:R_Hip/main_character_0034:R_Knee/main_character_0034:R_Ankle/main_character_0034:R_Foot/main_character_0034:R_Toe
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:skirt
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Index
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Index/main_character_0034:L_Index_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Index/main_character_0034:L_Index_Knuckle_1/main_character_0034:L_Index_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Index/main_character_0034:L_Index_Knuckle_1/main_character_0034:L_Index_Knuckle_2/main_character_0034:L_Index_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Middle
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Middle/main_character_0034:L_Middle_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Middle/main_character_0034:L_Middle_Knuckle_1/main_character_0034:L_Middle_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Middle/main_character_0034:L_Middle_Knuckle_1/main_character_0034:L_Middle_Knuckle_2/main_character_0034:L_Middle_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Pinkie
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Pinkie/main_character_0034:L_Pinkie_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Pinkie/main_character_0034:L_Pinkie_Knuckle_1/main_character_0034:L_Pinkie_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Pinkie/main_character_0034:L_Pinkie_Knuckle_1/main_character_0034:L_Pinkie_Knuckle_2/main_character_0034:L_Pinkie_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Ring
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Ring/main_character_0034:L_Ring_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Ring/main_character_0034:L_Ring_Knuckle_1/main_character_0034:L_Ring_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Ring/main_character_0034:L_Ring_Knuckle_1/main_character_0034:L_Ring_Knuckle_2/main_character_0034:L_Ring_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Thumb
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Thumb/main_character_0034:L_Thumb_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Thumb/main_character_0034:L_Thumb_Knuckle_1/main_character_0034:L_THumb_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:L_Elbow/main_character_0034:L_Wrist/main_character_0034:L_Hand/main_character_0034:L_Thumb/main_character_0034:L_Thumb_Knuckle_1/main_character_0034:L_THumb_Knuckle_2/main_character_0034:L_Thumb_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:L_Collar/main_character_0034:L_Shoulder/main_character_0034:shoulderpad_left
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:Neck_base
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:Neck_base/main_character_0034:Neck
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:Neck_base/main_character_0034:Neck/main_character_0034:Head
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Index
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Index/main_character_0034:R_Index_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Index/main_character_0034:R_Index_Knuckle_1/main_character_0034:R_Index_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Index/main_character_0034:R_Index_Knuckle_1/main_character_0034:R_Index_Knuckle_2/main_character_0034:R_Index_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Middle
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Middle/main_character_0034:R_Middle_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Middle/main_character_0034:R_Middle_Knuckle_1/main_character_0034:R_Middle_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Middle/main_character_0034:R_Middle_Knuckle_1/main_character_0034:R_Middle_Knuckle_2/main_character_0034:R_Middle_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Pinkie
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Pinkie/main_character_0034:R_Pinkie_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Pinkie/main_character_0034:R_Pinkie_Knuckle_1/main_character_0034:R_Pinkie_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Pinkie/main_character_0034:R_Pinkie_Knuckle_1/main_character_0034:R_Pinkie_Knuckle_2/main_character_0034:R_Pinkie_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Ring
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Ring/main_character_0034:R_Ring_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Ring/main_character_0034:R_Ring_Knuckle_1/main_character_0034:R_Ring_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Ring/main_character_0034:R_Ring_Knuckle_1/main_character_0034:R_Ring_Knuckle_2/main_character_0034:R_Ring_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Thumb
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Thumb/main_character_0034:R_Thumb_Knuckle_1
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Thumb/main_character_0034:R_Thumb_Knuckle_1/main_character_0034:R_THumb_Knuckle_2
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:R_Elbow/main_character_0034:R_Wrist/main_character_0034:R_Hand/main_character_0034:R_Thumb/main_character_0034:R_Thumb_Knuckle_1/main_character_0034:R_THumb_Knuckle_2/main_character_0034:R_Thumb_Tip
+        weight: 1
+      - path: main_character_0034:Tailbone/main_character_0034:Spine/main_character_0034:Back/main_character_0034:Torso/main_character_0034:Atlas/main_character_0034:R_Collar/main_character_0034:R_Shoulder/main_character_0034:shoulderpad_right
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

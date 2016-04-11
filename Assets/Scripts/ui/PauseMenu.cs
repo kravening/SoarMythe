@@ -1,64 +1,47 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 public class PauseMenu : MonoBehaviour {
 
-    bool isPaused, isShowing;
-    public bool IsPaused
-    {
-        get { return isPaused; }
-        set { isPaused = value; }
-    }
+    bool Esc;
 
     [SerializeField]
     CanvasGroup pauseMenuContainer;
     GameObject CheckCanvas;
 
-    void Start()
+    void Update()
     {
-        pauseMenuContainer.GetComponent<CanvasGroup> ();
-        CheckCanvas.GetComponent<GameObject>();
-        isShowing = false;
-        CheckCanvas.SetActive(isShowing);
-
-        if (isPaused)
-        {
-            Time.timeScale = 1.0f;
-        }
-        else {
-            Time.timeScale = 0.0f;
-        }
+        CheckIfPaused();
     }
-
-    public void TogglePause()
+    void CheckIfPaused()
     {
-        if (isPaused)
+        if (Esc = Input.GetKey(KeyCode.Escape))
         {
-            isPaused = false;
-            Time.timeScale = 1.0f;
-            pauseMenuContainer.alpha = 0;
-            pauseMenuContainer.interactable = false;
-            pauseMenuContainer.blocksRaycasts = false;
-        }
-        else {
-            isPaused = true;
             Time.timeScale = 0.0f;
             pauseMenuContainer.alpha = 1;
             pauseMenuContainer.interactable = true;
             pauseMenuContainer.blocksRaycasts = true;
         }
     }
+    public void TogglePause()
+    {
+            Time.timeScale = 1.0f;
+            pauseMenuContainer.alpha = 0;
+            pauseMenuContainer.interactable = false;
+            pauseMenuContainer.blocksRaycasts = false;
+    }
     public void LoadMenu()
     {
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1.0f;
-        isPaused = false;
     }
     public void Quit()
     {
         Application.Quit();
-        Time.timeScale = 1.0f;
-        isPaused = false;
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

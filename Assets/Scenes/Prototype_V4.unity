@@ -8258,7 +8258,7 @@ Prefab:
     - target: {fileID: 2300004, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bcb8e40b7b580994d9f07b08f56c8a73, type: 2}
+      objectReference: {fileID: 2100000, guid: 521349e7a4fb8ad4a9a159170286bd14, type: 2}
     - target: {fileID: 100006, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -10134,11 +10134,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432474, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22432474, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22410084, guid: df1000cf198eee045b32a7477533b12f, type: 2}
       propertyPath: m_AnchoredPosition.x

@@ -185,7 +185,7 @@ public class MainMenuHandler : MonoBehaviour {
         if (insideMenu) {
             switch (currentButton) {
                 case 0:
-                    SceneManager.LoadScene("Prototype_V2");
+                    SceneManager.LoadScene("Prototype_V4");
                     break;
                 case 1:
                     currentPath = controlsPath;

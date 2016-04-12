@@ -16,7 +16,7 @@ public class AudioSourceController : MonoBehaviour
 	private int lastIndexPlayed;
 	private int audioReRolls = 3;
 
-	public bool isPlaying;
+	public bool isPlaying = false;
 	// Use this for initialization
 	void Start()
 	{
@@ -52,6 +52,7 @@ public class AudioSourceController : MonoBehaviour
 
 	public void ChangeAudioSourceByIndex(int index)
 	{
+		isPlaying = true;
 		if (index <= audioList.Count && audioList.Count != 0)
 		{
 			

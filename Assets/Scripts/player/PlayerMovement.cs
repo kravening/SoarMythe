@@ -21,8 +21,6 @@ public class PlayerMovement : MonoBehaviour {
     CheckpointController cc; // Used to set and goto last checkpoint.
     PowerContainer pc; // Used to retrieve the amount of power the player has and edit it.
     AnimationController ac; // To activate animations with.
-	AudioSourceController asc;
-
 
     // Make it once and just keep editing it.
     Vector3 vel;
@@ -96,7 +94,7 @@ public class PlayerMovement : MonoBehaviour {
         cc = GetComponent<CheckpointController>();
         pc = GetComponent<PowerContainer>();
         ac = GetComponent<AnimationController>();
-		asc = GetComponent<AudioSourceController> ();
+
 
         vel = new Vector3();
 
@@ -337,7 +335,6 @@ public class PlayerMovement : MonoBehaviour {
             pc.Power -= jumpConsumption;
             rb.AddForce(tf.up * (flightHeight / jumpDivider), ForceMode.Impulse);
         }
-		
 		if (glide && pc.Power > glideConsumption && !touchingGround) {
 			// Glide remains true while the the jump button is down. Unlike the actual jump
 			rb.velocity = new Vector3 (rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);

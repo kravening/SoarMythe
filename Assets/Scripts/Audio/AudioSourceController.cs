@@ -16,6 +16,7 @@ public class AudioSourceController : MonoBehaviour
 	private int lastIndexPlayed;
 	private int audioReRolls = 3;
 
+	public bool isPlaying;
 	// Use this for initialization
 	void Start()
 	{
@@ -85,13 +86,15 @@ public class AudioSourceController : MonoBehaviour
 
 	public void StopAudio(){
 		audioSource.Stop();
+		isPlaying = false;
 	}
 
 	private void PlayAudioClip(int indexGiven){
 		if (autoStopSound)
 		{
-			audioSource.Stop();	//stop sound here
+			StopAudio();	//stop sound here
 		}
+		isPlaying = true;
 		audioSource.clip = audioList[indexGiven];				 //change sound here
 		audioSource.Play();                                     //play sound here
 		RandomisePitch();

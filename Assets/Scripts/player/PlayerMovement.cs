@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-
+	bool once;
     bool touchingGround = false; // Am I touching ground? Used to tell the difference
                                  // between a jump, and flight.
 
@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour {
     CheckpointController cc; // Used to set and goto last checkpoint.
     PowerContainer pc; // Used to retrieve the amount of power the player has and edit it.
     AnimationController ac; // To activate animations with.
+	AudioSourceController asc;
+
 
     // Make it once and just keep editing it.
     Vector3 vel;
@@ -94,6 +96,7 @@ public class PlayerMovement : MonoBehaviour {
         cc = GetComponent<CheckpointController>();
         pc = GetComponent<PowerContainer>();
         ac = GetComponent<AnimationController>();
+		asc = GetComponent<AudioSourceController> ();
 
         vel = new Vector3();
 
@@ -329,10 +332,19 @@ public class PlayerMovement : MonoBehaviour {
         }
 		
 		if (glide && pc.Power > glideConsumption && !touchingGround) {
-            // Glide remains true while the the jump button is down. Unlike the actual jump
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
-            pc.Power -= glideConsumption;
-        }
+			// Glide remains true while the the jump button is down. Unlike the actual jump
+			rb.velocity = new Vector3 (rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
+			pc.Power -= glideConsumption;
+			if (once == false) {
+				once = true;
+				asc.ChangeAudioSourceByIndex (0);
+			}
+		} else {
+			if (asc.isPlaying) {
+				once = false;
+				asc.StopAudio();
+			}
+		}
 
         if(jump && !glide) {
             if (!touchingGround) {

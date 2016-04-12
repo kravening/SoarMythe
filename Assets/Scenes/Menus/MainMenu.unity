@@ -1873,7 +1873,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -52.6
+      value: -60.3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1881,27 +1881,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -97.8
+      value: -96.44
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.01198815
+      value: -0.44594947
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6153633
+      value: -0.42419896
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.01635112
+      value: 0.54875237
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7879829
+      value: 0.5657342
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
       propertyPath: m_LocalScale.x
@@ -2511,22 +2511,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &404416192 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100002, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
-  m_PrefabInternal: {fileID: 290528991}
---- !u!64 &404416194
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 404416192}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
 --- !u!1 &412948875
 GameObject:
   m_ObjectHideFlags: 0
@@ -3612,8 +3596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577703c7a829bfd4b81e2981d16dce80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadZoneAmount: 0
-  triggerPressedSensitivity: 0
+  dpadUp: 0
+  dpadDown: 0
 --- !u!114 &658999762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3627,6 +3611,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  up: 0
+  right: 0
+  down: 0
+  left: 0
+  jump: 0
+  glide: 0
+  pause: 0
+  restart: 0
   mouseSensitivity: {x: 1, y: 1}
   mouseSensitivityDivider: 5
 --- !u!114 &658999763
@@ -3942,22 +3934,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 408256, guid: d395c72cf5613f74792a86983368104b, type: 2}
   m_PrefabInternal: {fileID: 1280525361}
---- !u!1 &682237441 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100004, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
-  m_PrefabInternal: {fileID: 290528991}
---- !u!64 &682237443
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 682237441}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300002, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
 --- !u!4 &691663276 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
@@ -5048,7 +5024,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424964, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 154110, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_Name
@@ -5154,7 +5130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424964, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 424964, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_LocalScale.x
@@ -6115,7 +6091,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408256, guid: d395c72cf5613f74792a86983368104b, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 408256, guid: d395c72cf5613f74792a86983368104b, type: 2}
       propertyPath: m_LocalScale.x
@@ -6402,7 +6378,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424964, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 424964, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_LocalScale.x
@@ -8721,7 +8697,7 @@ MonoBehaviour:
   controlsPath:
   - {fileID: 852180683}
   - {fileID: 1125937353}
-  highlightButtonColor: {r: 1, g: 0, b: 0.972414, a: 1}
+  highlightButtonColor: {r: 0.2794118, g: 0.8210952, b: 1, a: 1}
   cameraSpeed: 0.5
 --- !u!4 &1907754257
 Transform:
@@ -8750,7 +8726,6 @@ MonoBehaviour:
   bButton: 0
   xButton: 0
   yButton: 0
-  pauseMenu: {fileID: 0}
   dpadUp: 0
   dpadDown: 0
   dpadLeft: 0
@@ -9331,7 +9306,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424964, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 424964, guid: b007c84f0f52d0b40bf1a436b50c279d, type: 2}
       propertyPath: m_LocalScale.x

@@ -24,11 +24,17 @@ public static class GameController {
                 Debug.Log("Seems like you died.. How tragic. Death by " + cause);
             else
                 Debug.Log("Seems like you died.. How tragic. Death by unknown cause.");
+
+            RestartCurrentScene();
         }
     }
 
     public static void RestartCurrentScene() {
         Scene activeScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(activeScene.name);
+    }
+
+    public static string RequestSceneName() {
+        return SceneManager.GetActiveScene().name;
     }
 }

@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
         get { return touchingGround; }
     }
 
+    [SerializeField]
     bool isAlive = true; // Am I alive? Used to make the player unable to move.
 
     public bool IsAlive {
@@ -218,28 +219,34 @@ public class PlayerMovement : MonoBehaviour {
 
             // Make the player face the direction he is walking.
             // This makes it possible to go upto 8 directions. Which is also how much he can walk in the actual movement.
-            if (!left && !right) {
-                if (forward)
-                    transform.rotation = QuatLerp(CameraPosition.rotation, DelTime);
-                else if (backward)
-                    transform.rotation = QuatLerp(QuatLookRot(-CamForward), DelTime);
-            } else if (!forward && !backward) {
-                if (left)
-                    transform.rotation = QuatLerp(QuatLookRot(-CamRight), DelTime);
-                else if (right)
-                    transform.rotation = QuatLerp(QuatLookRot(CamRight), DelTime);
-            } else {
-                if (forward) {
+            if (isAlive) {
+                if (!left && !right) {
+                    if (forward)
+                        transform.rotation = QuatLerp(CameraPosition.rotation, DelTime);
+                    else if (backward)
+                        transform.rotation = QuatLerp(QuatLookRot(-CamForward), DelTime);
+                } else if (!forward && !backward) {
                     if (left)
-                        transform.rotation = QuatLerp(QuatLookRot(-CamRight + CamForward), DelTime);
+                        transform.rotation = QuatLerp(QuatLookRot(-CamRight), DelTime);
                     else if (right)
-                        transform.rotation = QuatLerp(QuatLookRot(CamRight + CamForward), DelTime);
-                } else if (backward) {
-                    if (left)
-                        transform.rotation = QuatLerp(QuatLookRot(-CamRight + -CamForward), DelTime);
-                    else if (right)
-                        transform.rotation = QuatLerp(QuatLookRot(CamRight + -CamForward), DelTime);
+                        transform.rotation = QuatLerp(QuatLookRot(CamRight), DelTime);
+                } else {
+                    if (forward) {
+                        if (left)
+                            transform.rotation = QuatLerp(QuatLookRot(-CamRight + CamForward), DelTime);
+                        else if (right)
+                            transform.rotation = QuatLerp(QuatLookRot(CamRight + CamForward), DelTime);
+                    } else if (backward) {
+                        if (left)
+                            transform.rotation = QuatLerp(QuatLookRot(-CamRight + -CamForward), DelTime);
+                        else if (right)
+                            transform.rotation = QuatLerp(QuatLookRot(CamRight + -CamForward), DelTime);
+                    }
                 }
+            } else {
+                Transform sun = GameObject.Find("Sun").transform;
+
+                transform.rotation = Quaternion.RotateTowards(tf.rotation, sun.rotation, 1);
             }
 
             // After we made him face the right way, actually go the right way.
@@ -312,7 +319,8 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         // Then finally the add movement I made above.
-        tf.position += moveBy;
+        if(isAlive)
+            tf.position += moveBy;
 
 
         // Then for the finale movement ability, the jump.

@@ -63,12 +63,12 @@ public class AnimationController : MonoBehaviour {
         return animator.GetBool(i);
     }
 
-    void SetBool(string i, bool val) {
-        animator.SetBool(i, val);
+    void SetBool(string name, bool val) {
+        animator.SetBool(name, val);
     }
 
-    void SetTrigger(string i) {
-        animator.SetTrigger(i);
+    void SetTrigger(string name) {
+        animator.SetTrigger(name);
     }
 
     void FixedUpdate() {
@@ -87,5 +87,9 @@ public class AnimationController : MonoBehaviour {
 
         if (GetBool("charging") != charging)
             SetBool("charging", charging);
+    }
+
+    void Death() {
+        SetBool("isDead", true);
     }
 }

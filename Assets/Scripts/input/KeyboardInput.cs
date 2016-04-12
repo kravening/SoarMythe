@@ -51,7 +51,7 @@ public class KeyboardInput : MonoBehaviour {
         if(cc != null)
             SendCameraMovement();
 
-        if (restart)
+        if (restart && GameController.RequestSceneName() != "MainMenu")
             GameController.RestartCurrentScene();
 
         if (pm.IsAlive)

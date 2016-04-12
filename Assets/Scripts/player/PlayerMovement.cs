@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	bool once;
     bool touchingGround = false; // Am I touching ground? Used to tell the difference
                                  // between a jump, and flight.
 
@@ -343,15 +342,6 @@ public class PlayerMovement : MonoBehaviour {
 			// Glide remains true while the the jump button is down. Unlike the actual jump
 			rb.velocity = new Vector3 (rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
 			pc.Power -= glideConsumption;
-			if (once == false) {
-				once = true;
-				asc.ChangeAudioSourceByIndex (0);
-			}
-		} else {
-			if (asc.isPlaying) {
-				once = false;
-				asc.StopAudio();
-			}
 		}
 
         if(jump && !glide) {

@@ -83,6 +83,10 @@ public class AudioSourceController : MonoBehaviour
 
 	}
 
+	public void StopAudio(){
+		audioSource.Stop();
+	}
+
 	private void PlayAudioClip(int indexGiven){
 		if (autoStopSound)
 		{

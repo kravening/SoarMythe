@@ -6,7 +6,7 @@ using UnityEditor;
 #endif
 
 public class MainMenuHandler : MonoBehaviour {
-
+	AudioSourceController cont;
     // The buttons part of the main menu.
     [SerializeField, Tooltip("Put all the buttons the main menu will contain in here")]
     List<GameObject> MainMenuButtons;
@@ -55,6 +55,7 @@ public class MainMenuHandler : MonoBehaviour {
     float time;
 
     void Start() {
+		cont = GetComponent<AudioSourceController> ();
         xinput = GetComponent<XboxInputMenu>();
         camera = Camera.main.transform;
 
@@ -120,6 +121,7 @@ public class MainMenuHandler : MonoBehaviour {
 
         // Have this check limits and edit colors.
         ButtonChangeHandling();
+		cont.ChangeAudioSourceByIndex (3);
     }
 
     /// <summary>
@@ -136,6 +138,7 @@ public class MainMenuHandler : MonoBehaviour {
 
         // Have this check limits and edit colors.
         ButtonChangeHandling();
+		cont.ChangeAudioSourceByIndex (3);
     }
 
     void ButtonChangeHandling() {
@@ -200,7 +203,7 @@ public class MainMenuHandler : MonoBehaviour {
                     currentPath = creditsPath;
                     break;
             }
-
+			cont.ChangeAudioSourceByIndex (2);
             // If it's the options or credits button, set these to true.
             if (currentButton == 1 || currentButton == 3) {
                 moveToNewPlace = true;

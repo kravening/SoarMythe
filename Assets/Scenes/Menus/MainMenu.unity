@@ -2511,22 +2511,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &404416192 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100002, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
-  m_PrefabInternal: {fileID: 290528991}
---- !u!64 &404416194
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 404416192}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
 --- !u!1 &412948875
 GameObject:
   m_ObjectHideFlags: 0
@@ -3612,8 +3596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577703c7a829bfd4b81e2981d16dce80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadZoneAmount: 0
-  triggerPressedSensitivity: 0
+  dpadUp: 0
+  dpadDown: 0
 --- !u!114 &658999762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3627,6 +3611,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  up: 0
+  right: 0
+  down: 0
+  left: 0
+  jump: 0
+  glide: 0
+  pause: 0
+  restart: 0
   mouseSensitivity: {x: 1, y: 1}
   mouseSensitivityDivider: 5
 --- !u!114 &658999763
@@ -3942,22 +3934,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 408256, guid: d395c72cf5613f74792a86983368104b, type: 2}
   m_PrefabInternal: {fileID: 1280525361}
---- !u!1 &682237441 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100004, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
-  m_PrefabInternal: {fileID: 290528991}
---- !u!64 &682237443
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 682237441}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300002, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
 --- !u!4 &691663276 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d07a07e5aa1c26d4ebeb56fc47053d3c, type: 3}
@@ -8691,6 +8667,8 @@ GameObject:
   - 114: {fileID: 1907754256}
   - 114: {fileID: 1907754258}
   - 114: {fileID: 1907754259}
+  - 114: {fileID: 1907754261}
+  - 82: {fileID: 1907754260}
   m_Layer: 0
   m_Name: MainMenuHandler
   m_TagString: Untagged
@@ -8750,7 +8728,6 @@ MonoBehaviour:
   bButton: 0
   xButton: 0
   yButton: 0
-  pauseMenu: {fileID: 0}
   dpadUp: 0
   dpadDown: 0
   dpadLeft: 0
@@ -8766,6 +8743,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07b87daebe10e8c4fa1f27c77322aa19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1907754260
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1907754255}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &1907754261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1907754255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7370efa0f5b31af49be6fd436b89feca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioList:
+  - {fileID: 8300000, guid: ec21cb26c5f617a4180721e2aebceeee, type: 3}
+  - {fileID: 8300000, guid: 735481ee1ea425e429bc533ab098cc12, type: 3}
+  - {fileID: 8300000, guid: ddfad70d5b6032d479d5fcdb77495fa0, type: 3}
+  - {fileID: 8300000, guid: ef1c629024a3e1343b8d3e60d8649985, type: 3}
+  audioVolume: 1
+  minPitch: 0
+  maxPitch: 0
+  autoStopSound: 0
+  randomisePitch: 0
 --- !u!1 &1931285231
 GameObject:
   m_ObjectHideFlags: 0

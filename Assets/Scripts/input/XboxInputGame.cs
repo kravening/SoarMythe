@@ -223,9 +223,9 @@ public class XboxInputGame : MonoBehaviour {
         }
 
         if (RightStickY > 0.001) {
-            camUp = true;
+			camDown = true;
         } else if (RightStickY < -0.001) {
-            camDown = true;
+			camUp = true;
         }
 
         pm.Move(up, down, left, right, jump, glide);

@@ -136,11 +136,15 @@ Material:
       data:
         first:
           name: _Exposure
-        second: 0.91
+        second: 1.4
       data:
         first:
           name: _Parallax
         second: 0.02
+      data:
+        first:
+          name: _Metallic
+        second: 0
       data:
         first:
           name: _ZWrite
@@ -171,10 +175,6 @@ Material:
         second: 0
       data:
         first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
           name: _Rotation
         second: 40
     m_Colors:
@@ -189,4 +189,4 @@ Material:
       data:
         first:
           name: _Tint
-        second: {r: 0.6397059, g: 1, b: 0.70182556, a: 0.5}
+        second: {r: 0.5294118, g: 1, b: 0.63002014, a: 0.5}

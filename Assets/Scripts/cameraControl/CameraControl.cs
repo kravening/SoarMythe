@@ -83,21 +83,21 @@ public class CameraControl : MonoBehaviour {
     public void RotateX(float strength) {
         if (strength < 0) {
             if (distanceUp > minDistance) {
-                //distanceAway -= (strength / xSensitivity);
+
                 distanceUp += (strength / xSensitivity);
             }
         } else {
             if (distanceUp < maxDistance) {
-                //distanceAway -= (strength / xSensitivity);
+
                 distanceUp += (strength / xSensitivity);
             }
         }
         if (distanceUp < minDistance) {
-            //distanceAway = 7.5f;
+
             distanceUp = minDistance;
         }
         if (distanceUp > maxDistance) {
-            //distanceAway = 2.7f;
+
             distanceUp = maxDistance;
         }
         return;

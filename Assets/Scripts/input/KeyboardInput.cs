@@ -64,8 +64,13 @@ public class KeyboardInput : MonoBehaviour {
         down = Input.GetKey(KeyCode.S);
         left = Input.GetKey(KeyCode.A);
         right = Input.GetKey(KeyCode.D);
-        glide = Input.GetKey(KeyCode.E);
-
+        //glide = Input.GetKey(KeyCode.E);
+		if (Input.GetKeyDown (KeyCode.E)) {
+			glide = true;
+		}
+		if (Input.GetKeyUp (KeyCode.E)) {
+			glide = false;
+		}
         if (left && right) {
             left = right = false;
         }

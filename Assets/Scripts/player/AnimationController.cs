@@ -5,6 +5,8 @@ public class AnimationController : MonoBehaviour {
     // Going to nee this to actually send the movements to the animatior.
     [SerializeField, Tooltip("The player's animation controller.")]
     Animator animator;
+	AudioSourceController asc;
+	[SerializeField]ParticleSystem[] ps = new ParticleSystem[3];
 
     // Define all the movement variables.
     [SerializeField]
@@ -14,6 +16,26 @@ public class AnimationController : MonoBehaviour {
     // For my sanity's sake it's better to keep it like this.
     // It seems SetBool also functions as SetTrigger if the value given is true.
     // Nice. I've converted both to a trigger then.
+
+	private void Start(){
+		asc = GetComponent<AudioSourceController> ();
+	}
+
+	private void Update(){
+		if (!asc.isPlaying && isGliding && !touchingGround) {
+			asc.isPlaying = true;
+			asc.ChangeAudioSourceByIndex (0);
+			ps [0].emissionRate = 80;
+			ps [1].emissionRate = 400;
+			ps [2].emissionRate = 400;
+		} else if(!isGliding || touchingGround) {
+			for (int i = 0; i < ps.Length; i++) {
+				ps [i].emissionRate = 0;
+			}
+			asc.isPlaying = false;
+			asc.StopAudio ();
+		}
+	}
 
     // And throw them to the sharks.
     public bool IsRunning {

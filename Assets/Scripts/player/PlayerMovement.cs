@@ -335,10 +335,12 @@ public class PlayerMovement : MonoBehaviour {
             pc.Power -= jumpConsumption;
             rb.AddForce(tf.up * (flightHeight / jumpDivider), ForceMode.Impulse);
         }
+
 		if (glide && pc.Power > glideConsumption && !touchingGround) {
 			// Glide remains true while the the jump button is down. Unlike the actual jump
 			rb.velocity = new Vector3 (rb.velocity.x, rb.velocity.y * 0.8f, rb.velocity.z);
 			pc.Power -= glideConsumption;
+
 		}
 
         if(jump && !glide) {

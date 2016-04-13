@@ -81,7 +81,8 @@ public class PlayerMovement : MonoBehaviour {
 
     // When the player hits the ground, drop an instance of this.
     [SerializeField, Tooltip("The particle that will be instantiated when the player lands on the ground.")]
-    GameObject particleGroundHit;
+	ParticleSystem particleGroundHit;
+	[SerializeField]Transform particleSpawnPoint;
 
     [SerializeField, Tooltip("The layer Ground should be in this to detect if the player is touching the ground.")]
     LayerMask groundLayer; // This is compared with the layer of whatever I am touching right now.
@@ -117,14 +118,14 @@ public class PlayerMovement : MonoBehaviour {
 
     // I need to check enter and stay due to a small flaw that turns the touchingground off if you stop touching a wall.
     void OnTriggerEnter(Collider other) {
-        CollisionChecker(other, false);
+		CollisionChecker(other, true);
     }
 
     void OnTriggerStay(Collider other) {
-        CollisionChecker(other);
+		CollisionChecker(other, false);
     }
 
-    void CollisionChecker(Collider other, bool spawnParticles = false) {
+    void CollisionChecker(Collider other, bool spawnParticles) {
         // Changing last checkpoint to the last checkpoint would be pointless, and just extra resources we need.
         // Then if it's a checkpoint, check if it's not last and if it ain't make it the last.
         if (other.gameObject.tag == Tags.CHARGEPAD) {
@@ -136,9 +137,7 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.layer == 8) {
             touchingGround = true;
             if (spawnParticles) {
-                GameObject newParticle = Instantiate<GameObject>(particleGroundHit);
-                newParticle.transform.position = new Vector3(tf.position.x, tf.position.y - tf.position.y * 0.9f, tf.position.z);
-                newParticle.transform.rotation = tf.rotation;
+				Instantiate(particleGroundHit,particleSpawnPoint.position,particleSpawnPoint.rotation);
             }
         }
     }

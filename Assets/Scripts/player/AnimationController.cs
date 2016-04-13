@@ -6,7 +6,8 @@ public class AnimationController : MonoBehaviour {
     [SerializeField, Tooltip("The player's animation controller.")]
     Animator animator;
 	AudioSourceController asc;
-	[SerializeField]ParticleSystem[] ps = new ParticleSystem[3];
+	[SerializeField]ParticleSystem[] jetParticles = new ParticleSystem[3];
+	[SerializeField]ParticleSystem chargeParticles;
 
     // Define all the movement variables.
     [SerializeField]
@@ -25,15 +26,20 @@ public class AnimationController : MonoBehaviour {
 		if (!asc.isPlaying && isGliding && !touchingGround) {
 			asc.isPlaying = true;
 			asc.ChangeAudioSourceByIndex (0);
-			ps [0].emissionRate = 80;
-			ps [1].emissionRate = 400;
-			ps [2].emissionRate = 400;
+			jetParticles [0].emissionRate = 80;
+			jetParticles [1].emissionRate = 400;
+			jetParticles [2].emissionRate = 400;
 		} else if(!isGliding || touchingGround) {
-			for (int i = 0; i < ps.Length; i++) {
-				ps [i].emissionRate = 0;
+			for (int i = 0; i < jetParticles.Length; i++) {
+				jetParticles [i].emissionRate = 0;
 			}
 			asc.isPlaying = false;
 			asc.StopAudio ();
+		}
+		if (charging) {
+			chargeParticles.emissionRate = 50;
+		} else {
+			chargeParticles.emissionRate = 0;
 		}
 	}
 

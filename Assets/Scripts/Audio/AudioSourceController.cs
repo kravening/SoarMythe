@@ -52,7 +52,6 @@ public class AudioSourceController : MonoBehaviour
 
 	public void ChangeAudioSourceByIndex(int index)
 	{
-		//isPlaying = true;
 		if (index <= audioList.Count && audioList.Count != 0)
 		{
 			
@@ -87,7 +86,6 @@ public class AudioSourceController : MonoBehaviour
 
 	public void StopAudio(){
 		audioSource.Stop();
-		//isPlaying = false;
 	}
 
 	private void PlayAudioClip(int indexGiven){
@@ -95,7 +93,6 @@ public class AudioSourceController : MonoBehaviour
 		{
 			StopAudio();	//stop sound here
 		}
-		//isPlaying = true;
 		audioSource.clip = audioList[indexGiven];				 //change sound here
 		audioSource.Play();                                     //play sound here
 		RandomisePitch();
